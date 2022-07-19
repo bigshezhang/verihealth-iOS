@@ -11,7 +11,7 @@ import SwiftUI
 struct PPG_HRVApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreen()
         }
     }
 }

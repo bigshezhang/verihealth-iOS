@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */; };
-		E0ED5D832886CBD300258227 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D822886CBD300258227 /* ContentView.swift */; };
 		E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D842886CBD400258227 /* Assets.xcassets */; };
 		E0ED5D882886CBD400258227 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D872886CBD400258227 /* Preview Assets.xcassets */; };
 		E0ED5D922886CBD400258227 /* PPG_HRVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D912886CBD400258227 /* PPG_HRVTests.swift */; };
 		E0ED5D9C2886CBD400258227 /* PPG_HRVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D9B2886CBD400258227 /* PPG_HRVUITests.swift */; };
 		E0ED5D9E2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D9D2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift */; };
+		E0ED5DAC2886EE3B00258227 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		E0ED5D7D2886CBD300258227 /* PPG-HRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PPG-HRV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVApp.swift; sourceTree = "<group>"; };
-		E0ED5D822886CBD300258227 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E0ED5D842886CBD400258227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0ED5D872886CBD400258227 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0ED5D8D2886CBD400258227 /* PPG-HRVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PPG-HRVTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +43,7 @@
 		E0ED5D972886CBD400258227 /* PPG-HRVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PPG-HRVUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ED5D9B2886CBD400258227 /* PPG_HRVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVUITests.swift; sourceTree = "<group>"; };
 		E0ED5D9D2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +94,8 @@
 		E0ED5D7F2886CBD300258227 /* PPG-HRV */ = {
 			isa = PBXGroup;
 			children = (
+				E0ED5DAA2886EE0000258227 /* SplashScreen */,
 				E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */,
-				E0ED5D822886CBD300258227 /* ContentView.swift */,
 				E0ED5D842886CBD400258227 /* Assets.xcassets */,
 				E0ED5D862886CBD400258227 /* Preview Content */,
 			);
@@ -125,6 +125,14 @@
 				E0ED5D9D2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift */,
 			);
 			path = "PPG-HRVUITests";
+			sourceTree = "<group>";
+		};
+		E0ED5DAA2886EE0000258227 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0ED5D832886CBD300258227 /* ContentView.swift in Sources */,
+				E0ED5DAC2886EE3B00258227 /* SplashScreen.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +433,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,6 +463,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

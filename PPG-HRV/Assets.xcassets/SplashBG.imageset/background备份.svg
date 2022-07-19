@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="707px" viewBox="0 0 375 707" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>background备份</title>
+    <defs>
+        <linearGradient x1="-29.8026024%" y1="142.211324%" x2="76.6508011%" y2="-14.7282342%" id="linearGradient-1">
+            <stop stop-color="#2D79E6" offset="0%"></stop>
+            <stop stop-color="#093D87" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Pharmagy-Demo-Screens-(4)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="background备份">
+            <rect id="background-bottom" fill="#0C4492" x="0" y="346" width="375" height="361"></rect>
+            <rect id="background-top" fill="url(#linearGradient-1)" x="0" y="0" width="375" height="346"></rect>
+        </g>
+    </g>
+</svg>
