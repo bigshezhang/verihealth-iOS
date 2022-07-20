@@ -9,12 +9,12 @@ import SwiftUI
 
 struct FindDeviceView: View {
     @EnvironmentObject var userData: UserData
- //   @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
 
         Button {
             userData.isDeviceConnected = true
-//            viewRouter.currentPage = .Home
+            viewRouter.currentPage = .Home
         } label: {
             Circle()
         }
