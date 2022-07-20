@@ -14,6 +14,14 @@
 		E0ED5D9C2886CBD400258227 /* PPG_HRVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D9B2886CBD400258227 /* PPG_HRVUITests.swift */; };
 		E0ED5D9E2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D9D2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift */; };
 		E0ED5DAC2886EE3B00258227 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */; };
+		E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DAE2886FC7100258227 /* UserData.swift */; };
+		E0ED5DB228879D4900258227 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB128879D4900258227 /* HomeView.swift */; };
+		E0ED5DB728879D8200258227 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB628879D8200258227 /* TabView.swift */; };
+		E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB828879DD600258227 /* ViewRouter.swift */; };
+		E0ED5DBD2887A02F00258227 /* FindDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DBC2887A02F00258227 /* FindDeviceView.swift */; };
+		E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DBE2887A45100258227 /* RouterView.swift */; };
+		E0ED5DC32887A8BD00258227 /* Page1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DC22887A8BD00258227 /* Page1.swift */; };
+		E0ED5DC52887A8C900258227 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DC42887A8C900258227 /* Page2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		E0ED5D9B2886CBD400258227 /* PPG_HRVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVUITests.swift; sourceTree = "<group>"; };
 		E0ED5D9D2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		E0ED5DAE2886FC7100258227 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		E0ED5DB128879D4900258227 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E0ED5DB628879D8200258227 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		E0ED5DB828879DD600258227 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		E0ED5DBC2887A02F00258227 /* FindDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDeviceView.swift; sourceTree = "<group>"; };
+		E0ED5DBE2887A45100258227 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
+		E0ED5DC22887A8BD00258227 /* Page1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1.swift; sourceTree = "<group>"; };
+		E0ED5DC42887A8C900258227 /* Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +110,15 @@
 		E0ED5D7F2886CBD300258227 /* PPG-HRV */ = {
 			isa = PBXGroup;
 			children = (
+				E0ED5DC12887A8B100258227 /* Page2 */,
+				E0ED5DC02887A8AB00258227 /* Page1 */,
+				E0ED5DBB28879FF900258227 /* DeviceManage */,
+				E0ED5DB328879D5B00258227 /* TabBar */,
+				E0ED5DB028879D2A00258227 /* Home */,
+				E0ED5DAD2886FC5D00258227 /* Storage */,
 				E0ED5DAA2886EE0000258227 /* SplashScreen */,
 				E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */,
+				E0ED5DBE2887A45100258227 /* RouterView.swift */,
 				E0ED5D842886CBD400258227 /* Assets.xcassets */,
 				E0ED5D862886CBD400258227 /* Preview Content */,
 			);
@@ -133,6 +156,55 @@
 				E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */,
 			);
 			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		E0ED5DAD2886FC5D00258227 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				E0ED5DAE2886FC7100258227 /* UserData.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		E0ED5DB028879D2A00258227 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E0ED5DB128879D4900258227 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E0ED5DB328879D5B00258227 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E0ED5DB628879D8200258227 /* TabView.swift */,
+				E0ED5DB828879DD600258227 /* ViewRouter.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		E0ED5DBB28879FF900258227 /* DeviceManage */ = {
+			isa = PBXGroup;
+			children = (
+				E0ED5DBC2887A02F00258227 /* FindDeviceView.swift */,
+			);
+			path = DeviceManage;
+			sourceTree = "<group>";
+		};
+		E0ED5DC02887A8AB00258227 /* Page1 */ = {
+			isa = PBXGroup;
+			children = (
+				E0ED5DC22887A8BD00258227 /* Page1.swift */,
+			);
+			path = Page1;
+			sourceTree = "<group>";
+		};
+		E0ED5DC12887A8B100258227 /* Page2 */ = {
+			isa = PBXGroup;
+			children = (
+				E0ED5DC42887A8C900258227 /* Page2.swift */,
+			);
+			path = Page2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,8 +337,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0ED5DB728879D8200258227 /* TabView.swift in Sources */,
+				E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */,
+				E0ED5DC32887A8BD00258227 /* Page1.swift in Sources */,
+				E0ED5DB228879D4900258227 /* HomeView.swift in Sources */,
+				E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */,
 				E0ED5DAC2886EE3B00258227 /* SplashScreen.swift in Sources */,
+				E0ED5DBD2887A02F00258227 /* FindDeviceView.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
+				E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */,
+				E0ED5DC52887A8C900258227 /* Page2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

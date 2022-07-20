@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SplashScreen: View {
-    @State var isPressed = false
-    
+    @State private var isPressed = false
+    @EnvironmentObject var userData: UserData
     
     var body: some View {
         ZStack {
@@ -38,6 +38,7 @@ struct SplashScreen: View {
             VStack{
                 Button {
                     isPressed = true
+                    userData.isFirstInit = false
                 } label: {
                     Circle()
                         .frame(width: 160)

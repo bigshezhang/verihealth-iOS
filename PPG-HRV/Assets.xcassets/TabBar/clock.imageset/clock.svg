@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>clock</title>
+    <g id="Pharmagy-Demo-Screens-(4)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01" transform="translate(-247.000000, -764.000000)">
+            <g id="main-menu" transform="translate(0.000000, 702.000000)">
+                <g id="icons" transform="translate(35.000000, 62.000000)">
+                    <g id="clock" transform="translate(212.000000, 0.000000)">
+                        <path d="M15.0103275,8.63253125 L8.72460995,8.63253125 C8.25120456,8.63253125 7.86746875,9.02089062 7.86746875,9.5 C7.86746875,9.97910937 8.25120456,10.3674687 8.72460995,10.3674687 L15.0103275,10.3674687 C15.4837329,10.3674687 15.8674687,9.97910937 15.8674687,9.5 C15.8674687,9.02089062 15.4837329,8.63253125 15.0103275,8.63253125 Z" id="Path" fill="#B0BED4" fill-rule="nonzero" transform="translate(11.867469, 9.500000) rotate(90.000000) translate(-11.867469, -9.500000) "></path>
+                        <path d="M18.2825585,12 L11.8739051,12 C11.3912409,12 11,12.3883594 11,12.8674687 C11,13.3465781 11.3912409,13.7349375 11.8739051,13.7349375 L18.2825585,13.7349375 C18.7652227,13.7349375 19.1564636,13.3465781 19.1564636,12.8674687 C19.1564636,12.3883594 18.7652227,12 18.2825585,12 Z" id="Path" fill="#B0BED4" fill-rule="nonzero"></path>
+                        <circle id="Oval" stroke="#B0BED4" stroke-width="1.7" cx="12" cy="12" r="11.15"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

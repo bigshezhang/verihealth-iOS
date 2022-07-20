@@ -11,7 +11,16 @@ import SwiftUI
 struct PPG_HRVApp: App {
     var body: some Scene {
         WindowGroup {
-            SplashScreen()
+            var userData = UserData()
+//            var viewRouter = ViewRouter()
+            if userData.isFirstInit{
+                SplashScreen()
+                    .environmentObject(userData)
+            } else {
+                RouterView()
+//                    .environmentObject(viewRouter)
+                    .environmentObject(userData)
+            }
         }
     }
 }
