@@ -10,35 +10,39 @@ import SwiftUI
 struct SplashScreen: View {
     @State private var isPressed = false
     @EnvironmentObject var userData: UserData
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
-        ZStack {
-            VStack(){
-                Image("SplashTop")
-                    .resizable(resizingMode: .stretch)
-                    .edgesIgnoringSafeArea(.all)
-                    .padding(-10)
-                    .offset(y: isPressed ? -400 : 0)
-                    .opacity(isPressed ? 0 : 1)
-                    .animation(Animation.default.speed(0.5), value: isPressed)
-                
-                
-                //是否需要添加折线图
-                
-                Image("SplashBottom")
-                    .resizable(resizingMode: .stretch)
-                    .edgesIgnoringSafeArea(.all)
-                    .offset(y: isPressed ? 400 : 0)
-                    .opacity(isPressed ? 0 : 1)
-                    .animation(Animation.default.speed(0.5), value: isPressed)
-                
-            }
+        if userData.isFirstInit {
+            ZStack {
+                VStack(){
+                    Image("SplashTop")
+                        .resizable(resizingMode: .stretch)
+                        .edgesIgnoringSafeArea(.all)
+                        .padding(-10)
+                        .offset(y: isPressed ? -400 : 0)
+                        .opacity(isPressed ? 0 : 1)
+                        .animation(Animation.default.speed(0.5), value: isPressed)
+                    
+                    
+                    //是否需要添加折线图
+                    
+                    Image("SplashBottom")
+                        .resizable(resizingMode: .stretch)
+                        .edgesIgnoringSafeArea(.all)
+                        .offset(y: isPressed ? 400 : 0)
+                        .opacity(isPressed ? 0 : 1)
+                        .animation(Animation.default.speed(0.5), value: isPressed)
+                    
+                }
 
-            
-            VStack{
                 Button {
                     isPressed = true
-                    userData.isFirstInit = false
+                    viewRouter.currentPage = .Home
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        userData.isFirstInit = false
+                    })
                 } label: {
                     Circle()
                         .frame(width: 160)
@@ -57,8 +61,10 @@ struct SplashScreen: View {
                         .opacity(isPressed ? 0 : 1)
                         .animation(Animation.default.speed(0.5), value: isPressed)
                 }
-                
             }
+        } else {
+            RouterView()
+                .animation(.easeIn, value: userData.isFirstInit)
         }
     }
 }

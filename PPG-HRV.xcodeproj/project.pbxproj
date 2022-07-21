@@ -22,6 +22,27 @@
 		E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DBE2887A45100258227 /* RouterView.swift */; };
 		E0ED5DC32887A8BD00258227 /* Page1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DC22887A8BD00258227 /* Page1.swift */; };
 		E0ED5DC52887A8C900258227 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DC42887A8C900258227 /* Page2.swift */; };
+		E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */; };
+		E0ED5DD22887E46400258227 /* AlgorithmFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC82887E46400258227 /* HttpFramework.xcframework */; };
+		E0ED5DD42887E46400258227 /* HttpFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC82887E46400258227 /* HttpFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC92887E46400258227 /* ProtocolFramework.xcframework */; };
+		E0ED5DD62887E46400258227 /* ProtocolFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC92887E46400258227 /* ProtocolFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0ED5DD72887E46400258227 /* BleFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCA2887E46400258227 /* BleFramework.xcframework */; };
+		E0ED5DD82887E46400258227 /* BleFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCA2887E46400258227 /* BleFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0ED5DD92887E46400258227 /* CocoaMQTT.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCB2887E46400258227 /* CocoaMQTT.xcframework */; };
+		E0ED5DDA2887E46400258227 /* CocoaMQTT.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCB2887E46400258227 /* CocoaMQTT.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCC2887E46400258227 /* AFNetworking.xcframework */; };
+		E0ED5DDC2887E46400258227 /* AFNetworking.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCC2887E46400258227 /* AFNetworking.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0ED5DDD2887E46400258227 /* BaseFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCD2887E46400258227 /* BaseFramework.xcframework */; };
+		E0ED5DDE2887E46400258227 /* BaseFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCD2887E46400258227 /* BaseFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCE2887E46400258227 /* CoreSDK.xcframework */; };
+		E0ED5DE02887E46400258227 /* CoreSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCE2887E46400258227 /* CoreSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCF2887E46400258227 /* Realm.xcframework */; };
+		E0ED5DE22887E46400258227 /* Realm.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCF2887E46400258227 /* Realm.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0ED5DE32887E46400258227 /* CocoaAsyncSocket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DD02887E46400258227 /* CocoaAsyncSocket.xcframework */; };
+		E0ED5DE42887E46400258227 /* CocoaAsyncSocket.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DD02887E46400258227 /* CocoaAsyncSocket.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0ED5DE72887E9AE00258227 /* NoDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DE62887E9AE00258227 /* NoDevice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +62,32 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E0ED5DE52887E46400258227 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E0ED5DD82887E46400258227 /* BleFramework.xcframework in Embed Frameworks */,
+				E0ED5DDA2887E46400258227 /* CocoaMQTT.xcframework in Embed Frameworks */,
+				E0ED5DDE2887E46400258227 /* BaseFramework.xcframework in Embed Frameworks */,
+				E0ED5DE42887E46400258227 /* CocoaAsyncSocket.xcframework in Embed Frameworks */,
+				E0ED5DD62887E46400258227 /* ProtocolFramework.xcframework in Embed Frameworks */,
+				E0ED5DD42887E46400258227 /* HttpFramework.xcframework in Embed Frameworks */,
+				E0ED5DE22887E46400258227 /* Realm.xcframework in Embed Frameworks */,
+				E0ED5DE02887E46400258227 /* CoreSDK.xcframework in Embed Frameworks */,
+				E0ED5DDC2887E46400258227 /* AFNetworking.xcframework in Embed Frameworks */,
+				E0ED5DD22887E46400258227 /* AlgorithmFramework.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E08CC2682889E599004317BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PPG-HRV-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0ED5D7D2886CBD300258227 /* PPG-HRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PPG-HRV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVApp.swift; sourceTree = "<group>"; };
 		E0ED5D842886CBD400258227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +106,17 @@
 		E0ED5DBE2887A45100258227 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 		E0ED5DC22887A8BD00258227 /* Page1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1.swift; sourceTree = "<group>"; };
 		E0ED5DC42887A8C900258227 /* Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
+		E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AlgorithmFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/AlgorithmFramework.xcframework; sourceTree = "<group>"; };
+		E0ED5DC82887E46400258227 /* HttpFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = HttpFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/HttpFramework.xcframework; sourceTree = "<group>"; };
+		E0ED5DC92887E46400258227 /* ProtocolFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ProtocolFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/ProtocolFramework.xcframework; sourceTree = "<group>"; };
+		E0ED5DCA2887E46400258227 /* BleFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BleFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/BleFramework.xcframework; sourceTree = "<group>"; };
+		E0ED5DCB2887E46400258227 /* CocoaMQTT.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaMQTT.xcframework; path = VeriHealthVESC/VeriHealthSDK/CocoaMQTT.xcframework; sourceTree = "<group>"; };
+		E0ED5DCC2887E46400258227 /* AFNetworking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AFNetworking.xcframework; path = VeriHealthVESC/VeriHealthSDK/AFNetworking.xcframework; sourceTree = "<group>"; };
+		E0ED5DCD2887E46400258227 /* BaseFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BaseFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/BaseFramework.xcframework; sourceTree = "<group>"; };
+		E0ED5DCE2887E46400258227 /* CoreSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CoreSDK.xcframework; path = VeriHealthVESC/VeriHealthSDK/CoreSDK.xcframework; sourceTree = "<group>"; };
+		E0ED5DCF2887E46400258227 /* Realm.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Realm.xcframework; path = VeriHealthVESC/VeriHealthSDK/Realm.xcframework; sourceTree = "<group>"; };
+		E0ED5DD02887E46400258227 /* CocoaAsyncSocket.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaAsyncSocket.xcframework; path = VeriHealthVESC/VeriHealthSDK/CocoaAsyncSocket.xcframework; sourceTree = "<group>"; };
+		E0ED5DE62887E9AE00258227 /* NoDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDevice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +124,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0ED5DD72887E46400258227 /* BleFramework.xcframework in Frameworks */,
+				E0ED5DD92887E46400258227 /* CocoaMQTT.xcframework in Frameworks */,
+				E0ED5DDD2887E46400258227 /* BaseFramework.xcframework in Frameworks */,
+				E0ED5DE32887E46400258227 /* CocoaAsyncSocket.xcframework in Frameworks */,
+				E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */,
+				E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */,
+				E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */,
+				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
+				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
+				E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +161,7 @@
 				E0ED5D902886CBD400258227 /* PPG-HRVTests */,
 				E0ED5D9A2886CBD400258227 /* PPG-HRVUITests */,
 				E0ED5D7E2886CBD300258227 /* Products */,
+				E0ED5DC62887E46400258227 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +178,7 @@
 		E0ED5D7F2886CBD300258227 /* PPG-HRV */ = {
 			isa = PBXGroup;
 			children = (
+				E08CC2682889E599004317BE /* Info.plist */,
 				E0ED5DC12887A8B100258227 /* Page2 */,
 				E0ED5DC02887A8AB00258227 /* Page1 */,
 				E0ED5DBB28879FF900258227 /* DeviceManage */,
@@ -121,6 +190,7 @@
 				E0ED5DBE2887A45100258227 /* RouterView.swift */,
 				E0ED5D842886CBD400258227 /* Assets.xcassets */,
 				E0ED5D862886CBD400258227 /* Preview Content */,
+				E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */,
 			);
 			path = "PPG-HRV";
 			sourceTree = "<group>";
@@ -186,6 +256,7 @@
 		E0ED5DBB28879FF900258227 /* DeviceManage */ = {
 			isa = PBXGroup;
 			children = (
+				E0ED5DE62887E9AE00258227 /* NoDevice.swift */,
 				E0ED5DBC2887A02F00258227 /* FindDeviceView.swift */,
 			);
 			path = DeviceManage;
@@ -207,6 +278,23 @@
 			path = Page2;
 			sourceTree = "<group>";
 		};
+		E0ED5DC62887E46400258227 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0ED5DCC2887E46400258227 /* AFNetworking.xcframework */,
+				E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */,
+				E0ED5DCD2887E46400258227 /* BaseFramework.xcframework */,
+				E0ED5DCA2887E46400258227 /* BleFramework.xcframework */,
+				E0ED5DD02887E46400258227 /* CocoaAsyncSocket.xcframework */,
+				E0ED5DCB2887E46400258227 /* CocoaMQTT.xcframework */,
+				E0ED5DCE2887E46400258227 /* CoreSDK.xcframework */,
+				E0ED5DC82887E46400258227 /* HttpFramework.xcframework */,
+				E0ED5DC92887E46400258227 /* ProtocolFramework.xcframework */,
+				E0ED5DCF2887E46400258227 /* Realm.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,6 +305,7 @@
 				E0ED5D792886CBD300258227 /* Sources */,
 				E0ED5D7A2886CBD300258227 /* Frameworks */,
 				E0ED5D7B2886CBD300258227 /* Resources */,
+				E0ED5DE52887E46400258227 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -340,6 +429,7 @@
 				E0ED5DB728879D8200258227 /* TabView.swift in Sources */,
 				E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */,
 				E0ED5DC32887A8BD00258227 /* Page1.swift in Sources */,
+				E0ED5DE72887E9AE00258227 /* NoDevice.swift in Sources */,
 				E0ED5DB228879D4900258227 /* HomeView.swift in Sources */,
 				E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */,
 				E0ED5DAC2886EE3B00258227 /* SplashScreen.swift in Sources */,
@@ -508,6 +598,7 @@
 				DEVELOPMENT_TEAM = 597D238TLL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PPG-HRV/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -522,6 +613,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "underlake.PPG-HRV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PPG-HRV/PPG-HRV-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -538,6 +630,7 @@
 				DEVELOPMENT_TEAM = 597D238TLL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PPG-HRV/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -552,6 +645,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "underlake.PPG-HRV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PPG-HRV/PPG-HRV-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

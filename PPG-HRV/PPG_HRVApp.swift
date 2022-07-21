@@ -16,6 +16,7 @@ struct PPG_HRVApp: App {
             if userData.isFirstInit{
                 SplashScreen()
                     .environmentObject(userData)
+                    .environmentObject(viewRouter)
             } else {
                 RouterView()
                     .environmentObject(viewRouter)

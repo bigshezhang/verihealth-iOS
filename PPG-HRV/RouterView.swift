@@ -16,7 +16,18 @@ struct RouterView: View {
     
     var body: some View {
         NavigationView {
-            TabView()
+            ZStack{
+                switch viewRouter.currentPage{
+                case .Home: FindDeviceView()
+                case .Page1: Page1()
+                case .Page2: Page2()
+                }
+                VStack{
+                    Spacer()
+                    TabView()
+                }
+                .ignoresSafeArea()
+            }
         }
     }
 }
