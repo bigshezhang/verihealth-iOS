@@ -10,16 +10,15 @@ import BaseFramework
 import BleFramework
 import CoreSDK
 
-var currDevice = VsDevice()
 
+var currDevice = VsDevice()
 
 struct FindDeviceView: View {
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     
-//    var currDevice = VsDevice()
-    func connectDevice() -> Void {
-        ConnectionAdapter.sharedInstance().connect(currDevice)
+    func connectDevice() {
+        ConnectionAdapter.sharedInstance().add(currDevice)
     }
     
     var body: some View {
