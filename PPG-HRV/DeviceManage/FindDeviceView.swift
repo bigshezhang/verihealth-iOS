@@ -17,9 +17,16 @@ struct FindDeviceView: View {
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     
+    
+    
     func connectDevice() {
-        ConnectionAdapter.sharedInstance().add(currDevice)
+        ConnectionAdapter.sharedInstance().
+        ConnectionAdapter.sharedInstance().startScan(true) { Error in
+            print(Error)
+        }
+        
     }
+    
     
     var body: some View {
 
@@ -28,6 +35,9 @@ struct FindDeviceView: View {
             viewRouter.currentPage = .Home
             connectDevice()
             
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                print(ConnectionAdapter.sharedInstance().connectionArray)
+            })
         } label: {
             Circle()
         }
