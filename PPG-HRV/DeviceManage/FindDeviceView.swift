@@ -13,33 +13,68 @@ import CoreSDK
 
 var currDevice = VsDevice()
 
+class FindDevice {
+    var peripheralArray: [CBPeripheral] = []
+
+    func startScan() {
+        print("开始扫描")
+        BluetoothManager.sharedInstance.startScan { (peripheral) in
+            self.syncData()
+        }
+    }
+    
+    func stopScan() {
+        print("停止扫描")
+        BluetoothManager.sharedInstance.stopScan()
+        syncData()
+    }
+    
+    func syncData() -> [CBPeripheral]{
+        self.peripheralArray = BluetoothManager.sharedInstance.peripheralArray as! [CBPeripheral]
+        return peripheralArray
+    }
+    
+    func viewDidLoad(){
+         BluetoothManager.sharedInstance.startScan { (peripheral) in
+                   self.syncData()
+        }
+    }
+}
+
+struct SelectDeviceCell: View{
+    var name: String
+    var uuid: String
+    var body: some View{
+        VStack{
+            Text(name)
+            Text(uuid)
+        }
+    }
+}
+
 struct FindDeviceView: View {
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     
-    
-    
-    func connectDevice() {
-        ConnectionAdapter.sharedInstance().
-        ConnectionAdapter.sharedInstance().startScan(true) { Error in
-            print(Error)
-        }
-        
-    }
-    
+    @State var peripheralArray: [CBPeripheral] = []
+    @State var findDevice = FindDevice()
     
     var body: some View {
-
+        VStack{
+            List(peripheralArray, id: \.self) { cell in
+                SelectDeviceCell(name: cell.name!, uuid: cell.identifier.uuidString)
+            }
+        }
+        .onAppear {
+            findDevice.startScan()
+            findDevice.startScan()
+            peripheralArray = findDevice.syncData()
+            print(peripheralArray)
+        }
         Button {
-            userData.isDeviceConnected = true
-            viewRouter.currentPage = .Home
-            connectDevice()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                print(ConnectionAdapter.sharedInstance().connectionArray)
-            })
+            findDevice.startScan()
         } label: {
-            Circle()
+            Text("233")
         }
 
     }
