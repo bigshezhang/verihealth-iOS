@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */; };
 		E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */; };
 		E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D842886CBD400258227 /* Assets.xcassets */; };
 		E0ED5D882886CBD400258227 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D872886CBD400258227 /* Preview Assets.xcassets */; };
@@ -88,6 +89,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceView.swift; sourceTree = "<group>"; };
 		E08CC2682889E599004317BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PPG-HRV-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0ED5D7D2886CBD300258227 /* PPG-HRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PPG-HRV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,6 +269,7 @@
 				E0F1B324288C17B9006B264F /* VHCoreBluetoothManager.m */,
 				E0ED5DE62887E9AE00258227 /* NoDevice.swift */,
 				E0ED5DBC2887A02F00258227 /* FindDeviceView.swift */,
+				E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */,
 			);
 			path = DeviceManage;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				E0ED5DAC2886EE3B00258227 /* SplashScreen.swift in Sources */,
 				E0ED5DBD2887A02F00258227 /* FindDeviceView.swift in Sources */,
 				E0F1B327288C17B9006B264F /* BluetoothManager.swift in Sources */,
+				E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
 				E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */,
 				E0ED5DC52887A8C900258227 /* Page2.swift in Sources */,

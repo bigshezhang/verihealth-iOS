@@ -66,14 +66,10 @@ struct SelectDeviceCell: View{
             }
             Spacer()
             Button {
-                userData.currDevice.uuid = UUID(uuidString: self.uuid)
-                userData.currDevice.name = self.name
-//                ConnectionAdapter.sharedInstance().connect(userData.currDevice.connected)
-                ConnectionAdapter.sharedInstance().startScan(false) { error in
-                    print(error)
-                }
-                print(ConnectionAdapter.sharedInstance().connectionArray)
-                print(userData.currDevice.connected)
+                userData.currDevice = TransferManager.sharedInstance().getScanedDevice(byName: self.name) ?? userData.currDevice
+//                userData.currDevice.uuid = UUID(uuidString: self.uuid)
+//                userData.currDevice.name = self.name
+                print(userData.currDevice.name)
                 print(FindDevice().syncData().filter{ cell -> Bool in
                     return cell.name == self.name
                 })
@@ -100,7 +96,6 @@ struct FindDeviceView: View {
             Button {
                 findDevice.scanClick()
                 peripheralArray = findDevice.syncData()
-                print(peripheralArray)
             } label: {
                 Text("开始扫描")
             }
@@ -109,7 +104,6 @@ struct FindDeviceView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now()+1){
                     findDevice.scanClick()
                     peripheralArray = findDevice.syncData()
-//                    print(peripheralArray)
                 }
                 peripheralArray = findDevice.syncData()
             }

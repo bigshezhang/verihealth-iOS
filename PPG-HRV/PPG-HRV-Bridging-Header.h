@@ -7,7 +7,7 @@
 #import <BaseFramework/VsDevice.h>
 #import <CoreSDK/ConnectionAdapter.h>
 #import "VHCoreBluetoothManager.h"
-//#import <CoreSDK/*.h>
+#import <CoreSDK/TransferManager.h>
 
 #ifndef PPG_HRV_Bridging_Header_h
 #define PPG_HRV_Bridging_Header_h
