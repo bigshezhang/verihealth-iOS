@@ -16,20 +16,20 @@ var currDevice = VsDevice()
 class FindDevice {
     var peripheralArray: [CBPeripheral] = []
 
-    func startScan() {
+    func scanClick() {
         print("开始扫描")
         BluetoothManager.sharedInstance.startScan { (peripheral) in
             self.syncData()
         }
     }
     
-    func stopScan() {
+    func stopClick() {
         print("停止扫描")
         BluetoothManager.sharedInstance.stopScan()
         syncData()
     }
     
-    func syncData() -> [CBPeripheral]{
+    func syncData() -> Array<CBPeripheral>{
         self.peripheralArray = BluetoothManager.sharedInstance.peripheralArray as! [CBPeripheral]
         return peripheralArray
     }
@@ -44,10 +44,26 @@ class FindDevice {
 struct SelectDeviceCell: View{
     var name: String
     var uuid: String
+    var state: CBPeripheralState
+    
+    func getState(state: CBPeripheralState) -> String{
+        switch state{
+        case .connected: return("已连接")
+        case .connecting: return("连接中")
+        case .disconnected: return("未连接")
+        case .disconnecting: return("断开中")
+        }
+    }
+    
     var body: some View{
-        VStack{
-            Text(name)
-            Text(uuid)
+        HStack {
+            VStack(alignment: .leading){
+                Text(name)
+                Text(uuid)
+                    .font(.system(size: 8))
+            }
+            Spacer()
+            Text(getState(state:self.state))
         }
     }
 }
@@ -59,24 +75,31 @@ struct FindDeviceView: View {
     @State var peripheralArray: [CBPeripheral] = []
     @State var findDevice = FindDevice()
     
+
+    
     var body: some View {
         VStack{
-            List(peripheralArray, id: \.self) { cell in
-                SelectDeviceCell(name: cell.name!, uuid: cell.identifier.uuidString)
+            Button {
+                findDevice.scanClick()
+                peripheralArray = findDevice.syncData()
+                print(peripheralArray)
+            } label: {
+                Text("开始扫描")
+            }
+            .onAppear {
+                findDevice.scanClick()
+                DispatchQueue.main.asyncAfter(deadline: .now()+1){
+                    findDevice.scanClick()
+                    peripheralArray = findDevice.syncData()
+                    print(peripheralArray)
+                }
+                peripheralArray = findDevice.syncData()
+            }
+            
+            List(peripheralArray, id: \.self){ cell in
+                SelectDeviceCell(name: cell.name==nil ? "无名字": cell.name!, uuid: cell.identifier.uuidString, state: cell.state)
             }
         }
-        .onAppear {
-            findDevice.startScan()
-            findDevice.startScan()
-            peripheralArray = findDevice.syncData()
-            print(peripheralArray)
-        }
-        Button {
-            findDevice.startScan()
-        } label: {
-            Text("233")
-        }
-
     }
 }
 
