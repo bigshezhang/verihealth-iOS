@@ -1,0 +1,6 @@
+framework module ProtocolFramework {
+  umbrella header "ProtocolFramework.h"
+
+  export *
+  module * { export * }
+}

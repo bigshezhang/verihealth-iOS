@@ -44,8 +44,8 @@ class FindDevice {
 struct SelectDeviceCell: View{
     @EnvironmentObject var userData: UserData
 
-    var name: String?
-    var uuid: String?
+    var name: String
+    var uuid: String
     @State var state: CBPeripheralState
     
     func getState(state: CBPeripheralState) -> String{
@@ -60,22 +60,14 @@ struct SelectDeviceCell: View{
     var body: some View{
         HStack {
             VStack(alignment: .leading){
-                if let name = self.name {
-                    Text(self.name!)
-                }
-                if let uuid = self.uuid {
-                    Text(self.uuid!)
-                        .font(.system(size: 8))
-                }
+                Text(name)
+                Text(uuid)
+                    .font(.system(size: 8))
             }
             Spacer()
             Button {
-                if let uuid = self.uuid {
-                    userData.currDevice.uuid = UUID(uuidString: self.uuid!)
-                }
-                if let name = self.name {
-                    userData.currDevice.name = self.name
-                }
+                userData.currDevice.uuid = UUID(uuidString: self.uuid)
+                userData.currDevice.name = self.name
                 ConnectionAdapter.sharedInstance().connect(userData.currDevice)
                 print(FindDevice().syncData().filter{ cell -> Bool in
                     return cell.name == self.name
