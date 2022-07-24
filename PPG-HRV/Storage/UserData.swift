@@ -7,9 +7,12 @@
 
 import Foundation
 import SwiftUI
+import BleFramework
+import CoreSDK
 
 final class UserData: ObservableObject {
+    var currDevice = VsDevice()
     @AppStorage("isFirstInit") var isFirstInit: Bool = true
     @AppStorage("isDeviceConnected") var isDeviceConnected: Bool = false
-
+    @AppStorage("vsDeviceUUID") var vsDeviceUUID: String = ""
 }
