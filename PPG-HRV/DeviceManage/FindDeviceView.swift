@@ -68,7 +68,12 @@ struct SelectDeviceCell: View{
             Button {
                 userData.currDevice.uuid = UUID(uuidString: self.uuid)
                 userData.currDevice.name = self.name
-                ConnectionAdapter.sharedInstance().connect(userData.currDevice)
+//                ConnectionAdapter.sharedInstance().connect(userData.currDevice.connected)
+                ConnectionAdapter.sharedInstance().startScan(false) { error in
+                    print(error)
+                }
+                print(ConnectionAdapter.sharedInstance().connectionArray)
+                print(userData.currDevice.connected)
                 print(FindDevice().syncData().filter{ cell -> Bool in
                     return cell.name == self.name
                 })
@@ -104,7 +109,7 @@ struct FindDeviceView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now()+1){
                     findDevice.scanClick()
                     peripheralArray = findDevice.syncData()
-                    print(peripheralArray)
+//                    print(peripheralArray)
                 }
                 peripheralArray = findDevice.syncData()
             }
