@@ -14,7 +14,7 @@ struct HomeView: View{
     var body: some View {
         VStack{
             NavigationLink {
-                FindDeviceView()
+                ScanDeviceView()
             } label: {
                 Capsule()
                     .frame(width:240, height: 45)

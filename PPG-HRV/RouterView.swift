@@ -18,7 +18,7 @@ struct RouterView: View {
         NavigationView {
             ZStack{
                 switch viewRouter.currentPage{
-                case .Home: FindDeviceView()
+                case .Home: ScanDeviceView()
                 case .Page1: Page1()
                 case .Page2: Page2()
                 }
