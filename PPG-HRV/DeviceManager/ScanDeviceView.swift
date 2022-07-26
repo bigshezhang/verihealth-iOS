@@ -15,18 +15,15 @@ struct ScanDeviceView: View {
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     @State var device = VsDevice()
-    @State var isScaning = false
+    @State var isScaning = true
     @State var rollStep = 0
     var delegate: TransferManagerDelegate = ScanDevices()
     @Environment(\.presentationMode) var presentationMode
     
     func startScan(){
-        
-//
-//        ConnectionAdapter.sharedInstance().startScan(false) { error in
-//            isScaning.toggle()  //为了防止动画反着来只能用toggle
-//            print("[第一次开启蓝牙扫描是否出错]-> ",error)    //冷启动蓝牙扫描，可能尚未powerup
-//        }
+        ConnectionAdapter.sharedInstance().startScan(false) { error in
+            print("[第一次开启蓝牙扫描是否出错]-> ",error)    //冷启动蓝牙扫描，可能尚未powerup
+        }
         for i in 1...100 {
             ConnectionAdapter.sharedInstance().startScan(false) { error in
                 print("[第\(i)次开启蓝牙扫描是否出错]-> ",error)        //再启动一次蓝牙扫描，这时应该成功启动
@@ -42,6 +39,7 @@ struct ScanDeviceView: View {
         }
         
         if device.name != nil {
+            isScaning = false
             TransferManager().connect(device)
         }
     }
@@ -49,23 +47,10 @@ struct ScanDeviceView: View {
     var body: some View {
         ZStack {
             VStack{
-                Image("BG")
-                    .resizable()
-                    .frame(height: 707)
-                    .scaledToFill()
-                    .ignoresSafeArea()
-                    .overlay(Image("Radio")
-                        .rotationEffect(Angle.degrees(isScaning ? 360 : 0))
-                        .animation(Animation.linear(duration: 20).repeatForever(autoreverses: false), value: isScaning)
-                        .ignoresSafeArea()
-                    )
-                    .edgesIgnoringSafeArea(.top)
-                
-                Spacer()
+                Recording(isScaning: self.$isScaning, recording: true)
             }
-
             VStack(spacing: 50){
-                Text("寻找设备中")
+                Text(isScaning ? "寻找设备中" : "\(device.name)")
                     .foregroundColor(.white)
             }
             .onAppear{
@@ -79,7 +64,7 @@ struct ScanDeviceView: View {
         }
         .navigationBarTitle("")
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {Image("BackArrow")}))
+        .navigationBarItems(leading: Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {Image(systemName: "arrow.left").foregroundColor(.blue)}))
         .edgesIgnoringSafeArea(.top)
     }
 }
