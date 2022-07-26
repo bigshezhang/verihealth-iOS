@@ -32,8 +32,6 @@ struct ScanDeviceView: View {
                 print("[第\(i)次开启蓝牙扫描是否出错]-> ",error)        //再启动一次蓝牙扫描，这时应该成功启动
             }
             DispatchQueue.main.asyncAfter(deadline: .now()+3){
-
-                
                 delegate.transReceive?(device)//通过委托模式获取VsDevice实例
                 print("[读到的设备名字] ->",device.name)
                 if device.name != nil{
