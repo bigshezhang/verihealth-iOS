@@ -15,4 +15,5 @@ final class UserData: ObservableObject {
     @AppStorage("isFirstInit") var isFirstInit: Bool = true
     @AppStorage("isDeviceConnected") var isDeviceConnected: Bool = false
     @AppStorage("vsDeviceUUID") var vsDeviceUUID: String = ""
+//    @AppStorage("vsData") var vsData = [2,2]
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Page2: View {
     var body: some View {
-        Text("Page2")
+        Text("Sync Success232323")
     }
 }
 

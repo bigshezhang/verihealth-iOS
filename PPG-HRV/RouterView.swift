@@ -17,18 +17,24 @@ struct RouterView: View {
     var body: some View {
         NavigationView {
             ZStack{
+
                 switch viewRouter.currentPage{
-                case .Home: ScanDeviceView()
+                case .Home: HomeView()
                 case .Page1: Page1()
                 case .Page2: Page2()
                 }
                 VStack{
                     Spacer()
                     TabView()
+                        .opacity(viewRouter.isTabBarShow ? 1 : 0)
+                        .animation(.spring(), value: viewRouter.isTabBarShow)
                 }
                 .ignoresSafeArea()
             }
         }
+        .ignoresSafeArea()
+
+        
     }
 }
 

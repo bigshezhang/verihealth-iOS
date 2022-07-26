@@ -9,7 +9,7 @@ import Foundation
 
 final class ViewRouter: ObservableObject {
     @Published var currentPage: Page = .Home
-    @Published var isTabBarShowed = true
+    @Published var isTabBarShow = true
 }
 
 

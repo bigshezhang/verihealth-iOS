@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */; };
+		E0BD634828901EB200CAA896 /* MyDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD634728901EB200CAA896 /* MyDeviceView.swift */; };
+		E0BD634A289020DA00CAA896 /* RealTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD6349289020DA00CAA896 /* RealTimeView.swift */; };
+		E0BD634D28902B5800CAA896 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0BD634C28902B5800CAA896 /* SwiftUICharts */; };
 		E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */; };
 		E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D842886CBD400258227 /* Assets.xcassets */; };
 		E0ED5D882886CBD400258227 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D872886CBD400258227 /* Preview Assets.xcassets */; };
@@ -19,7 +22,6 @@
 		E0ED5DB228879D4900258227 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB128879D4900258227 /* HomeView.swift */; };
 		E0ED5DB728879D8200258227 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB628879D8200258227 /* TabView.swift */; };
 		E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB828879DD600258227 /* ViewRouter.swift */; };
-		E0ED5DBD2887A02F00258227 /* FindDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DBC2887A02F00258227 /* FindDeviceView.swift */; };
 		E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DBE2887A45100258227 /* RouterView.swift */; };
 		E0ED5DC32887A8BD00258227 /* Page1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DC22887A8BD00258227 /* Page1.swift */; };
 		E0ED5DC52887A8C900258227 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DC42887A8C900258227 /* Page2.swift */; };
@@ -43,9 +45,6 @@
 		E0ED5DE22887E46400258227 /* Realm.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DCF2887E46400258227 /* Realm.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E0ED5DE32887E46400258227 /* CocoaAsyncSocket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DD02887E46400258227 /* CocoaAsyncSocket.xcframework */; };
 		E0ED5DE42887E46400258227 /* CocoaAsyncSocket.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DD02887E46400258227 /* CocoaAsyncSocket.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E0ED5DE72887E9AE00258227 /* NoDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DE62887E9AE00258227 /* NoDevice.swift */; };
-		E0F1B326288C17B9006B264F /* VHCoreBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F1B324288C17B9006B264F /* VHCoreBluetoothManager.m */; };
-		E0F1B327288C17B9006B264F /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1B325288C17B9006B264F /* BluetoothManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +91,8 @@
 		E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceView.swift; sourceTree = "<group>"; };
 		E08CC2682889E599004317BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PPG-HRV-Bridging-Header.h"; sourceTree = "<group>"; };
+		E0BD634728901EB200CAA896 /* MyDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDeviceView.swift; sourceTree = "<group>"; };
+		E0BD6349289020DA00CAA896 /* RealTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeView.swift; sourceTree = "<group>"; };
 		E0ED5D7D2886CBD300258227 /* PPG-HRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PPG-HRV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVApp.swift; sourceTree = "<group>"; };
 		E0ED5D842886CBD400258227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		E0ED5DB128879D4900258227 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E0ED5DB628879D8200258227 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		E0ED5DB828879DD600258227 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
-		E0ED5DBC2887A02F00258227 /* FindDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDeviceView.swift; sourceTree = "<group>"; };
 		E0ED5DBE2887A45100258227 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 		E0ED5DC22887A8BD00258227 /* Page1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1.swift; sourceTree = "<group>"; };
 		E0ED5DC42887A8C900258227 /* Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
@@ -120,11 +120,7 @@
 		E0ED5DCE2887E46400258227 /* CoreSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CoreSDK.xcframework; path = VeriHealthVESC/VeriHealthSDK/CoreSDK.xcframework; sourceTree = "<group>"; };
 		E0ED5DCF2887E46400258227 /* Realm.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Realm.xcframework; path = VeriHealthVESC/VeriHealthSDK/Realm.xcframework; sourceTree = "<group>"; };
 		E0ED5DD02887E46400258227 /* CocoaAsyncSocket.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaAsyncSocket.xcframework; path = VeriHealthVESC/VeriHealthSDK/CocoaAsyncSocket.xcframework; sourceTree = "<group>"; };
-		E0ED5DE62887E9AE00258227 /* NoDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDevice.swift; sourceTree = "<group>"; };
 		E0F1B322288C1763006B264F /* VHBluetoothFramwork */ = {isa = PBXFileReference; lastKnownFileType = folder; path = VHBluetoothFramwork; sourceTree = "<group>"; };
-		E0F1B323288C17B9006B264F /* VHCoreBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VHCoreBluetoothManager.h; path = VHBluetoothFramwork/VHCoreBluetoothManager.h; sourceTree = SOURCE_ROOT; };
-		E0F1B324288C17B9006B264F /* VHCoreBluetoothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VHCoreBluetoothManager.m; path = VHBluetoothFramwork/VHCoreBluetoothManager.m; sourceTree = SOURCE_ROOT; };
-		E0F1B325288C17B9006B264F /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BluetoothManager.swift; path = VHBluetoothFramwork/BluetoothManager.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +135,7 @@
 				E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */,
 				E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */,
 				E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */,
+				E0BD634D28902B5800CAA896 /* SwiftUICharts in Frameworks */,
 				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
 				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
 				E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */,
@@ -162,6 +159,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E0560B28288F74EF00B27EC3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		E0ED5D742886CBD300258227 = {
 			isa = PBXGroup;
 			children = (
@@ -187,16 +191,17 @@
 			isa = PBXGroup;
 			children = (
 				E08CC2682889E599004317BE /* Info.plist */,
+				E0ED5DB028879D2A00258227 /* Home */,
 				E0ED5DC12887A8B100258227 /* Page2 */,
 				E0ED5DC02887A8AB00258227 /* Page1 */,
-				E0ED5DBB28879FF900258227 /* DeviceManage */,
+				E0ED5DBB28879FF900258227 /* DeviceManager */,
 				E0ED5DB328879D5B00258227 /* TabBar */,
-				E0ED5DB028879D2A00258227 /* Home */,
 				E0ED5DAD2886FC5D00258227 /* Storage */,
 				E0ED5DAA2886EE0000258227 /* SplashScreen */,
 				E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */,
 				E0ED5DBE2887A45100258227 /* RouterView.swift */,
 				E0ED5D842886CBD400258227 /* Assets.xcassets */,
+				E0560B28288F74EF00B27EC3 /* Helper */,
 				E0ED5D862886CBD400258227 /* Preview Content */,
 				E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */,
 			);
@@ -248,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				E0ED5DB128879D4900258227 /* HomeView.swift */,
+				E0BD6349289020DA00CAA896 /* RealTimeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -261,17 +267,13 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		E0ED5DBB28879FF900258227 /* DeviceManage */ = {
+		E0ED5DBB28879FF900258227 /* DeviceManager */ = {
 			isa = PBXGroup;
 			children = (
-				E0F1B325288C17B9006B264F /* BluetoothManager.swift */,
-				E0F1B323288C17B9006B264F /* VHCoreBluetoothManager.h */,
-				E0F1B324288C17B9006B264F /* VHCoreBluetoothManager.m */,
-				E0ED5DE62887E9AE00258227 /* NoDevice.swift */,
-				E0ED5DBC2887A02F00258227 /* FindDeviceView.swift */,
 				E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */,
+				E0BD634728901EB200CAA896 /* MyDeviceView.swift */,
 			);
-			path = DeviceManage;
+			path = DeviceManager;
 			sourceTree = "<group>";
 		};
 		E0ED5DC02887A8AB00258227 /* Page1 */ = {
@@ -325,6 +327,9 @@
 			dependencies = (
 			);
 			name = "PPG-HRV";
+			packageProductDependencies = (
+				E0BD634C28902B5800CAA896 /* SwiftUICharts */,
+			);
 			productName = "PPG-HRV";
 			productReference = E0ED5D7D2886CBD300258227 /* PPG-HRV.app */;
 			productType = "com.apple.product-type.application";
@@ -397,6 +402,9 @@
 				Base,
 			);
 			mainGroup = E0ED5D742886CBD300258227;
+			packageReferences = (
+				E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -439,16 +447,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0F1B326288C17B9006B264F /* VHCoreBluetoothManager.m in Sources */,
+				E0BD634828901EB200CAA896 /* MyDeviceView.swift in Sources */,
 				E0ED5DB728879D8200258227 /* TabView.swift in Sources */,
 				E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */,
+				E0BD634A289020DA00CAA896 /* RealTimeView.swift in Sources */,
 				E0ED5DC32887A8BD00258227 /* Page1.swift in Sources */,
-				E0ED5DE72887E9AE00258227 /* NoDevice.swift in Sources */,
 				E0ED5DB228879D4900258227 /* HomeView.swift in Sources */,
 				E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */,
 				E0ED5DAC2886EE3B00258227 /* SplashScreen.swift in Sources */,
-				E0ED5DBD2887A02F00258227 /* FindDeviceView.swift in Sources */,
-				E0F1B327288C17B9006B264F /* BluetoothManager.swift in Sources */,
 				E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
 				E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */,
@@ -539,7 +545,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -593,7 +599,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -789,6 +795,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E0BD634C28902B5800CAA896 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0ED5D752886CBD300258227 /* Project object */;
 }

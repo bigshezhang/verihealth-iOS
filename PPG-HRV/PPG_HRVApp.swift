@@ -19,6 +19,7 @@ struct PPG_HRVApp: App {
                     .environmentObject(viewRouter)
             } else {
                 RouterView()
+                    .ignoresSafeArea()
                     .environmentObject(viewRouter)
                     .environmentObject(userData)
             }
