@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import UIKit
+import BaseFramework
+import BleFramework
+import CoreSDK
 
 @main
 struct PPG_HRVApp: App {
@@ -19,7 +23,8 @@ struct PPG_HRVApp: App {
                     .environmentObject(viewRouter)
             } else {
                 RouterView()
-                    .onAppear{ScanDeviceView().startScan()}
+//                    .onAppear{
+//                    }
                     .environmentObject(viewRouter)
                     .environmentObject(userData)
             }

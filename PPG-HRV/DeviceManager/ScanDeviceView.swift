@@ -17,33 +17,33 @@ struct ScanDeviceView: View {
     @State var device = VsDevice()
     @State var isScaning = true
     @State var rollStep = 0
-    weak var delegate: (TransferManagerDelegate)? = ScanDevices()
-    weak var bledel: (BleCentralManagerDelegate)? = BleScan()
     @Environment(\.presentationMode) var presentationMode
-    
-    func startScan(){
-        BleCentralManager.sharedInstance().scanPeriperals { error in
-            print(error)
-        }
-        bledel?.bleFwScannedDeviceDict?(BleCentralManager.sharedInstance(), scanned: device)
+    var delegate: TransferManagerDelegate = ScanDevices()
 
-//        delegate.transUpdateBLEState?(.statePoweredOn)
-//        delegate.transIsReady?(device)
+    func startScan(){
+
+//        BleCentralManager.sharedInstance().scanPeriperals { error in
+//            print(error)
+//        }
+        
+        ConnectionAdapter.sharedInstance().startScan(true) { error in
+            print("[启动扫描错误信息 -> ]", error)
+        }
+        
+        delegate.transReceive!(device)
+        
         DispatchQueue.main.asyncAfter(deadline: .now()+1){
             ConnectionAdapter.sharedInstance().startScan(true) { error in
-                print("[启动扫描错误信息 -> ]", error)
+                print("[第二次启动扫描错误信息 -> ]", error)
             }
-        }
-        bledel?.bleFwScannedDeviceDict?(BleCentralManager.sharedInstance(), scanned: device)
 
-        delegate?.transReceive!(device)
+            print("蓝牙状态 -> " , BleCentralManager.sharedInstance().centralManager.isScanning)
+            print("扫描到的设备数 -> ",BleCentralManager.sharedInstance().scannedDeviceDict.count)
+        }
         
-//        DispatchQueue.main.asyncAfter(deadline: .now()+3){
-//            ConnectionAdapter.sharedInstance().startScan(true) { error in
-//                print("[第二次启动扫描错误信息 -> ]", error)
-//            }
-//                    }
- 
+        
+//        print("1 蓝牙状态 -> " , BleCentralManager.sharedInstance().centralManager.isScanning)
+        
         DispatchQueue.main.asyncAfter(deadline: .now()+4){
             if device.uuid != nil{
                 TransferManager.sharedInstance().connect(device)
@@ -102,6 +102,7 @@ struct ScanDeviceView: View {
                     .foregroundColor(.white)
             }
             .onAppear{
+                startScan()
                 print("[是否连接]-> ",userData.isDeviceConnected)
                 viewRouter.isTabBarShow = false
             }
@@ -137,12 +138,6 @@ class ScanDevices: NSObject, TransferManagerDelegate
     }
 }
 
-
-class BleScan: NSObject, BleCentralManagerDelegate{
-    func bleFwScannedDeviceDict(_ bleCentralManager: BleCentralManager, scanned device: VsDevice) {
-        print(device.uuid)
-    }
-}
 
 struct ScanDeviceView_Previews: PreviewProvider {
     static var previews: some View {
