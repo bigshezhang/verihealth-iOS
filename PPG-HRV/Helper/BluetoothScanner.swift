@@ -49,6 +49,8 @@ extension BluetoothScanner: CBCentralManagerDelegate {
         \(peripheral.services?.debugDescription ?? "No Services found ")
         """)
         store.peripherals = results
+        
+        print(store.peripherals)
     }
 }
 

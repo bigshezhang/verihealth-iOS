@@ -95,14 +95,16 @@ struct ScanDeviceView: View {
     var body: some View {
         ZStack {
             VStack{
-                Recording(isScaning: self.$isScaning, recording: true)
+//                Recording(isScaning: self.$isScaning, recording: true)
+                
+                DeviceListView(store: store)
             }
             VStack(spacing: 50){
                 Text(isScaning ? "寻找设备中" : "\(device.name)")
                     .foregroundColor(.white)
             }
             .onAppear{
-                startScan()
+//                startScan()
                 print("[是否连接]-> ",userData.isDeviceConnected)
                 viewRouter.isTabBarShow = false
             }
@@ -137,6 +139,36 @@ class ScanDevices: NSObject, TransferManagerDelegate
         print("[信息框架id -> ]",frame.msg_id)
     }
 }
+
+struct DeviceListView: View {
+    @ObservedObject var store: Store
+    private let bluetoothScanner = {
+        BluetoothScanner()
+    }()
+
+    var body: some View {
+        VStack {
+            List {
+                ForEach(bluetoothScanner.results, id: \.self) { result in
+                    Text(result)
+                }
+            }
+            HStack{
+                Button("Start scan") {
+                    bluetoothScanner.startScan()
+                    print("扫描到的设备", store.peripherals)
+                }
+                .padding()
+//                Toggle("", isOn: bluetoothScanner.$isScanningPublisher)
+                Button("Stop scan") {
+                    bluetoothScanner.stop()
+                }
+                .padding()
+            }
+        }
+    }
+}
+
 
 
 struct ScanDeviceView_Previews: PreviewProvider {

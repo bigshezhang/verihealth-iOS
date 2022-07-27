@@ -13,6 +13,10 @@ import CoreSDK
 
 @main
 struct PPG_HRVApp: App {
+    private let bluetoothScanner = {
+        BluetoothScanner()
+    }()
+    
     var body: some Scene {
         WindowGroup {
             var userData = UserData()
@@ -23,8 +27,11 @@ struct PPG_HRVApp: App {
                     .environmentObject(viewRouter)
             } else {
                 RouterView()
-//                    .onAppear{
-//                    }
+                    .onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now()+1){
+                            bluetoothScanner.startScan()
+                        }
+                    }
                     .environmentObject(viewRouter)
                     .environmentObject(userData)
             }
