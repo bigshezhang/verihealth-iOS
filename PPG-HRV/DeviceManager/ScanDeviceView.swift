@@ -21,13 +21,13 @@ struct ScanDeviceView: View {
     @Environment(\.presentationMode) var presentationMode
     
     func startScan(){
+        delegate.transUpdateBLEState?(.statePoweredOn)
         
         ConnectionAdapter.sharedInstance().startScan(true) { error in
             print("[启动扫描错误信息 -> ]", error)
         }
         
         delegate.transReceive!(device)
-
         
 //        DispatchQueue.main.asyncAfter(deadline: .now()+3){
 //            ConnectionAdapter.sharedInstance().startScan(true) { error in
@@ -38,6 +38,8 @@ struct ScanDeviceView: View {
         DispatchQueue.main.asyncAfter(deadline: .now()+4){
             if device.uuid != nil{
                 TransferManager.sharedInstance().connect(device)
+            } else {
+                print("未找到设备")
             }
         }
         
