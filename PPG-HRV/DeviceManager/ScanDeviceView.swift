@@ -47,49 +47,6 @@ struct ScanDeviceView: View {
     }
 }
 
-class ScanDevices: NSObject, ObservableObject
-{
-    @Published var isScanningPublisher: Bool = false
-    let transferManager : TransferManager = {
-        TransferManager()
-    }()
-    
-    override init() {
-        super.init()
-        transferManager.addDelegate(self)
-    }
-    
-    public func startScan() {
-        isScanningPublisher = true
-        transferManager.scanDevices { error in
-            print("[启动蓝牙是否错误] -> ", error)
-        }
-    }
-//
-//    public func stop() {
-//        isScanningPublisher = false
-//        if central.isScanning {
-//            central.stopScan()
-//        }
-//    }
-}
-
-extension ScanDevices: TransferManagerDelegate {
-    func transUpdateBLEState(_ state: BLEStatus) {
-    }
-    
-    func transReceive(_ device: VsDevice) {
-        print("[获取的蓝牙名称]-> ",device.name)
-    }
-    
-    func transIsReady(_ device: Any) {
-        print("[设备已准备好传输数据]")
-    }
-    
-    func transReceiveMessage(_ transManager: TransferManager, device: Any, dataFrame frame: VsMessageFrame) {
-        print("[信息框架id -> ]",frame.msg_id)
-    }
-}
 
 struct ScanDeviceView_Previews: PreviewProvider {
     static var previews: some View {

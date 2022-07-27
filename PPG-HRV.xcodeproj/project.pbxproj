@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E0033ED3289179AC0016FCEA /* BluetoothScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0033ED2289179AC0016FCEA /* BluetoothScanner.swift */; };
 		E024F72D2890317F007650DB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72C2890317F007650DB /* Spinner.swift */; };
 		E024F72F2890379D007650DB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72E2890379D007650DB /* Recording.swift */; };
 		E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */; };
+		E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A981CC28918C9600EDE15A /* DeviceManager.swift */; };
 		E0BD634828901EB200CAA896 /* MyDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD634728901EB200CAA896 /* MyDeviceView.swift */; };
 		E0BD634A289020DA00CAA896 /* RealTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD6349289020DA00CAA896 /* RealTimeView.swift */; };
 		E0BD634D28902B5800CAA896 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0BD634C28902B5800CAA896 /* SwiftUICharts */; };
@@ -91,12 +91,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E0033ED2289179AC0016FCEA /* BluetoothScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothScanner.swift; sourceTree = "<group>"; };
 		E024F72C2890317F007650DB /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		E024F72E2890379D007650DB /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceView.swift; sourceTree = "<group>"; };
 		E08CC2682889E599004317BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PPG-HRV-Bridging-Header.h"; sourceTree = "<group>"; };
+		E0A981CC28918C9600EDE15A /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		E0BD634728901EB200CAA896 /* MyDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDeviceView.swift; sourceTree = "<group>"; };
 		E0BD6349289020DA00CAA896 /* RealTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeView.swift; sourceTree = "<group>"; };
 		E0ED5D7D2886CBD300258227 /* PPG-HRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PPG-HRV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +168,6 @@
 		E0560B28288F74EF00B27EC3 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				E0033ED2289179AC0016FCEA /* BluetoothScanner.swift */,
 				E024F72E2890379D007650DB /* Recording.swift */,
 				E024F72C2890317F007650DB /* Spinner.swift */,
 			);
@@ -281,6 +280,7 @@
 			children = (
 				E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */,
 				E0BD634728901EB200CAA896 /* MyDeviceView.swift */,
+				E0A981CC28918C9600EDE15A /* DeviceManager.swift */,
 			);
 			path = DeviceManager;
 			sourceTree = "<group>";
@@ -459,7 +459,6 @@
 				E024F72F2890379D007650DB /* Recording.swift in Sources */,
 				E0BD634828901EB200CAA896 /* MyDeviceView.swift in Sources */,
 				E0ED5DB728879D8200258227 /* TabView.swift in Sources */,
-				E0033ED3289179AC0016FCEA /* BluetoothScanner.swift in Sources */,
 				E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */,
 				E0BD634A289020DA00CAA896 /* RealTimeView.swift in Sources */,
 				E024F72D2890317F007650DB /* Spinner.swift in Sources */,
@@ -470,6 +469,7 @@
 				E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
 				E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */,
+				E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */,
 				E0ED5DC52887A8C900258227 /* Page2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
