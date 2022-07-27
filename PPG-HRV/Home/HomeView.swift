@@ -69,19 +69,19 @@ struct HomeView: View{
                     Spacer()
                 }
                 
-                RealTimeView()
-                    .overlay(
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(Color.white)
-                                .opacity((userData.currDevice.name == nil) ? 0.8 : 0)
-                            Text("请连接设备后查看实时HRV")
-                                .opacity((userData.currDevice.name == nil) ? 1 : 0)
-                                .foregroundColor(Color.gray)
-                        }
-                    )
-                    .frame(width: 350, height: 400)
-                    .padding(.top, 100)
+//                RealTimeView()
+//                    .overlay(
+//                        ZStack{
+//                            RoundedRectangle(cornerRadius: 20)
+//                                .foregroundColor(Color.white)
+//                                .opacity((userData.currDevice.name == nil) ? 0.8 : 0)
+//                            Text("请连接设备后查看实时HRV")
+//                                .opacity((userData.currDevice.name == nil) ? 1 : 0)
+//                                .foregroundColor(Color.gray)
+//                        }
+//                    )
+//                    .frame(width: 350, height: 400)
+//                    .padding(.top, 100)
                 
                 Spacer()
             }

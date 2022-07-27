@@ -10,6 +10,7 @@ import CoreBluetooth
 import Combine
 import BaseFramework
 import BleFramework
+import SwiftUI
 
 class BluetoothScanner: NSObject, ObservableObject {
 
@@ -72,3 +73,31 @@ class Store: ObservableObject {
 
 var store = Store()
 
+struct DeviceListView: View {
+    @ObservedObject var store: Store
+    private let bluetoothScanner = {
+        BluetoothScanner()
+    }()
+
+    var body: some View {
+        VStack {
+            List {
+                ForEach(bluetoothScanner.results, id: \.self) { result in
+                    Text(result)
+                }
+            }
+            HStack{
+                Button("Start scan") {
+                    bluetoothScanner.startScan()
+                    print("扫描到的设备", store.peripherals)
+                }
+                .padding()
+//                Toggle("", isOn: bluetoothScanner.$isScanningPublisher)
+                Button("Stop scan") {
+                    bluetoothScanner.stop()
+                }
+                .padding()
+            }
+        }
+    }
+}

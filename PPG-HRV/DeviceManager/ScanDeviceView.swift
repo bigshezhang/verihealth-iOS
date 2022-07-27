@@ -16,82 +16,12 @@ struct ScanDeviceView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @State var device = VsDevice()
     @State var isScaning = true
-    @State var rollStep = 0
     @Environment(\.presentationMode) var presentationMode
-    var delegate: TransferManagerDelegate = ScanDevices()
 
-    func startScan(){
+    private let scanDevices = {
+        ScanDevices()
+    }()
 
-//        BleCentralManager.sharedInstance().scanPeriperals { error in
-//            print(error)
-//        }
-        
-        ConnectionAdapter.sharedInstance().startScan(true) { error in
-            print("[启动扫描错误信息 -> ]", error)
-        }
-        
-        delegate.transReceive!(device)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+1){
-            ConnectionAdapter.sharedInstance().startScan(true) { error in
-                print("[第二次启动扫描错误信息 -> ]", error)
-            }
-
-            print("蓝牙状态 -> " , BleCentralManager.sharedInstance().centralManager.isScanning)
-            print("扫描到的设备数 -> ",BleCentralManager.sharedInstance().scannedDeviceDict.count)
-        }
-        
-        print(BleCentralManager.sharedInstance().scannedDeviceDict)
-//        print("1 蓝牙状态 -> " , BleCentralManager.sharedInstance().centralManager.isScanning)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+4){
-            if device.uuid != nil{
-                TransferManager.sharedInstance().connect(device)
-            } else {
-                print("未找到设备")
-            }
-        }
-        
-//        ConnectionAdapter.sharedInstance().startScan(false) { error in
-//            print("[第一次开启蓝牙扫描是否出错]-> ",error)
-//            ScanDevices().transReceive(device)//通过委托模式获取VsDevice实例
-//            print("[第一次读到的设备名字] ->",device.name)   //再启动一次蓝牙扫描，这时应该成功启动
-//            if device.name != nil{
-//                userData.currDevice = device
-//                userData.isDeviceConnected = true
-//                //冷启动蓝牙扫描，可能尚未powerup
-//            }
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now()+1){
-//                ConnectionAdapter.sharedInstance().startScan(false) { error in
-//                    print("[第二次开启蓝牙扫描是否出错]-> ",error)    //冷启动蓝牙扫描，可能尚未powerup
-//                }
-//                ScanDevices().transReceive(device)//通过委托模式获取VsDevice实例
-//                print("[第二次读到的设备名字] ->",device.name)   //再启动一次蓝牙扫描，这时应该成功启动
-//                if device.name != nil{
-//                    isScaning = false
-//                    TransferManager().connect(device) //连接设备！
-//                    userData.currDevice = device
-//                    userData.isDeviceConnected = true
-//                    startTransfer() //开始传输数据！
-//                }
-//            }
-//
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-//                while (device.uuid == nil){
-//                      print("尚未获取到设备")
-//                  }
-//                  print("设备连接完成")
-//            }
-//        }
-    }
-    
-    func startTransfer(){
-        ScanDevices().transIsReady(device)
-        ScanDevices().transReceiveMessage(TransferManager.sharedInstance(), device: device, dataFrame: VsMessageFrame())
-    }
-    
     var body: some View {
         ZStack {
             VStack{
@@ -119,8 +49,34 @@ struct ScanDeviceView: View {
     }
 }
 
-class ScanDevices: NSObject, TransferManagerDelegate
+class ScanDevices: NSObject, ObservableObject
 {
+    @Published var isScanningPublisher: Bool = false
+    let transferManager : TransferManager = {
+        TransferManager()
+    }()
+    
+    override init() {
+        super.init()
+        transferManager.addDelegate(self)
+    }
+    
+    public func startScan() {
+        isScanningPublisher = true
+        transferManager.scanDevices { error in
+            print(error)
+        }
+    }
+//
+//    public func stop() {
+//        isScanningPublisher = false
+//        if central.isScanning {
+//            central.stopScan()
+//        }
+//    }
+}
+
+extension ScanDevices: TransferManagerDelegate {
     func transUpdateBLEState(_ state: BLEStatus) {
         BLEStatus.statePoweredOn
     }
@@ -139,37 +95,6 @@ class ScanDevices: NSObject, TransferManagerDelegate
         print("[信息框架id -> ]",frame.msg_id)
     }
 }
-
-struct DeviceListView: View {
-    @ObservedObject var store: Store
-    private let bluetoothScanner = {
-        BluetoothScanner()
-    }()
-
-    var body: some View {
-        VStack {
-            List {
-                ForEach(bluetoothScanner.results, id: \.self) { result in
-                    Text(result)
-                }
-            }
-            HStack{
-                Button("Start scan") {
-                    bluetoothScanner.startScan()
-                    print("扫描到的设备", store.peripherals)
-                }
-                .padding()
-//                Toggle("", isOn: bluetoothScanner.$isScanningPublisher)
-                Button("Stop scan") {
-                    bluetoothScanner.stop()
-                }
-                .padding()
-            }
-        }
-    }
-}
-
-
 
 struct ScanDeviceView_Previews: PreviewProvider {
     static var previews: some View {
