@@ -8,8 +8,11 @@
 import Foundation
 import CoreBluetooth
 import Combine
+import BaseFramework
+import BleFramework
 
 class BluetoothScanner: NSObject, ObservableObject {
+
     @Published var isScanningPublisher: Bool = false
     public var results = [String]()
     let central: CBCentralManager = {
@@ -49,8 +52,15 @@ extension BluetoothScanner: CBCentralManagerDelegate {
         \(peripheral.services?.debugDescription ?? "No Services found ")
         """)
         store.peripherals = results
-        
-        print(store.peripherals)
+        if(peripheral.name == "Tyler的iPhone"){
+            BleCentralManager.sharedInstance().connect(to: peripheral)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+//                print("已经连接的设备 -> " , BleCentralManager.sharedInstance().centralManager(didConnect: peripheral))
+            }
+        }
+        if(peripheral.name != nil){
+            print(store.peripherals)
+        }
     }
 }
 
@@ -59,3 +69,4 @@ class Store: ObservableObject {
 }
 
 var store = Store()
+
