@@ -17,8 +17,8 @@ struct ScanDeviceView: View {
     @State var device = VsDevice()
     @State var isScaning = true
     @State var rollStep = 0
-    var delegate: TransferManagerDelegate = ScanDevices()
-    var bledel: BleCentralManagerDelegate = BleScan()
+    weak var delegate: TransferManagerDelegate = ScanDevices()
+    weak var bledel: BleCentralManagerDelegate = BleScan()
     @Environment(\.presentationMode) var presentationMode
     
     func startScan(){
@@ -102,7 +102,6 @@ struct ScanDeviceView: View {
                     .foregroundColor(.white)
             }
             .onAppear{
-                startScan()
                 print("[是否连接]-> ",userData.isDeviceConnected)
                 viewRouter.isTabBarShow = false
             }
