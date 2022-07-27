@@ -13,14 +13,6 @@ struct TabView: View {
     private var iconSize: CGFloat = 30
     var body: some View {
         ZStack {
-//            HStack() {
-//                Spacer()
-//                Spacer()
-//            }
-//            .frame(height: 70)
-//            .background(Color.white)
-
-
             HStack(spacing: 70) {
                 Spacer()
                 
