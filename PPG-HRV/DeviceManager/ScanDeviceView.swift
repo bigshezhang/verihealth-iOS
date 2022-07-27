@@ -31,11 +31,12 @@ struct ScanDeviceView: View {
             }
         }
  
-        
-        while device.name == nil {
-            ScanDevices().transReceive(device)
+        DispatchQueue.main.asyncAfter(deadline: .now() +3){
+            while device.name == nil {
+                ScanDevices().transReceive(device)
+            }
         }
-        
+
         print("找到了设备")
         
 //        ConnectionAdapter.sharedInstance().startScan(false) { error in
