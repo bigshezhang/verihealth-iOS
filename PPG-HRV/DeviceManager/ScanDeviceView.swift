@@ -26,7 +26,7 @@ struct ScanDeviceView: View {
             print(error)
         }
         bledel.bleFwScannedDeviceDict?(BleCentralManager.sharedInstance(), scanned: device)
-        
+
 //        delegate.transUpdateBLEState?(.statePoweredOn)
 //        delegate.transIsReady?(device)
         DispatchQueue.main.asyncAfter(deadline: .now()+1){
@@ -34,6 +34,7 @@ struct ScanDeviceView: View {
                 print("[启动扫描错误信息 -> ]", error)
             }
         }
+        bledel.bleFwScannedDeviceDict?(BleCentralManager.sharedInstance(), scanned: device)
 
         delegate.transReceive!(device)
         
