@@ -17,13 +17,13 @@ struct ScanDeviceView: View {
     @State var device = VsDevice()
     @State var isScaning = true
     @State var rollStep = 0
-    var delegate: TransferManagerDelegate = ScanDevices()
+//    var delegate: TransferManagerDelegate = ScanDevices()
     @Environment(\.presentationMode) var presentationMode
     
     func startScan(){
         ConnectionAdapter.sharedInstance().startScan(false) { error in
             print("[第一次开启蓝牙扫描是否出错]-> ",error)
-            delegate.transReceive?(device)//通过委托模式获取VsDevice实例
+            ScanDevices().transReceive(device)//通过委托模式获取VsDevice实例
             print("[第一次读到的设备名字] ->",device.name)   //再启动一次蓝牙扫描，这时应该成功启动
             if device.name != nil{
                 userData.currDevice = device
@@ -35,7 +35,7 @@ struct ScanDeviceView: View {
                 ConnectionAdapter.sharedInstance().startScan(false) { error in
                     print("[第二次开启蓝牙扫描是否出错]-> ",error)    //冷启动蓝牙扫描，可能尚未powerup
                 }
-                delegate.transReceive?(device)//通过委托模式获取VsDevice实例
+                ScanDevices().transReceive(device)//通过委托模式获取VsDevice实例
                 print("[第二次读到的设备名字] ->",device.name)   //再启动一次蓝牙扫描，这时应该成功启动
                 if device.name != nil{
                     isScaning = false
@@ -57,8 +57,8 @@ struct ScanDeviceView: View {
     }
     
     func startTransfer(){
-        delegate.transIsReady?(device)
-        delegate.transReceiveMessage?(TransferManager.sharedInstance(), device: device, dataFrame: VsMessageFrame())
+        ScanDevices().transIsReady(device)
+        ScanDevices().transReceiveMessage(TransferManager.sharedInstance(), device: device, dataFrame: VsMessageFrame())
     }
     
     var body: some View {
