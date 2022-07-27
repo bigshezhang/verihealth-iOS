@@ -31,20 +31,20 @@ struct ScanDeviceView: View {
                 //冷启动蓝牙扫描，可能尚未powerup
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now()+1){
-                ConnectionAdapter.sharedInstance().startScan(false) { error in
-                    print("[第二次开启蓝牙扫描是否出错]-> ",error)    //冷启动蓝牙扫描，可能尚未powerup
-                }
-                ScanDevices().transReceive(device)//通过委托模式获取VsDevice实例
-                print("[第二次读到的设备名字] ->",device.name)   //再启动一次蓝牙扫描，这时应该成功启动
-                if device.name != nil{
-                    isScaning = false
-                    TransferManager().connect(device) //连接设备！
-                    userData.currDevice = device
-                    userData.isDeviceConnected = true
-                    startTransfer() //开始传输数据！
-                }
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now()+1){
+//                ConnectionAdapter.sharedInstance().startScan(false) { error in
+//                    print("[第二次开启蓝牙扫描是否出错]-> ",error)    //冷启动蓝牙扫描，可能尚未powerup
+//                }
+//                ScanDevices().transReceive(device)//通过委托模式获取VsDevice实例
+//                print("[第二次读到的设备名字] ->",device.name)   //再启动一次蓝牙扫描，这时应该成功启动
+//                if device.name != nil{
+//                    isScaning = false
+//                    TransferManager().connect(device) //连接设备！
+//                    userData.currDevice = device
+//                    userData.isDeviceConnected = true
+//                    startTransfer() //开始传输数据！
+//                }
+//            }
             
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 3){
