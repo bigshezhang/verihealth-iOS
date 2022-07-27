@@ -29,10 +29,12 @@ struct ScanDeviceView: View {
         
 //        delegate.transUpdateBLEState?(.statePoweredOn)
 //        delegate.transIsReady?(device)
-        ConnectionAdapter.sharedInstance().startScan(true) { error in
-            print("[启动扫描错误信息 -> ]", error)
+        DispatchQueue.main.asyncAfter(deadline: .now()+1){
+            ConnectionAdapter.sharedInstance().startScan(true) { error in
+                print("[启动扫描错误信息 -> ]", error)
+            }
         }
-        
+
         delegate.transReceive!(device)
         
 //        DispatchQueue.main.asyncAfter(deadline: .now()+3){
