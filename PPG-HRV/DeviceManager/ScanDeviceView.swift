@@ -41,7 +41,7 @@ struct ScanDeviceView: View {
             print("扫描到的设备数 -> ",BleCentralManager.sharedInstance().scannedDeviceDict.count)
         }
         
-        
+        print(BleCentralManager.sharedInstance().scannedDeviceDict)
 //        print("1 蓝牙状态 -> " , BleCentralManager.sharedInstance().centralManager.isScanning)
         
         DispatchQueue.main.asyncAfter(deadline: .now()+4){
