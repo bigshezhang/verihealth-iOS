@@ -13,22 +13,28 @@ struct TabView: View {
     private var iconSize: CGFloat = 30
     var body: some View {
         ZStack {
-            HStack() {
+//            HStack() {
+//                Spacer()
+//                Spacer()
+//            }
+//            .frame(height: 70)
+//            .background(Color.white)
+
+
+            HStack(spacing: 70) {
                 Spacer()
-                Spacer()
-            }
-            .frame(height: 70)
-            .background(Color.white)
-
-
-            HStack(alignment: .top, spacing: 70) {
-
+                
                 TabBarIcon(IconName: "clock", tabName: "clock", width: iconSize, height: iconSize, color: .white, assignedPage: .Page1)
 
                 TabBarIcon(IconName: "home", tabName: "home", width: iconSize, height: iconSize, color: .white, assignedPage: .Home)
 
                 TabBarIcon(IconName: "profile", tabName: "profile", width: iconSize, height: iconSize, color: .white, assignedPage: .Page2)
+                
+                Spacer()
             }
+            .padding(.horizontal)
+            .padding(.vertical)
+            .background(Color.white)
         }
 
     }
