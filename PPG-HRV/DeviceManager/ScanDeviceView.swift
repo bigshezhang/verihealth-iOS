@@ -38,16 +38,19 @@ struct ScanDeviceView: View {
                 delegate.transReceive?(device)//通过委托模式获取VsDevice实例
                 print("[第二次读到的设备名字] ->",device.name)   //再启动一次蓝牙扫描，这时应该成功启动
                 if device.name != nil{
+                    isScaning = false
+                    TransferManager().connect(device) //连接设备！
                     userData.currDevice = device
                     userData.isDeviceConnected = true
+                    startTransfer() //开始传输数据！
                 }
             }
         }
-        
-        if device.name != nil {
-            isScaning = false
-            TransferManager().connect(device)
-        }
+    }
+    
+    func startTransfer(){
+        delegate.transIsReady?(device)
+        delegate.transReceiveMessage?(TransferManager.sharedInstance(), device: device, dataFrame: VsMessageFrame())
     }
     
     var body: some View {
@@ -79,6 +82,14 @@ class ScanDevices: NSObject, TransferManagerDelegate
 {
     func transReceive(_ device: VsDevice) {
         print("[获取的蓝牙地址]-> ",device.address)
+    }
+    
+    func transIsReady(_ device: Any) {
+        print("[设备已准备好传输数据]")
+    }
+    
+    func transReceiveMessage(_ transManager: TransferManager, device: Any, dataFrame frame: VsMessageFrame) {
+        print("[信息框架id -> ]",frame.msg_id)
     }
 }
 
