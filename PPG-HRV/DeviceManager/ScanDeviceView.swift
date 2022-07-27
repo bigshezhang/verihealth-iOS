@@ -31,13 +31,14 @@ struct ScanDeviceView: View {
             }
         }
  
-        DispatchQueue.main.asyncAfter(deadline: .now() +3){
+        DispatchQueue.main.asyncAfter(deadline: .now()+3){
             while device.name == nil {
                 ScanDevices().transReceive(device)
             }
+            print("找到了设备")
         }
 
-        print("找到了设备")
+       
         
 //        ConnectionAdapter.sharedInstance().startScan(false) { error in
 //            print("[第一次开启蓝牙扫描是否出错]-> ",error)
