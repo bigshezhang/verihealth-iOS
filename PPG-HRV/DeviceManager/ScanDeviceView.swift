@@ -22,7 +22,7 @@ struct ScanDeviceView: View {
     
     func startScan(){
         delegate.transUpdateBLEState?(.statePoweredOn)
-        
+        delegate.transIsReady?(device)
         ConnectionAdapter.sharedInstance().startScan(true) { error in
             print("[启动扫描错误信息 -> ]", error)
         }
