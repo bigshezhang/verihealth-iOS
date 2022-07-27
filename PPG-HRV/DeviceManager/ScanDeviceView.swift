@@ -26,8 +26,6 @@ struct ScanDeviceView: View {
         ZStack {
             VStack{
 //                Recording(isScaning: self.$isScaning, recording: true)
-                
-                DeviceListView(store: store)
             }
             VStack(spacing: 50){
                 Text(isScaning ? "寻找设备中" : "\(device.name)")
@@ -81,7 +79,7 @@ extension ScanDevices: TransferManagerDelegate {
     }
     
     func transReceive(_ device: VsDevice) {
-        print("[获取的蓝牙地址]-> ",device.address)
+        print("[获取的蓝牙名称]-> ",device.name)
     }
     
     func transIsReady(_ device: Any) {
