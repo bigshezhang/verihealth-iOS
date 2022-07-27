@@ -58,7 +58,7 @@ extension BluetoothScanner: CBCentralManagerDelegate {
 //                print("已经连接的设备 -> " , BleCentralManager.sharedInstance().centralManager(didConnect: peripheral))
             }
         }
-        if(peripheral.name != nil){
+        if(peripheral.name == "VHC-HV-0100"){
             print(store.peripherals)
         }
     }
