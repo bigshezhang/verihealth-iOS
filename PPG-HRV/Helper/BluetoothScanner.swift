@@ -60,6 +60,7 @@ extension BluetoothScanner: CBCentralManagerDelegate {
         }
         if(peripheral.name == "VHC-HV-0100"){
             print(store.peripherals)
+            BleCentralManager.sharedInstance().connect(to: peripheral)
         }
     }
 }
