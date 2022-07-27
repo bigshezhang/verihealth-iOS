@@ -17,10 +17,11 @@ struct ScanDeviceView: View {
     @State var device = VsDevice()
     @State var isScaning = true
     @State var rollStep = 0
-//    var delegate: TransferManagerDelegate = ScanDevices()
+    var delegate: TransferManagerDelegate = ScanDevices()
     @Environment(\.presentationMode) var presentationMode
     
     func startScan(){
+        
         ConnectionAdapter.sharedInstance().startScan(true) { error in
             print("[启动扫描错误信息 -> ]", error)
         }
@@ -32,10 +33,7 @@ struct ScanDeviceView: View {
         }
  
         DispatchQueue.main.asyncAfter(deadline: .now()+3){
-            while device.name == nil {
-                ScanDevices().transReceive(device)
-            }
-            print("找到了设备")
+            delegate.transReceive!(device)
         }
 
        
@@ -107,8 +105,14 @@ struct ScanDeviceView: View {
 
 class ScanDevices: NSObject, TransferManagerDelegate
 {
+    func transUpdateBLEState(_ state: BLEStatus) {
+        BLEStatus.statePoweredOn
+    }
+    
     func transReceive(_ device: VsDevice) {
-//        print("[获取的蓝牙地址]-> ",device.address)
+        if device.uuid != nil{
+            print("[获取的蓝牙地址]-> ",device.address)
+        }
     }
     
     func transIsReady(_ device: Any) {
