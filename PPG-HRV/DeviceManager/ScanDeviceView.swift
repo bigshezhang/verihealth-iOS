@@ -17,15 +17,15 @@ struct ScanDeviceView: View {
     @State var device = VsDevice()
     @State var isScaning = true
     @State var rollStep = 0
-    weak var delegate: TransferManagerDelegate = ScanDevices()
-    weak var bledel: BleCentralManagerDelegate = BleScan()
+    weak var delegate: (TransferManagerDelegate)? = ScanDevices()
+    weak var bledel: (BleCentralManagerDelegate)? = BleScan()
     @Environment(\.presentationMode) var presentationMode
     
     func startScan(){
         BleCentralManager.sharedInstance().scanPeriperals { error in
             print(error)
         }
-        bledel.bleFwScannedDeviceDict?(BleCentralManager.sharedInstance(), scanned: device)
+        bledel?.bleFwScannedDeviceDict?(BleCentralManager.sharedInstance(), scanned: device)
 
 //        delegate.transUpdateBLEState?(.statePoweredOn)
 //        delegate.transIsReady?(device)
@@ -34,9 +34,9 @@ struct ScanDeviceView: View {
                 print("[启动扫描错误信息 -> ]", error)
             }
         }
-        bledel.bleFwScannedDeviceDict?(BleCentralManager.sharedInstance(), scanned: device)
+        bledel?.bleFwScannedDeviceDict?(BleCentralManager.sharedInstance(), scanned: device)
 
-        delegate.transReceive!(device)
+        delegate?.transReceive!(device)
         
 //        DispatchQueue.main.asyncAfter(deadline: .now()+3){
 //            ConnectionAdapter.sharedInstance().startScan(true) { error in
