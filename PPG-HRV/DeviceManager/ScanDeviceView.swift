@@ -64,7 +64,7 @@ class ScanDevices: NSObject, ObservableObject
     public func startScan() {
         isScanningPublisher = true
         transferManager.scanDevices { error in
-            print(error)
+            print("[启动蓝牙是否错误] -> ", error)
         }
     }
 //
@@ -78,13 +78,10 @@ class ScanDevices: NSObject, ObservableObject
 
 extension ScanDevices: TransferManagerDelegate {
     func transUpdateBLEState(_ state: BLEStatus) {
-        BLEStatus.statePoweredOn
     }
     
     func transReceive(_ device: VsDevice) {
-        if device.uuid != nil{
-            print("[获取的蓝牙地址]-> ",device.address)
-        }
+        print("[获取的蓝牙地址]-> ",device.address)
     }
     
     func transIsReady(_ device: Any) {
