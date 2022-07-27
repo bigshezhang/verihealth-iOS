@@ -99,7 +99,7 @@ struct ScanDeviceView: View {
 class ScanDevices: NSObject, TransferManagerDelegate
 {
     func transReceive(_ device: VsDevice) {
-        print("[获取的蓝牙地址]-> ",device.address)
+//        print("[获取的蓝牙地址]-> ",device.address)
     }
     
     func transIsReady(_ device: Any) {
