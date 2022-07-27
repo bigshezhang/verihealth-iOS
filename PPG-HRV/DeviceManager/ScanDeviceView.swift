@@ -25,9 +25,12 @@ struct ScanDeviceView: View {
             print("[启动扫描错误信息 -> ]", error)
         }
         
-        ConnectionAdapter.sharedInstance().startScan(true) { error in
-            print("[启动扫描错误信息 -> ]", error)
+        DispatchQueue.main.asyncAfter(deadline: .now()+3){
+            ConnectionAdapter.sharedInstance().startScan(true) { error in
+                print("[第二次启动扫描错误信息 -> ]", error)
+            }
         }
+ 
         
         while device.name == nil {
             ScanDevices().transReceive(device)
