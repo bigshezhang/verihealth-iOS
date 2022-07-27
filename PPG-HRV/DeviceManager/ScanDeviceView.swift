@@ -30,13 +30,14 @@ struct ScanDeviceView: View {
             ConnectionAdapter.sharedInstance().startScan(true) { error in
                 print("[第二次启动扫描错误信息 -> ]", error)
             }
-        }
- 
-        DispatchQueue.main.asyncAfter(deadline: .now()+3){
             delegate.transReceive!(device)
         }
-
-       
+ 
+        DispatchQueue.main.asyncAfter(deadline: .now()+4){
+            if device.uuid != nil{
+                TransferManager.sharedInstance().connect(device)
+            }
+        }
         
 //        ConnectionAdapter.sharedInstance().startScan(false) { error in
 //            print("[第一次开启蓝牙扫描是否出错]-> ",error)
