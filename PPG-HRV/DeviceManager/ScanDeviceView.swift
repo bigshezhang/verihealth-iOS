@@ -45,6 +45,14 @@ struct ScanDeviceView: View {
                     startTransfer() //开始传输数据！
                 }
             }
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                while (device.uuid == nil){
+                      print("尚未获取到设备")
+                  }
+                  print("设备连接完成")
+            }
         }
     }
     
