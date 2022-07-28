@@ -11,6 +11,7 @@ import BaseFramework
 import BleFramework
 
 struct HomeView: View{
+    @Binding var isConnected : Bool
 //    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
@@ -90,10 +91,10 @@ struct HomeView: View{
     }
 }
 
-struct HomeView_Preview: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-//            .environmentObject(UserData())
-            .environmentObject(ViewRouter())
-    }
-}
+//struct HomeView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+////            .environmentObject(UserData())
+//            .environmentObject(ViewRouter())
+//    }
+//}

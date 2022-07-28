@@ -19,7 +19,7 @@ struct RouterView: View {
             ZStack{
                 ScrollView(){
                     switch viewRouter.currentPage{
-                    case .Home: HomeView()
+                    case .Home: HomeView(isConnected: userData.$isDeviceConnected)
                     case .Page1: Page1()
                     case .Page2: Page2()
                     }
