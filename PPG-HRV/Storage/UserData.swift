@@ -13,7 +13,7 @@ import CoreSDK
 final class UserData: ObservableObject {
     @Published var currDevice = VsDevice()
     @Published var isDeviceConnected: Bool = false
-    @State var realTimeHRV : [Double] = [0,0]
+    @Published var realTimeHRV : [Double] = [0,0]
     
     @AppStorage("isFirstInit") var isFirstInit: Bool = true
     @AppStorage("vsDeviceUUID") var vsDeviceUUID: String = ""

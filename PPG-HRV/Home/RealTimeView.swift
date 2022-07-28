@@ -9,8 +9,9 @@ import SwiftUI
 import SwiftUICharts
 
 struct RealTimeView: View {
-//    @State var realTimeData : [Double] = []
+    @ObservedObject var MyData = userData
     @State var isLoading = true
+//    @Binding var data: [Double]
 //    func startTimer(){
 //
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
@@ -32,7 +33,7 @@ struct RealTimeView: View {
                 
             GeometryReader{ GeometryProxy in
                 ZStack{
-                    LineView(data: userData.realTimeHRV, title: "实时HRV")
+                    LineView(data: MyData.realTimeHRV, title: "实时HRV")
                         .padding()
         //                .padding()
 
@@ -67,8 +68,8 @@ struct RealTimeView: View {
     }
 }
 
-struct RealTimeView_Previews: PreviewProvider {
-    static var previews: some View {
-        RealTimeView()
-    }
-}
+//struct RealTimeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RealTimeView()
+//    }
+//}
