@@ -45,7 +45,7 @@ class DeviceManager: NSObject, ObservableObject
 
 extension DeviceManager: TransferManagerDelegate {
     func transUpdateBLEState(_ state: BLEStatus) {
-        print("[更新蓝牙状态] -> ", BLEStatus.RawValue())
+//        print("[更新蓝牙状态] -> ", BLEStatus.RawValue())
     }
     
     func transReceive(_ device: VsDevice) {
