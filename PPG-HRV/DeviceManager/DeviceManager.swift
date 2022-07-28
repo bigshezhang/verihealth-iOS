@@ -73,7 +73,7 @@ extension DeviceManager: TransferManagerDelegate {
             var receivePack = MyBleRecPacket()
             data.getBytes(&receivePack, length: data.length)
 //            print("[收包Type] -> ", receivePack.type)
-//            print("[收包算法返回值] -> ", receivePack.ret)
+            print("[收包算法返回值] -> ", receivePack.ret)
             print("[HRV返回值] -> ", receivePack.hr)
             if userData.realTimeHRV.count < 31 {
                 userData.realTimeHRV.append(Double(receivePack.hr))
