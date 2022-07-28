@@ -27,7 +27,7 @@ class DeviceManager: NSObject, ObservableObject
         TransferManager.sharedInstance().scanDevices { error in
             print("[启动蓝牙是否错误] -> ", error)
         }
-        print("[当前是否连接蓝牙] -> ", TransferManager.sharedInstance().)
+        print("[当前是否连接蓝牙] -> ", ConnectionAdapter.sharedInstance().currentDevice.name)
     }
     
     public func sendCustomPack(device: VsDevice, isMeasuring: Int){
