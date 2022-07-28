@@ -25,15 +25,14 @@ struct ScanDeviceView: View {
     var body: some View {
         ZStack {
             VStack{
-//                Recording(isScaning: self.$isScaning, recording: true)
+                Recording(isScaning: self.$isScaning, recording: true)
             }
             VStack(spacing: 50){
                 Text(isScaning ? "寻找设备中" : "\(device.name)")
                     .foregroundColor(.white)
             }
             .onAppear{
-//                startScan()
-                print("[是否连接]-> ",userData.isDeviceConnected)
+                
                 viewRouter.isTabBarShow = false
             }
             .onDisappear{

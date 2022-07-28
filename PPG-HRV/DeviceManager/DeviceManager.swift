@@ -18,6 +18,10 @@ class ScanDevices: NSObject, ObservableObject
         TransferManager.sharedInstance().addDelegate(self)
     }
     
+    deinit {
+        TransferManager.sharedInstance().removeDelegate(self)
+    }
+    
     public func startScan() {
         isScanningPublisher = true
         TransferManager.sharedInstance().scanDevices { error in
@@ -26,6 +30,17 @@ class ScanDevices: NSObject, ObservableObject
     }
 }
 
+class TransData: TransferManager{
+    func sendCustomPack(device: VsDevice, isMeasuring: Int){
+        var toMeasure = MyBleSendPacket(isMeasuring: UInt16(isMeasuring))
+        
+        let payData = NSData(bytes: &toMeasure, length: 2)
+        
+        TransferManager.sharedInstance().sendCommonMessage(device, msgId: UInt16(VS_SEND_MSG), data: payData as Data)
+    }
+}
+
+
 extension ScanDevices: TransferManagerDelegate {
     func transUpdateBLEState(_ state: BLEStatus) {
     }
@@ -33,6 +48,7 @@ extension ScanDevices: TransferManagerDelegate {
     func transReceive(_ device: VsDevice) {
         print("[获取的蓝牙名称]-> ",device.name)
         TransferManager.sharedInstance().connect(device)    //连接设备
+        TransData.sharedInstance().sendCustomPack(device: device, isMeasuring: 1)
     }
     
     func transIsReady(_ device: Any) {

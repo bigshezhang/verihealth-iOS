@@ -26,7 +26,7 @@ struct PPG_HRVApp: App {
                     .environmentObject(userData)
                     .environmentObject(viewRouter)
             } else {
-                Text("少女祈祷中")
+                RouterView()
                     .onAppear{
                         DispatchQueue.main.asyncAfter(deadline: .now()+5) {
                             scanDevices.startScan()
