@@ -9,21 +9,21 @@ import SwiftUI
 import SwiftUICharts
 
 struct RealTimeView: View {
-    @State var realTimeData : [Double] = []
+//    @State var realTimeData : [Double] = []
     @State var isLoading = true
-    func startTimer(){
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            isLoading = false
-            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-                realTimeData.append(Double.random(in: 60..<80))
-                if realTimeData.count > 30 {
-                    realTimeData.removeFirst()
-                }
-                //这里异步获取心率会有问题，体现为重返视图后多异步重叠
-            }
-        }
-    }
+//    func startTimer(){
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+//            isLoading = false
+//            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+//                realTimeData.append(Double.random(in: 60..<80))
+//                if realTimeData.count > 30 {
+//                    realTimeData.removeFirst()
+//                }
+//                //这里异步获取心率会有问题，体现为重返视图后多异步重叠
+//            }
+//        }
+//    }
     
     var body: some View {
         ZStack{
@@ -32,12 +32,10 @@ struct RealTimeView: View {
                 
             GeometryReader{ GeometryProxy in
                 ZStack{
-                    LineView(data: realTimeData, title: "实时HRV")
+                    LineView(data: userData.realTimeHRV, title: "实时HRV")
                         .padding()
         //                .padding()
-                        .onAppear{
-                            startTimer()
-                        }
+
                     VStack{
                         HStack(){
                             Spacer()
