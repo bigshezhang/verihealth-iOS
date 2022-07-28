@@ -10,21 +10,6 @@ import SwiftUICharts
 
 struct RealTimeView: View {
     @ObservedObject var MyData = userData
-    @State var isLoading = true
-//    @Binding var data: [Double]
-//    func startTimer(){
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-//            isLoading = false
-//            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-//                realTimeData.append(Double.random(in: 60..<80))
-//                if realTimeData.count > 30 {
-//                    realTimeData.removeFirst()
-//                }
-//                //这里异步获取心率会有问题，体现为重返视图后多异步重叠
-//            }
-//        }
-//    }
     
     var body: some View {
         ZStack{
@@ -41,8 +26,8 @@ struct RealTimeView: View {
                         HStack(){
                             Spacer()
                             Spinner()
-                                .opacity(isLoading ? 1 : 0)
-                                .animation(.spring(), value: isLoading)
+                                .opacity(MyData.isDeviceConnected ? 0 : 1)
+                                .animation(.spring(), value: MyData.isDeviceConnected)
                                 .padding(.trailing, 20)
                                 .padding(.top, 20)
                         }
@@ -55,8 +40,8 @@ struct RealTimeView: View {
                             Spacer()
                             Text("仅保留最近半分钟心率")
                                 .font(.system(size: 10))
-                                .opacity(isLoading ? 0 : 1)
-                                .animation(.spring(), value: isLoading)
+                                .opacity(MyData.isDeviceConnected ? 1 : 0)
+                                .animation(.spring(), value: MyData.isDeviceConnected)
                                 .padding(.trailing, 20)
                                 .padding(.top, 20)
                         }
