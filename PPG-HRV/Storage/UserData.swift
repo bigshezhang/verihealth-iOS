@@ -11,7 +11,7 @@ import BleFramework
 import CoreSDK
 import BaseFramework
 
-
+  
 
 final class UserData: ObservableObject {
     var currDevice = VsDevice()

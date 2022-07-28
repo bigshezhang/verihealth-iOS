@@ -67,14 +67,14 @@ extension DeviceManager: TransferManagerDelegate {
     }
     
     func transReceiveCustomMessage(_ transManager: TransferManager, device: Any, dataFrame frame: PayloadFrame) {
-        print("[收到自定义消息]")
+//        print("[收到自定义消息]")
         userData.isDeviceConnected = true   //收到消息就解除
         if frame.payload != nil{
             let data: NSData = (frame.payload as NSData?)!
             var receivePack = MyBleRecPacket()
             data.getBytes(&receivePack, length: data.length)
 //            print("[收包Type] -> ", receivePack.type)
-            print("[收包算法返回值] -> ", receivePack.ret)
+//            print("[收包算法返回值] -> ", receivePack.ret)
             print("[HRV返回值] -> ", receivePack.hr)
             if userData.realTimeHRV.count < 31 {        //向HomeView中的实时HRV视图传值
                 DispatchQueue.main.async {

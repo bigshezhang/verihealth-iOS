@@ -44,7 +44,7 @@ struct HomeView: View{
                             .padding(.leading, 34)
                             .foregroundColor(Color("HomeTopBar"))
                             .opacity(0.2)
-                            .overlay(Text(userData.currDevice.name).foregroundColor(.white).padding(.leading,34))
+                            .overlay(Text("设备已连接").foregroundColor(.white).padding(.leading,34))
                         Spacer()
                     }
                     
