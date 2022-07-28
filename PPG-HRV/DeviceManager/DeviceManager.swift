@@ -84,13 +84,14 @@ extension DeviceManager: TransferManagerDelegate {
                 DispatchQueue.main.async {
                     userData.realTimeHRV.removeFirst()
                     userData.realTimeHRV.append(Double(receivePack.hr))
-//                    var currentFilePath = FileTool().createRealtimeTxt()
-//                    do {
-//                        print("[获取要打开的地址] -> ", currentFilePath)
-//                        try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.data)".data(using: .utf8)!)
-//                    } catch {
-//                        print(error)
-//                    }
+                    var currentFilePath = FileTool().createRealtimeTxt()
+                    do {
+                        print("[获取要打开的地址] -> ", currentFilePath)
+                        
+                        try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.data)".data(using: .utf8)!)
+                    } catch {
+                        print(error)
+                    }
                 }
             }
         }

@@ -11,8 +11,10 @@ import BleFramework
 import CoreSDK
 import BaseFramework
 
+
+
 final class UserData: ObservableObject {
-    @Published var currDevice = VsDevice()
+    var currDevice = VsDevice()
     @Published var isDeviceConnected: Bool = false
     @Published var realTimeHRV : [Double] = [0,0]
     
