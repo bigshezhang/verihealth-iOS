@@ -75,10 +75,14 @@ extension DeviceManager: TransferManagerDelegate {
             print("[收包算法返回值] -> ", receivePack.ret)
             print("[HRV返回值] -> ", receivePack.hr)
             if userData.realTimeHRV.count < 31 {
-                userData.realTimeHRV.append(Double(receivePack.hr))
+                DispatchQueue.main.async {
+                    userData.realTimeHRV.append(Double(receivePack.hr))
+                }
             } else {
-                userData.realTimeHRV.removeFirst()
-                userData.realTimeHRV.append(Double(receivePack.hr))
+                DispatchQueue.main.async {
+                    userData.realTimeHRV.removeFirst()
+                    userData.realTimeHRV.append(Double(receivePack.hr))
+                }
             }
         }
     }
