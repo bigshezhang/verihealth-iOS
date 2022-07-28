@@ -12,13 +12,13 @@ struct RouterView: View {
 //    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var selection = 1
-    
+    @State var createFileError = String()
     var body: some View {
         NavigationView {
             ZStack{
                 ScrollView(){
                     switch viewRouter.currentPage{
-                    case .Home: ExportImportTest()
+                    case .Home: HomeView()
                     case .Page1: Page1()
                     case .Page2: Page2()
                     }

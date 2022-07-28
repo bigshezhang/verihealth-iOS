@@ -19,21 +19,19 @@ struct PPG_HRVApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            var userData = UserData()
             var viewRouter = ViewRouter()
             if userData.isFirstInit{
                 SplashScreen()
-//                    .environmentObject(userData)
                     .environmentObject(viewRouter)
             } else {
                 RouterView()
                     .onAppear{
+                        FileTool().createTodayDir()     //创建当天的信息收集文件夹
                         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                             deviceManager.startScan()
                         }
                     }
                     .environmentObject(viewRouter)
-//                    .environmentObject(userData)
             }
         }
     }
