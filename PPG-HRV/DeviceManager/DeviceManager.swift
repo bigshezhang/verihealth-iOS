@@ -36,7 +36,9 @@ class DeviceManager: NSObject, ObservableObject
         
         let payData = NSData(bytes: &toMeasure, length: 2)
         
-        TransferManager.sharedInstance().sendCommonMessage(device, msgId: UInt16(VS_SEND_MSG), data: payData as Data)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            TransferManager.sharedInstance().sendCommonMessage(device, msgId: UInt16(VS_SEND_MSG), data: payData as Data)
+        }
     }
     
 }
