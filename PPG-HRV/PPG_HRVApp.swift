@@ -27,6 +27,7 @@ struct PPG_HRVApp: App {
                 RouterView()
                     .onAppear{
                         FileTool().createTodayDir()     //创建当天的信息收集文件夹
+                        FileTool().createRealtimeTxt()
                         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                             deviceManager.startScan()
                         }
