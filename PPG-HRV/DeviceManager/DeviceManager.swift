@@ -54,7 +54,6 @@ extension DeviceManager: TransferManagerDelegate {
         userData.currDevice = device
         userData.isDeviceConnected = true
         sendCustomPack(device: device, isMeasuring: 1)
-        userData.isDeviceConnected = true
     }
     
     func transIsReady(_ device: Any) {
