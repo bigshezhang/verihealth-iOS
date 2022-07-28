@@ -83,7 +83,7 @@ struct HomeView: View{
                         }
                     )
                     .frame(width: 350, height: 400)
-                    .padding(.top, 100)
+//                    .padding(.top, 100)
                 
                 Spacer()
             }
