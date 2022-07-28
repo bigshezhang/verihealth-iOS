@@ -52,7 +52,9 @@ extension DeviceManager: TransferManagerDelegate {
         print("[获取的蓝牙名称]-> ",device.name)
         TransferManager.sharedInstance().connect(device)    //连接设备
         userData.currDevice = device
-        userData.isDeviceConnected = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            userData.isDeviceConnected = true           //异步处理一下，防止主视图崩溃
+        }
         sendCustomPack(device: device, isMeasuring: 1)
     }
     
@@ -82,8 +84,10 @@ extension DeviceManager: TransferManagerDelegate {
                 DispatchQueue.main.async {
                     userData.realTimeHRV.removeFirst()
                     userData.realTimeHRV.append(Double(receivePack.hr))
+                    var currentFilePath = FileTool().createRealtimeTxt()
                     do {
-                        try FileHandle(forWritingTo: URL.init(string: userData.todayDirPath.appending("/\(FileTool().createRealtimeTxt())"))!).write(contentsOf: "\(receivePack.data)".data(using: .utf8)!)
+                        print("[获取要打开的地址] -> ", currentFilePath)
+                        try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.data)".data(using: .utf8)!)
                     } catch {
                         print(error)
                     }

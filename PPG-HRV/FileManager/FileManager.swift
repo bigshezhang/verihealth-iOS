@@ -23,7 +23,7 @@ final class FileTool{
     
     func getCurrentTime() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH时mm分ss.S秒"
+        formatter.dateFormat = "HH-mm-ss.SSS"
         formatter.timeZone = TimeZone.init(identifier: "Asia/Beijing")
         return formatter.string(from: Date())
     }
@@ -36,8 +36,9 @@ final class FileTool{
     
     func createRealtimeTxt() -> String{     //返回当前的时间便与写入文件
         var currentTime = getCurrentTime()
-        createFileIfNotExits(userData.todayDirPath.appending("/\(getCurrentTime()).txt"), createFileError)
-        print("[创建当前时刻的文件是否发生错误] -> ", createFileError)
-        return currentTime
+        createFileIfNotExits(userData.todayDirPath.appending("/\(currentTime).txt"), createFileError)
+        print("[创建当前时刻的文件是否发生错误\(currentTime)] -> ", createFileError)
+        print("[刚刚创建的地址] -> ", userData.todayDirPath.appending("/\(currentTime).txt"))
+        return userData.todayDirPath.appending("/\(currentTime).txt")
     }
 }
