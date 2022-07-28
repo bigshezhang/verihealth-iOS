@@ -11,7 +11,7 @@ import BaseFramework
 import BleFramework
 
 struct HomeView: View{
-    @EnvironmentObject var userData: UserData
+//    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
@@ -93,7 +93,7 @@ struct HomeView: View{
 struct HomeView_Preview: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(UserData())
+//            .environmentObject(UserData())
             .environmentObject(ViewRouter())
     }
 }

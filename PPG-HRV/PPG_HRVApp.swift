@@ -19,11 +19,11 @@ struct PPG_HRVApp: App {
     
     var body: some Scene {
         WindowGroup {
-            var userData = UserData()
+//            var userData = UserData()
             var viewRouter = ViewRouter()
             if userData.isFirstInit{
                 SplashScreen()
-                    .environmentObject(userData)
+//                    .environmentObject(userData)
                     .environmentObject(viewRouter)
             } else {
                 RouterView()
@@ -33,7 +33,7 @@ struct PPG_HRVApp: App {
                         }
                     }
                     .environmentObject(viewRouter)
-                    .environmentObject(userData)
+//                    .environmentObject(userData)
             }
         }
     }

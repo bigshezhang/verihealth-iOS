@@ -10,13 +10,13 @@ import SwiftUI
 import BleFramework
 import CoreSDK
 
-class UserData: ObservableObject {
-    @Published var currDevice = VsDevice()
-//    @Published var gloablP = CBPeripheral.self
+struct UserData {
+    @State var currDevice = VsDevice()
+    @State var isDeviceConnected: Bool = false
     
     @AppStorage("isFirstInit") var isFirstInit: Bool = true
-    @AppStorage("isDeviceConnected") var isDeviceConnected: Bool = false
     @AppStorage("vsDeviceUUID") var vsDeviceUUID: String = ""
 //    @AppStorage("vsData") var vsData = [2,2]
 }
 
+var userData = UserData()

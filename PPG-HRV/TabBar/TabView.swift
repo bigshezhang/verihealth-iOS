@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabView: View {
-    @EnvironmentObject var userData: UserData
+//    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     private var iconSize: CGFloat = 30
     var body: some View {

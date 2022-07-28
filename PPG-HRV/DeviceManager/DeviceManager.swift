@@ -47,7 +47,10 @@ extension DeviceManager: TransferManagerDelegate {
     func transReceive(_ device: VsDevice) {
         print("[获取的蓝牙名称]-> ",device.name)
         TransferManager.sharedInstance().connect(device)    //连接设备
+        userData.currDevice = device
+        userData.isDeviceConnected = true
         sendCustomPack(device: device, isMeasuring: 1)
+        
     }
     
     func transIsReady(_ device: Any) {

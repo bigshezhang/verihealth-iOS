@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct RouterView: View {
-    @EnvironmentObject var userData: UserData
+//    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     
     @State private var selection = 1
@@ -42,6 +42,6 @@ struct RouterView_Previews: PreviewProvider {
     static var previews: some View {
         RouterView()
             .environmentObject(ViewRouter())
-            .environmentObject(UserData())
+//            .environmentObject(UserData())
     }
 }

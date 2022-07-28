@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SplashScreen: View {
     @State private var isPressed = false
-    @EnvironmentObject var userData: UserData
+//    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
