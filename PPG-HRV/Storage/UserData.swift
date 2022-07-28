@@ -10,7 +10,7 @@ import SwiftUI
 import BleFramework
 import CoreSDK
 
-final class UserData: ObservableObject {
+class UserData: ObservableObject {
     @Published var currDevice = VsDevice()
 //    @Published var gloablP = CBPeripheral.self
     
@@ -19,3 +19,4 @@ final class UserData: ObservableObject {
     @AppStorage("vsDeviceUUID") var vsDeviceUUID: String = ""
 //    @AppStorage("vsData") var vsData = [2,2]
 }
+
