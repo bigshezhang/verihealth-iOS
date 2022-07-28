@@ -77,20 +77,20 @@ extension DeviceManager: TransferManagerDelegate {
             print("[收包算法返回值] -> ", receivePack.ret)
             print("[HRV返回值] -> ", receivePack.hr)
             if userData.realTimeHRV.count < 31 {        //向HomeView中的实时HRV视图传值
-                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                DispatchQueue.main.async {
                     userData.realTimeHRV.append(Double(receivePack.hr))
                 }
             } else {
                 DispatchQueue.main.async {
                     userData.realTimeHRV.removeFirst()
                     userData.realTimeHRV.append(Double(receivePack.hr))
-                    var currentFilePath = FileTool().createRealtimeTxt()
-                    do {
-                        print("[获取要打开的地址] -> ", currentFilePath)
-                        try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.data)".data(using: .utf8)!)
-                    } catch {
-                        print(error)
-                    }
+//                    var currentFilePath = FileTool().createRealtimeTxt()
+//                    do {
+//                        print("[获取要打开的地址] -> ", currentFilePath)
+//                        try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.data)".data(using: .utf8)!)
+//                    } catch {
+//                        print(error)
+//                    }
                 }
             }
         }
