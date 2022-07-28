@@ -27,7 +27,7 @@ class DeviceManager: NSObject, ObservableObject
         TransferManager.sharedInstance().scanDevices { error in
             print("[启动蓝牙是否错误] -> ", error)
         }
-}
+    }
     
     public func sendCustomPack(device: VsDevice, isMeasuring: Int){
         print("[发送的蓝牙信息] -> ", isMeasuring)
@@ -67,7 +67,7 @@ extension DeviceManager: TransferManagerDelegate {
     
     func transReceiveCustomMessage(_ transManager: TransferManager, device: Any, dataFrame frame: PayloadFrame) {
         print("[收到自定义消息]")
-        
+        userData.isDeviceConnected = true   //收到消息就解除
         if frame.payload != nil{
             let data: NSData = (frame.payload as NSData?)!
             var receivePack = MyBleRecPacket()
