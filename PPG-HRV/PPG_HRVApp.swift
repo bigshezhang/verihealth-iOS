@@ -28,7 +28,7 @@ struct PPG_HRVApp: App {
             } else {
                 RouterView()
                     .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
                             deviceManager.startScan()
                         }
                     }
