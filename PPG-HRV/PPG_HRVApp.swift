@@ -13,8 +13,8 @@ import CoreSDK
 
 @main
 struct PPG_HRVApp: App {
-    private let scanDevices = {
-        ScanDevices()
+    private let deviceManager = {
+        DeviceManager()
     }()
     
     var body: some Scene {
@@ -29,7 +29,7 @@ struct PPG_HRVApp: App {
                 RouterView()
                     .onAppear{
                         DispatchQueue.main.asyncAfter(deadline: .now()+5) {
-                            scanDevices.startScan()
+                            deviceManager.startScan()
                         }
                     }
                     .environmentObject(viewRouter)

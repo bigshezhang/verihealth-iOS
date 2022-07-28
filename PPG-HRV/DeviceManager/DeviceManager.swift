@@ -9,7 +9,7 @@ import BaseFramework
 import BleFramework
 import CoreSDK
 
-class ScanDevices: NSObject, ObservableObject
+class DeviceManager: NSObject, ObservableObject
 {
     @Published var isScanningPublisher: Bool = false
     
@@ -28,27 +28,26 @@ class ScanDevices: NSObject, ObservableObject
             print("[启动蓝牙是否错误] -> ", error)
         }
     }
-}
-
-class TransData: TransferManager{
-    func sendCustomPack(device: VsDevice, isMeasuring: Int){
+    
+    public func sendCustomPack(device: VsDevice, isMeasuring: Int){
         var toMeasure = MyBleSendPacket(isMeasuring: UInt16(isMeasuring))
         
         let payData = NSData(bytes: &toMeasure, length: 2)
         
         TransferManager.sharedInstance().sendCommonMessage(device, msgId: UInt16(VS_SEND_MSG), data: payData as Data)
     }
+    
 }
 
 
-extension ScanDevices: TransferManagerDelegate {
+extension DeviceManager: TransferManagerDelegate {
     func transUpdateBLEState(_ state: BLEStatus) {
     }
     
     func transReceive(_ device: VsDevice) {
         print("[获取的蓝牙名称]-> ",device.name)
         TransferManager.sharedInstance().connect(device)    //连接设备
-        TransData.sharedInstance().sendCustomPack(device: device, isMeasuring: 1)
+        sendCustomPack(device: device, isMeasuring: 1)
     }
     
     func transIsReady(_ device: Any) {
@@ -56,6 +55,18 @@ extension ScanDevices: TransferManagerDelegate {
     }
     
     func transReceiveMessage(_ transManager: TransferManager, device: Any, dataFrame frame: VsMessageFrame) {
-        print("[信息框架id -> ]",frame.msg_id)
+        print("[信息框架id] -> ",frame.msg_id)
+    }
+    
+    func transReceiveCustomMessage(_ transManager: TransferManager, device: Any, dataFrame frame: PayloadFrame) {
+        print("[收到自定义消息] -> ")
+        
+        if frame.payload != nil{
+            let data: NSData = (frame.payload as NSData?)!
+            var receivePack = MyBleRecPacket()
+            data.getBytes(&receivePack, length: data.length)
+//            print("[收包Type] -> ", receivePack.type)
+            print("[收包算法返回值] -> ", receivePack.ret)
+        }
     }
 }

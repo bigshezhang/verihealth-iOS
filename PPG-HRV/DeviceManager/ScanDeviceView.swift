@@ -18,8 +18,8 @@ struct ScanDeviceView: View {
     @State var isScaning = true
     @Environment(\.presentationMode) var presentationMode
 
-    private let scanDevices = {
-        ScanDevices()
+    private let deviceManager = {
+        DeviceManager()
     }()
 
     var body: some View {
