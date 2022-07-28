@@ -74,9 +74,9 @@ struct HomeView: View{
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(Color.white)
-                                .opacity((userData.currDevice.name == nil) ? 0.8 : 0)
+                                .opacity((userData.isDeviceConnected) ? 0 : 0.8)
                             Text("请连接设备后查看实时HRV")
-                                .opacity((userData.currDevice.name == nil) ? 1 : 0)
+                                .opacity((userData.isDeviceConnected) ? 0 : 1)
                                 .foregroundColor(Color.gray)
                         }
                     )
