@@ -77,7 +77,7 @@ extension DeviceManager: TransferManagerDelegate {
             print("[收包算法返回值] -> ", receivePack.ret)
             print("[HRV返回值] -> ", receivePack.hr)
             if userData.realTimeHRV.count < 31 {        //向HomeView中的实时HRV视图传值
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                     userData.realTimeHRV.append(Double(receivePack.hr))
                 }
             } else {
