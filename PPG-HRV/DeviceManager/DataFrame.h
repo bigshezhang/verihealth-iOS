@@ -8,8 +8,8 @@
 #ifndef DataFrame_h
 #define DataFrame_h
 
-#define VS_REC_MSG 0x10000
-#define VS_SEND_MSG 0x10001
+#define VS_REC_MSG 10000
+#define VS_SEND_MSG 10001
 
 #include <stdio.h>
 
