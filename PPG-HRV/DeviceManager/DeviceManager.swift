@@ -27,7 +27,7 @@ class DeviceManager: NSObject, ObservableObject
         TransferManager.sharedInstance().scanDevices { error in
             print("[启动蓝牙是否错误] -> ", error)
         }
-    }
+}
     
     public func sendCustomPack(device: VsDevice, isMeasuring: Int){
         print("[发送的蓝牙信息] -> ", isMeasuring)
@@ -54,7 +54,7 @@ extension DeviceManager: TransferManagerDelegate {
         userData.currDevice = device
         userData.isDeviceConnected = true
         sendCustomPack(device: device, isMeasuring: 1)
-        
+        userData.isDeviceConnected = true
     }
     
     func transIsReady(_ device: Any) {

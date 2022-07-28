@@ -11,8 +11,9 @@ import BaseFramework
 import BleFramework
 
 struct HomeView: View{
-    @Binding var isConnected : Bool
 //    @EnvironmentObject var userData: UserData
+    @ObservedObject var isConnected = userData
+    
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
@@ -75,9 +76,9 @@ struct HomeView: View{
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(Color.white)
-                                .opacity((userData.isDeviceConnected) ? 0 : 0.8)
+                                .opacity(isConnected.isDeviceConnected ? 0 : 0.8)
                             Text("请连接设备后查看实时HRV")
-                                .opacity((userData.isDeviceConnected) ? 0 : 1)
+                                .opacity(isConnected.isDeviceConnected ? 0 : 1)
                                 .foregroundColor(Color.gray)
                         }
                     )
@@ -91,10 +92,10 @@ struct HomeView: View{
     }
 }
 
-//struct HomeView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        HomeView()
-////            .environmentObject(UserData())
-//            .environmentObject(ViewRouter())
-//    }
-//}
+struct HomeView_Preview: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+//            .environmentObject(UserData())
+            .environmentObject(ViewRouter())
+    }
+}

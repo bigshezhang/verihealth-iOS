@@ -10,17 +10,14 @@ import SwiftUI
 import BleFramework
 import CoreSDK
 
-struct UserData {
-    @State var currDevice = VsDevice()
-    @State var isDeviceConnected: Bool = false
+final class UserData: ObservableObject {
+    @Published var currDevice = VsDevice()
+    @Published var isDeviceConnected: Bool = false
     @State var realTimeHRV : [Double] = [0,0]
     
     @AppStorage("isFirstInit") var isFirstInit: Bool = true
     @AppStorage("vsDeviceUUID") var vsDeviceUUID: String = ""
 //    @AppStorage("vsData") var vsData = [2,2]
-    
-    
-    
 }
 
 var userData = UserData()

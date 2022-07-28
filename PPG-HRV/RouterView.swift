@@ -11,7 +11,6 @@ import UIKit
 struct RouterView: View {
 //    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
-    
     @State private var selection = 1
     
     var body: some View {
@@ -19,7 +18,7 @@ struct RouterView: View {
             ZStack{
                 ScrollView(){
                     switch viewRouter.currentPage{
-                    case .Home: HomeView(isConnected: userData.$isDeviceConnected)
+                    case .Home: HomeView()
                     case .Page1: Page1()
                     case .Page2: Page2()
                     }
