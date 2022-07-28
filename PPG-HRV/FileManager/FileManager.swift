@@ -29,7 +29,7 @@ final class FileTool{
     
     func createRealtimeTxt() -> UInt64{     //返回当前的时间便与写入文件
         var currentUTC = getCurrentUTC()
-        createFileIfNotExits(userData.todayDirPath.appending("/\(getCurrentUTC())"), createFileError)
+        createFileIfNotExits(userData.todayDirPath.appending("/\(getCurrentUTC()).txt"), createFileError)
         print("[创建当前时刻的文件是否发生错误] -> ", createFileError)
         return currentUTC
     }
