@@ -30,6 +30,8 @@ class DeviceManager: NSObject, ObservableObject
     }
     
     public func sendCustomPack(device: VsDevice, isMeasuring: Int){
+        print("[发送的蓝牙信息] -> ", isMeasuring)
+        
         var toMeasure = MyBleSendPacket(isMeasuring: UInt16(isMeasuring))
         
         let payData = NSData(bytes: &toMeasure, length: 2)
@@ -63,7 +65,7 @@ extension DeviceManager: TransferManagerDelegate {
     }
     
     func transReceiveCustomMessage(_ transManager: TransferManager, device: Any, dataFrame frame: PayloadFrame) {
-        print("[收到自定义消息] -> ")
+        print("[收到自定义消息]")
         
         if frame.payload != nil{
             let data: NSData = (frame.payload as NSData?)!
