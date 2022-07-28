@@ -68,7 +68,10 @@ extension DeviceManager: TransferManagerDelegate {
     
     func transReceiveCustomMessage(_ transManager: TransferManager, device: Any, dataFrame frame: PayloadFrame) {
 //        print("[收到自定义消息]")
-        userData.isDeviceConnected = true   //收到消息就解除
+        DispatchQueue.main.async {
+            userData.isDeviceConnected = true   //收到消息就解除
+        }
+        
         if frame.payload != nil{
             let data: NSData = (frame.payload as NSData?)!
             var receivePack = MyBleRecPacket()
