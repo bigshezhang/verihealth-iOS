@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E02288482892D592002B697A /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02288472892D592002B697A /* FileManager.swift */; };
 		E024F72D2890317F007650DB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72C2890317F007650DB /* Spinner.swift */; };
 		E024F72F2890379D007650DB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72E2890379D007650DB /* Recording.swift */; };
 		E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */; };
@@ -92,6 +93,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E02288472892D592002B697A /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		E024F72C2890317F007650DB /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		E024F72E2890379D007650DB /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E02288462892D584002B697A /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				E02288472892D592002B697A /* FileManager.swift */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
 		E0560B28288F74EF00B27EC3 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +211,7 @@
 		E0ED5D7F2886CBD300258227 /* PPG-HRV */ = {
 			isa = PBXGroup;
 			children = (
+				E02288462892D584002B697A /* FileManager */,
 				E08CC2682889E599004317BE /* Info.plist */,
 				E0ED5DB028879D2A00258227 /* Home */,
 				E0ED5DC12887A8B100258227 /* Page2 */,
@@ -461,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02288482892D592002B697A /* FileManager.swift in Sources */,
 				E024F72F2890379D007650DB /* Recording.swift in Sources */,
 				E0A981D228923C9600EDE15A /* DataFrame.c in Sources */,
 				E0BD634828901EB200CAA896 /* MyDeviceView.swift in Sources */,
