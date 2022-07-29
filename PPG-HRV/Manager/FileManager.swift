@@ -44,7 +44,7 @@ final class FileTool{
             var minute = String(format: "%02d", i)
             hourHRV.append(averageByMinute(time: hour.appending("-\(minute)")))
         }
-
+        print("[获取到一小时中的数据] ->", hourHRV)
         return hourHRV
     }
     
