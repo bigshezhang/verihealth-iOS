@@ -20,6 +20,9 @@ struct RealTimeHRVView: View {
                 ZStack{
                     LineView(data: mydata.realTimeHRV, title: "实时HRV")
                         .padding()
+                        .onAppear{
+                            mydata.isDeviceConnected = true
+                        }
 
                     VStack{
                         HStack(){
@@ -32,13 +35,15 @@ struct RealTimeHRVView: View {
                                     .padding(.trailing, 20)
                                     .padding(.top, 20)
                                 
-                                Text("当前的HRV：\(mydata.realTimeHRV.last!)")
-                                    .font(.system(size: 12))
-                                    .frame(width: 30,height: 30)
-                                    .opacity(mydata.isDeviceConnected ? 1 : 0)
-                                    .animation(.spring(), value: mydata.isDeviceConnected)
-                                    .padding(.trailing, 20)
-                                    .padding(.top, 20)
+                                VStack{
+                                    HeartBeat()
+                                    Text("当前的HRV：\(Int(mydata.realTimeHRV.last!))")
+                                        .font(.system(size: 14))
+                                        .opacity(mydata.isDeviceConnected ? 1 : 0)
+                                        .animation(.spring(), value: mydata.isDeviceConnected)
+                                }
+                                .padding(.trailing, 20)
+                                .padding(.top, 20)
                             }
                         }
                         Spacer()
