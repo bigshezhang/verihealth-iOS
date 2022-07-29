@@ -10,9 +10,7 @@ import Foundation
 func unbindTuple (data: (UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16,UInt16)) -> [UInt16] {
     
     let (the1, the2,the3, the4,the5, the6,the7, the8,the9, the10,the11, the12,the13, the14,the15, the16,the17, the18,the19, the20,the21, the22,the23, the24,the25, the26,the27, the28,the29, the30,the31, the32,the33, the34,the35, the36) = data
-    
     var array = [UInt16]()
-    
     array.append(the1)
     array.append(the2)
     array.append(the3)
