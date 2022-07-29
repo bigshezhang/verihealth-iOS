@@ -9,7 +9,6 @@ import SwiftUI
 import UIKit
 
 struct RouterView: View {
-//    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var selection = 1
     @State var createFileError = String()

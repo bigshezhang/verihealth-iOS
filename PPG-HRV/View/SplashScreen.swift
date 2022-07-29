@@ -14,6 +14,7 @@ struct SplashScreen: View {
     var body: some View {
         if userData.isFirstInit {
             ZStack {
+                Text("再次触摸，新的生活")
                 VStack(){
                     Image("SplashTop")
                         .resizable(resizingMode: .stretch)
@@ -35,7 +36,7 @@ struct SplashScreen: View {
                 Button {
                     isPressed = true
                     viewRouter.currentPage = .Home
-                    
+                    RouterView()
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                         userData.isFirstInit = false
                     })
