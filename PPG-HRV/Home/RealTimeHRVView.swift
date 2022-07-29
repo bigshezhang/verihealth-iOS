@@ -32,7 +32,8 @@ struct RealTimeHRVView: View {
                                     .padding(.trailing, 20)
                                     .padding(.top, 20)
                                 
-                                Text("当前HRV值：")
+                                Text("当前的HRV：\(mydata.realTimeHRV.last!)")
+                                    .font(.system(size: 12))
                                     .frame(width: 30,height: 30)
                                     .opacity(mydata.isDeviceConnected ? 1 : 0)
                                     .animation(.spring(), value: mydata.isDeviceConnected)
