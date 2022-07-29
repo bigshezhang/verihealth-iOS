@@ -12,7 +12,6 @@ import BleFramework
 import CoreSDK
 
 struct ScanDeviceView: View {
-//    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     @State var device = VsDevice()
     @State var isScaning = true

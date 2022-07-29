@@ -16,11 +16,12 @@ struct PPG_HRVApp: App {
     private let deviceManager = {
         DeviceManager()
     }()
+    @ObservedObject var myData = userData
     
     var body: some Scene {
         WindowGroup {
             var viewRouter = ViewRouter()
-            if userData.isFirstInit{
+            if myData.isFirstInit{
                 SplashScreen()
                     .environmentObject(viewRouter)
             } else {
