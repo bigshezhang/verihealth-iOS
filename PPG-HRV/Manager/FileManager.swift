@@ -32,13 +32,32 @@ final class FileTool{
         createDirectoryIfNotExists(userData.appDocDir.appending("/\(getCurrentDate())"), &createDirError)
         print("[创建当天储存文件夹是否发生错误] -> ",createDirError)
         userData.todayDirPath = userData.appDocDir.appending("/\(getCurrentDate())")    //刷新userData中当天的文件夹露肩
+        creatSecondFolder()
     }
     
-    func createRealtimeTxt() -> String{     //返回当前的时间便与写入文件
-        var currentTime = getCurrentTime()
-        createFileIfNotExits(userData.todayDirPath.appending("/\(currentTime).txt"), createFileError)
-//        print("[创建当前时刻的文件是否发生错误\(currentTime)] -> ", createFileError)
-//        print("[刚刚创建的地址] -> ", userData.todayDirPath.appending("/\(currentTime).txt"))
-        return userData.todayDirPath.appending("/\(currentTime).txt")
+    func creatSecondFolder() -> Void{
+        createDirectoryIfNotExists(userData.appDocDir.appending("/\(getCurrentDate())/CustomMsg"), &createDirError)
+        print("[创建第二层文件夹是否发生错误] -> ",createDirError)
+        createDirectoryIfNotExists(userData.appDocDir.appending("/\(getCurrentDate())/RawMsg"), &createDirError)
     }
+    
+    func createRealtimeTxt(writeWhat: writeWhat) -> String{     //返回当前的时间便与写入文件
+        var currentTime = getCurrentTime()
+        
+        switch writeWhat{
+        case .custom :do {
+            createFileIfNotExits(userData.todayDirPath.appending("/CustomMsg/\(currentTime).txt"), createFileError)
+            return userData.todayDirPath.appending("/CustomMsg/\(currentTime).txt")
+        }
+        case .raw :do {
+            createFileIfNotExits(userData.todayDirPath.appending("/RawMsg/\(currentTime).txt"), createFileError)
+            return userData.todayDirPath.appending("/RawMsg/\(currentTime).txt")
+        }
+        }
+    }
+}
+
+enum writeWhat {
+    case raw
+    case custom
 }

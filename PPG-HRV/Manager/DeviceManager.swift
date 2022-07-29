@@ -8,6 +8,8 @@
 import BaseFramework
 import BleFramework
 import CoreSDK
+import Accelerate
+
 
 class DeviceManager: NSObject, ObservableObject
 {
@@ -88,15 +90,16 @@ extension DeviceManager: TransferManagerDelegate {
                         userData.realTimeHRV.append(Double(receivePack.sdnn))
                     }
                 }
-                var currentFilePath = FileTool().createRealtimeTxt()
-                do {
-                    let fileHandle = try FileHandle(forWritingTo: URL.init(string: currentFilePath)!)
-                    fileHandle.seekToEndOfFile()
-                    try fileHandle.write(contentsOf: "\(receivePack.sdnn)\n".data(using: .utf8)!)
-                    try fileHandle.close()
-                } catch {
-                    print(error)
-                }
+            }
+            let currentFilePath = FileTool().createRealtimeTxt(writeWhat: .raw)        //输出到文件
+            var toWriteData = unbindTuple(data: receivePack.data)
+            do {
+                let fileHandle = try FileHandle(forWritingTo: URL.init(string: currentFilePath)!)
+                fileHandle.seekToEndOfFile()
+                try fileHandle.write(contentsOf: "\(toWriteData.prefix(Int(receivePack.size)))\n".data(using: .utf8)!)
+                try fileHandle.close()
+            } catch {
+                print(error)
             }
         }
     }

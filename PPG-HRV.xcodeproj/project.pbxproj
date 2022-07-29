@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		E024F72D2890317F007650DB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72C2890317F007650DB /* Spinner.swift */; };
 		E024F72F2890379D007650DB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72E2890379D007650DB /* Recording.swift */; };
 		E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */; };
+		E081D9702893A82000C88F23 /* UnbindTuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D96F2893A82000C88F23 /* UnbindTuple.swift */; };
 		E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A981CC28918C9600EDE15A /* DeviceManager.swift */; };
 		E0BD634A289020DA00CAA896 /* RealTimeHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */; };
 		E0BD634D28902B5800CAA896 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0BD634C28902B5800CAA896 /* SwiftUICharts */; };
@@ -97,6 +98,7 @@
 		E024F72C2890317F007650DB /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		E024F72E2890379D007650DB /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceView.swift; sourceTree = "<group>"; };
+		E081D96F2893A82000C88F23 /* UnbindTuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnbindTuple.swift; sourceTree = "<group>"; };
 		E08CC2682889E599004317BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PPG-HRV-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0A981CC28918C9600EDE15A /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				E0ED5DC22887A8BD00258227 /* Page1.swift */,
 				E0ED5DC42887A8C900258227 /* Page2.swift */,
 				E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */,
+				E0ED5DBE2887A45100258227 /* RouterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				E021B14628935F9D005B5AE0 /* HeartBeat.swift */,
 				E024F72E2890379D007650DB /* Recording.swift */,
 				E024F72C2890317F007650DB /* Spinner.swift */,
+				E081D96F2893A82000C88F23 /* UnbindTuple.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -231,7 +235,6 @@
 				E021B14828939378005B5AE0 /* Manager */,
 				E0ED5DAD2886FC5D00258227 /* Storage */,
 				E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */,
-				E0ED5DBE2887A45100258227 /* RouterView.swift */,
 				E0ED5D842886CBD400258227 /* Assets.xcassets */,
 				E0560B28288F74EF00B27EC3 /* Helper */,
 				E0ED5D862886CBD400258227 /* Preview Content */,
@@ -442,6 +445,7 @@
 				E021B14728935F9D005B5AE0 /* HeartBeat.swift in Sources */,
 				E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
+				E081D9702893A82000C88F23 /* UnbindTuple.swift in Sources */,
 				E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */,
 				E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */,
 				E0ED5DC52887A8C900258227 /* Page2.swift in Sources */,

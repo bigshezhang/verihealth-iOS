@@ -23,9 +23,8 @@ typedef struct MyBleRecPacket {
     uint16_t sdnn;
     uint16_t hr;
     uint16_t size;
-    uint16_t data[64];
+    uint16_t data[36];
     
 } __attribute((__packed__)) MyBleRecPacket;
-
 
 #endif /* DataFrame_h */

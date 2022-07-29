@@ -30,7 +30,6 @@ struct PPG_HRVApp: App {
                         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                             deviceManager.startScan()
                         }
-
                     }
                     .environmentObject(viewRouter)
             }
