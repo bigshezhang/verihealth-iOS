@@ -51,6 +51,5 @@ struct ScanDeviceView_Previews: PreviewProvider {
     static var previews: some View {
         ScanDeviceView()
             .environmentObject(ViewRouter())
-//            .environmentObject(UserData())
     }
 }

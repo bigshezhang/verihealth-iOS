@@ -76,9 +76,7 @@ extension DeviceManager: TransferManagerDelegate {
             let data: NSData = (frame.payload as NSData?)!
             var receivePack = MyBleRecPacket()
             data.getBytes(&receivePack, length: data.length)
-//            print("[收包Type] -> ", receivePack.type)
-//            print("[收包算法返回值] -> ", receivePack.ret)
-            print("[HRV返回值] -> ", receivePack.hr)
+            print("[HRV返回值] -> ", receivePack.sdnn)
             if userData.realTimeHRV.count < 31 {        //向HomeView中的实时HRV视图传值
                 DispatchQueue.main.async {
                     userData.realTimeHRV.append(Double(receivePack.hr))
@@ -86,11 +84,9 @@ extension DeviceManager: TransferManagerDelegate {
             } else {
                 DispatchQueue.main.async {
                     userData.realTimeHRV.removeFirst()
-                    userData.realTimeHRV.append(Double(receivePack.hr))
+                    userData.realTimeHRV.append(Double(receivePack.sdnn))
                     var currentFilePath = FileTool().createRealtimeTxt()
                     do {
-                        print("[获取要打开的地址] -> ", currentFilePath)
-                        
                         try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.data)".data(using: .utf8)!)
                     } catch {
                         print(error)

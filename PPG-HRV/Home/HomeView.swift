@@ -11,9 +11,7 @@ import BaseFramework
 import BleFramework
 
 struct HomeView: View{
-//    @EnvironmentObject var userData: UserData
     @ObservedObject var MyData = userData
-    
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
@@ -71,7 +69,7 @@ struct HomeView: View{
                     Spacer()
                 }
                 
-                RealTimeView()
+                RealTimeHRVView()
                     .overlay(
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
@@ -95,7 +93,6 @@ struct HomeView: View{
 struct HomeView_Preview: PreviewProvider {
     static var previews: some View {
         HomeView()
-//            .environmentObject(UserData())
             .environmentObject(ViewRouter())
     }
 }

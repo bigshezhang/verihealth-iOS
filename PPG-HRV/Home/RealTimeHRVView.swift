@@ -8,8 +8,8 @@
 import SwiftUI
 import SwiftUICharts
 
-struct RealTimeView: View {
-    @ObservedObject var MyData = userData
+struct RealTimeHRVView: View {
+    @ObservedObject var mydata = userData
     
     var body: some View {
         ZStack{
@@ -18,16 +18,15 @@ struct RealTimeView: View {
                 
             GeometryReader{ GeometryProxy in
                 ZStack{
-                    LineView(data: MyData.realTimeHRV, title: "实时HRV")
+                    LineView(data: mydata.realTimeHRV, title: "实时HRV")
                         .padding()
-        //                .padding()
 
                     VStack{
                         HStack(){
                             Spacer()
                             Spinner()
-                                .opacity(MyData.isDeviceConnected ? 0 : 1)
-                                .animation(.spring(), value: MyData.isDeviceConnected)
+                                .opacity(mydata.isDeviceConnected ? 0 : 1)
+                                .animation(.spring(), value: mydata.isDeviceConnected)
                                 .padding(.trailing, 20)
                                 .padding(.top, 20)
                         }
@@ -38,13 +37,11 @@ struct RealTimeView: View {
                     VStack{
                         HStack(){
                             Spacer()
-                            Text("仅保留最近半分钟心率")
-                                .font(.system(size: 10))
-                                .opacity(MyData.isDeviceConnected ? 1 : 0)
-                                .animation(.spring(), value: MyData.isDeviceConnected)
+                            HeartBeat()
+                                .opacity(mydata.isDeviceConnected ? 1 : 0)
+                                .animation(.spring(), value: mydata.isDeviceConnected)
                                 .padding(.trailing, 20)
-                                .padding(.top, 20)
-                        }
+                                .padding(.top, 20)                        }
                         Spacer()
                     }
                 }
@@ -53,8 +50,8 @@ struct RealTimeView: View {
     }
 }
 
-//struct RealTimeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RealTimeView()
-//    }
-//}
+struct RealTimeView_Previews: PreviewProvider {
+    static var previews: some View {
+        RealTimeHRVView()
+    }
+}
