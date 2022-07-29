@@ -24,24 +24,20 @@ struct RealTimeHRVView: View {
                     VStack{
                         HStack(){
                             Spacer()
-                            Spinner()
-                                .opacity(mydata.isDeviceConnected ? 0 : 1)
-//                                .animation(, value: mydata.isDeviceConnected)
-                                .padding(.trailing, 20)
-                                .padding(.top, 20)
+                            ZStack{
+                                Spinner()
+                                    .opacity(mydata.isDeviceConnected ? 0 : 1)
+                                    .animation(.spring(), value: mydata.isDeviceConnected)
+                                    .padding(.trailing, 20)
+                                    .padding(.top, 20)
+                                
+                                HeartBeat()
+                                    .opacity(mydata.isDeviceConnected ? 1 : 0)
+                                    .animation(.spring(), value: mydata.isDeviceConnected)
+                                    .padding(.trailing, 20)
+                                    .padding(.top, 20)
+                            }
                         }
-                        Spacer()
-
-                    }
-                    
-                    VStack{
-                        HStack(){
-                            Spacer()
-                            HeartBeat()
-                                .opacity(mydata.isDeviceConnected ? 1 : 0)
-//                                .animation(.spring(), value: mydata.isDeviceConnected)
-                                .padding(.trailing, 20)
-                                .padding(.top, 20)                        }
                         Spacer()
                     }
                 }
