@@ -24,12 +24,16 @@ struct RealTimeHRVView: View {
                         HStack(){
                             Spacer()
                             ZStack{
-                                Spinner()
-                                    .frame(width: 30,height: 30)
-                                    .opacity(mydata.isDeviceConnected ? 0 : 1)
-                                    .animation(.spring(), value: mydata.isDeviceConnected)
-                                    .padding(.trailing, 20)
-                                    .padding(.top, 20)
+                                HStack{
+                                    Spacer()
+                                    Spinner()
+                                        .frame(width: 30,height: 30)
+                                        .opacity(mydata.isDeviceConnected ? 0 : 1)
+                                        .animation(.spring(), value: mydata.isDeviceConnected)
+                                        .padding(.trailing, 20)
+                                        .padding(.top, 20)
+                                }
+
                                 
                                 Text("当前的HRV：\(Int(mydata.realTimeHRV.last!))")
                                     .font(.system(size: 14))
