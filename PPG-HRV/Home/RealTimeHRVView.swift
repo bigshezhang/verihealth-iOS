@@ -34,16 +34,16 @@ struct RealTimeHRVView: View {
 
                     }
                     
-                    VStack{
-                        HStack(){
-                            Spacer()
-                            HeartBeat()
-                                .opacity(mydata.isDeviceConnected ? 1 : 0)
-                                .animation(.spring(), value: mydata.isDeviceConnected)
-                                .padding(.trailing, 20)
-                                .padding(.top, 20)                        }
-                        Spacer()
-                    }
+//                    VStack{
+//                        HStack(){
+//                            Spacer()
+//                            HeartBeat()
+//                                .opacity(mydata.isDeviceConnected ? 1 : 0)
+//                                .animation(.spring(), value: mydata.isDeviceConnected)
+//                                .padding(.trailing, 20)
+//                                .padding(.top, 20)                        }
+//                        Spacer()
+//                    }
                 }
             }
         }
