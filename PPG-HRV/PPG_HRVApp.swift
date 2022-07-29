@@ -28,9 +28,6 @@ struct PPG_HRVApp: App {
                     .onAppear{
                         FileTool().createTodayDir()     //创建当天的信息收集文件夹
                         DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: deviceManager.startScan)
-                        DispatchQueue.main.asyncAfter(deadline: .now()+4){
-                            userData.realTimeHRV.append(233)
-                        }
                     }
                     .environmentObject(viewRouter)
             }
