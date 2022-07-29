@@ -18,7 +18,8 @@
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
 		E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A981CC28918C9600EDE15A /* DeviceManager.swift */; };
 		E0BD634A289020DA00CAA896 /* RealTimeHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */; };
-		E0BD634D28902B5800CAA896 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0BD634C28902B5800CAA896 /* SwiftUICharts */; };
+		E0CC26732893C53A0031F18F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0CC26722893C53A0031F18F /* SwiftUICharts */; };
+		E0CC26762893D5160031F18F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC26752893D5160031F18F /* ProfileView.swift */; };
 		E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */; };
 		E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D842886CBD400258227 /* Assets.xcassets */; };
 		E0ED5D882886CBD400258227 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D872886CBD400258227 /* Preview Assets.xcassets */; };
@@ -31,7 +32,6 @@
 		E0ED5DB728879D8200258227 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB628879D8200258227 /* TabView.swift */; };
 		E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB828879DD600258227 /* ViewRouter.swift */; };
 		E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DBE2887A45100258227 /* RouterView.swift */; };
-		E0ED5DC52887A8C900258227 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DC42887A8C900258227 /* Page2.swift */; };
 		E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */; };
 		E0ED5DD22887E46400258227 /* AlgorithmFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC82887E46400258227 /* HttpFramework.xcframework */; };
@@ -109,6 +109,7 @@
 		E0A981CC28918C9600EDE15A /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		E0A981D028923C9600EDE15A /* DataFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataFrame.h; sourceTree = "<group>"; };
 		E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeHRVView.swift; sourceTree = "<group>"; };
+		E0CC26752893D5160031F18F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E0ED5D7D2886CBD300258227 /* PPG-HRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PPG-HRV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVApp.swift; sourceTree = "<group>"; };
 		E0ED5D842886CBD400258227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		E0ED5DB628879D8200258227 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		E0ED5DB828879DD600258227 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		E0ED5DBE2887A45100258227 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
-		E0ED5DC42887A8C900258227 /* Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
 		E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AlgorithmFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/AlgorithmFramework.xcframework; sourceTree = "<group>"; };
 		E0ED5DC82887E46400258227 /* HttpFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = HttpFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/HttpFramework.xcframework; sourceTree = "<group>"; };
 		E0ED5DC92887E46400258227 /* ProtocolFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ProtocolFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/ProtocolFramework.xcframework; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */,
 				E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */,
 				E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */,
-				E0BD634D28902B5800CAA896 /* SwiftUICharts in Frameworks */,
+				E0CC26732893C53A0031F18F /* SwiftUICharts in Frameworks */,
 				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
 				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
 				E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */,
@@ -192,11 +192,11 @@
 				E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */,
 				E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */,
 				E0ED5DB628879D8200258227 /* TabView.swift */,
-				E0ED5DC42887A8C900258227 /* Page2.swift */,
 				E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */,
 				E0ED5DBE2887A45100258227 /* RouterView.swift */,
 				E081D9762893B23100C88F23 /* HistoryHRVView.swift */,
 				E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */,
+				E0CC26752893D5160031F18F /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 			);
 			name = "PPG-HRV";
 			packageProductDependencies = (
-				E0BD634C28902B5800CAA896 /* SwiftUICharts */,
+				E0CC26722893C53A0031F18F /* SwiftUICharts */,
 			);
 			productName = "PPG-HRV";
 			productReference = E0ED5D7D2886CBD300258227 /* PPG-HRV.app */;
@@ -394,7 +394,7 @@
 			);
 			mainGroup = E0ED5D742886CBD300258227;
 			packageReferences = (
-				E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */,
+				E0CC26712893C53A0031F18F /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
 			projectDirPath = "";
@@ -454,9 +454,9 @@
 				E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
 				E081D9702893A82000C88F23 /* UnbindTuple.swift in Sources */,
+				E0CC26762893D5160031F18F /* ProfileView.swift in Sources */,
 				E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */,
 				E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */,
-				E0ED5DC52887A8C900258227 /* Page2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,9 +799,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+		E0CC26712893C53A0031F18F /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
+			repositoryURL = "https://github.com/AppPear/ChartView.git";
 			requirement = {
 				kind = exactVersion;
 				version = 1.5.5;
@@ -810,9 +810,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E0BD634C28902B5800CAA896 /* SwiftUICharts */ = {
+		E0CC26722893C53A0031F18F /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */;
+			package = E0CC26712893C53A0031F18F /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -20,7 +20,7 @@ struct RouterView: View {
                     switch viewRouter.currentPage{
                     case .Home: HomeView()
                     case .Page1: HistoryHRVView()
-                    case .Page2: Page2()
+                    case .Page2: ProfileView()
                     }
                 }
                 VStack{

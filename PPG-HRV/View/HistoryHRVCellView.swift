@@ -6,19 +6,19 @@
 //
 
 import SwiftUI
-import FLCharts
+import SwiftUICharts
 
 
 struct HistoryHRVCellView: View {
-//    @State var Hour : String
+    var Hour : String
+    var data : [Double]
     var body: some View {
-
-        Text("hello")
+            LineChartView(data: data, title: "\(Hour)时", form: ChartForm.small)
     }
 }
 
-struct HistoryHRVCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        HistoryHRVCellView()
-    }
-}
+//struct HistoryHRVCellView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HistoryHRVCellView()
+//    }
+//}

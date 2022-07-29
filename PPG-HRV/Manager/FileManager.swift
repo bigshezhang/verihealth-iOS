@@ -37,26 +37,26 @@ final class FileTool{
         }
     }
     
-    func hourData(hour : String) -> [Int]{
-        var hourHRV = [Int]()
+    func hourData(hour : String) -> [Double]{
+        var hourHRV = [Double]()
         var path = userData.todayDirPath.appending("/Custom")
         for i in 01...60 {
-            var minute = String(format: "%02x", i)
+            var minute = String(format: "%02d", i)
             hourHRV.append(averageByMinute(time: hour.appending("-\(minute)")))
         }
 
         return hourHRV
     }
     
-    func averageByMinute(time : String) -> Int{
+    func averageByMinute(time : String) -> Double{
         var path = userData.todayDirPath.appending("/Custom/\(time).txt")
         if let content = try? String(contentsOfFile: path, encoding: .utf8) {
             let data = content.components(separatedBy: "\n")
-            var sum = 0
+            var sum = Double(0)
             for i in 0...data.count {
-                sum += Int(data[i])!
+                sum += Double(data[i])!
             }
-            return sum / data.count
+            return sum / Double(data.count)
         } else {
             return 0
         }
