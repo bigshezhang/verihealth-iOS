@@ -23,7 +23,7 @@ final class FileTool{
     
     func getCurrentTime() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH-mm-ss.SSS"
+        formatter.dateFormat = "HH-mm"
         formatter.timeZone = TimeZone.init(identifier: "Asia/Beijing")
         return formatter.string(from: Date())
     }
