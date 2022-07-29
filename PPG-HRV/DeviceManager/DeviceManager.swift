@@ -82,7 +82,7 @@ extension DeviceManager: TransferManagerDelegate {
                     userData.realTimeHRV.append(Double(receivePack.sdnn))
                     var currentFilePath = FileTool().createRealtimeTxt()
                     do {
-                        try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.data)".data(using: .utf8)!)
+                        try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.sdnn)\n".data(using: .utf8)!)
                     } catch {
                         print(error)
                     }
