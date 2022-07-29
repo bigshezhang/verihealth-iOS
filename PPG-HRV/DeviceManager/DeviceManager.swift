@@ -77,24 +77,23 @@ extension DeviceManager: TransferManagerDelegate {
             var receivePack = MyBleRecPacket()
             data.getBytes(&receivePack, length: data.length)
             print("[HRV返回值] -> ", receivePack.sdnn)
-            if userData.realTimeHRV.count < 31 {        //向HomeView中的实时HRV视图传值
-                DispatchQueue.main.async {
-                    userData.realTimeHRV.append(Double(receivePack.sdnn))
-                    var currentFilePath = FileTool().createRealtimeTxt()
-                    if receivePack.sdnn > 30 {
+            if receivePack.sdnn > 30 {
+                if userData.realTimeHRV.count < 31 {        //向HomeView中的实时HRV视图传值
+                    DispatchQueue.main.async {
+                        userData.realTimeHRV.append(Double(receivePack.sdnn))
+                        var currentFilePath = FileTool().createRealtimeTxt()
                         do {
                             try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.sdnn)\n".data(using: .utf8)!)
                         } catch {
                             print(error)
                         }
+
                     }
-                }
-            } else {
-                DispatchQueue.main.async {
-                    userData.realTimeHRV.removeFirst()
-                    userData.realTimeHRV.append(Double(receivePack.sdnn))
-                    var currentFilePath = FileTool().createRealtimeTxt()
-                    if receivePack.sdnn > 30 {
+                } else {
+                    DispatchQueue.main.async {
+                        userData.realTimeHRV.removeFirst()
+                        userData.realTimeHRV.append(Double(receivePack.sdnn))
+                        var currentFilePath = FileTool().createRealtimeTxt()
                         do {
                             try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.sdnn)\n".data(using: .utf8)!)
                         } catch {
