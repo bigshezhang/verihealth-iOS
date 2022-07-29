@@ -19,7 +19,7 @@ struct RouterView: View {
                 ScrollView(){
                     switch viewRouter.currentPage{
                     case .Home: HomeView()
-                    case .Page1: Page1()
+                    case .Page1: HistoryHRVView()
                     case .Page2: Page2()
                     }
                 }

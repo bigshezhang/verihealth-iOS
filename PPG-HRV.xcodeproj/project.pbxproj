@@ -13,7 +13,9 @@
 		E024F72F2890379D007650DB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72E2890379D007650DB /* Recording.swift */; };
 		E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */; };
 		E081D9702893A82000C88F23 /* UnbindTuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D96F2893A82000C88F23 /* UnbindTuple.swift */; };
-		E081D9732893B1E100C88F23 /* FLCharts in Frameworks */ = {isa = PBXBuildFile; productRef = E081D9722893B1E100C88F23 /* FLCharts */; };
+		E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9762893B23100C88F23 /* HistoryHRVView.swift */; };
+		E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */; };
+		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
 		E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A981CC28918C9600EDE15A /* DeviceManager.swift */; };
 		E0BD634A289020DA00CAA896 /* RealTimeHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */; };
 		E0BD634D28902B5800CAA896 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0BD634C28902B5800CAA896 /* SwiftUICharts */; };
@@ -29,7 +31,6 @@
 		E0ED5DB728879D8200258227 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB628879D8200258227 /* TabView.swift */; };
 		E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB828879DD600258227 /* ViewRouter.swift */; };
 		E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DBE2887A45100258227 /* RouterView.swift */; };
-		E0ED5DC32887A8BD00258227 /* Page1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DC22887A8BD00258227 /* Page1.swift */; };
 		E0ED5DC52887A8C900258227 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DC42887A8C900258227 /* Page2.swift */; };
 		E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */; };
 		E0ED5DD22887E46400258227 /* AlgorithmFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -100,6 +101,9 @@
 		E024F72E2890379D007650DB /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceView.swift; sourceTree = "<group>"; };
 		E081D96F2893A82000C88F23 /* UnbindTuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnbindTuple.swift; sourceTree = "<group>"; };
+		E081D9762893B23100C88F23 /* HistoryHRVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVView.swift; sourceTree = "<group>"; };
+		E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVCellView.swift; sourceTree = "<group>"; };
+		E081D97A2893B39D00C88F23 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		E08CC2682889E599004317BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PPG-HRV-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0A981CC28918C9600EDE15A /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
@@ -120,7 +124,6 @@
 		E0ED5DB628879D8200258227 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		E0ED5DB828879DD600258227 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		E0ED5DBE2887A45100258227 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
-		E0ED5DC22887A8BD00258227 /* Page1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1.swift; sourceTree = "<group>"; };
 		E0ED5DC42887A8C900258227 /* Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
 		E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AlgorithmFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/AlgorithmFramework.xcframework; sourceTree = "<group>"; };
 		E0ED5DC82887E46400258227 /* HttpFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = HttpFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/HttpFramework.xcframework; sourceTree = "<group>"; };
@@ -147,7 +150,6 @@
 				E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */,
 				E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */,
 				E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */,
-				E081D9732893B1E100C88F23 /* FLCharts in Frameworks */,
 				E0BD634D28902B5800CAA896 /* SwiftUICharts in Frameworks */,
 				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
 				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
@@ -178,6 +180,7 @@
 				E02288472892D592002B697A /* FileManager.swift */,
 				E0A981CC28918C9600EDE15A /* DeviceManager.swift */,
 				E0ED5DB828879DD600258227 /* ViewRouter.swift */,
+				E081D97A2893B39D00C88F23 /* DateManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -189,10 +192,11 @@
 				E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */,
 				E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */,
 				E0ED5DB628879D8200258227 /* TabView.swift */,
-				E0ED5DC22887A8BD00258227 /* Page1.swift */,
 				E0ED5DC42887A8C900258227 /* Page2.swift */,
 				E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */,
 				E0ED5DBE2887A45100258227 /* RouterView.swift */,
+				E081D9762893B23100C88F23 /* HistoryHRVView.swift */,
+				E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,7 +320,6 @@
 			name = "PPG-HRV";
 			packageProductDependencies = (
 				E0BD634C28902B5800CAA896 /* SwiftUICharts */,
-				E081D9722893B1E100C88F23 /* FLCharts */,
 			);
 			productName = "PPG-HRV";
 			productReference = E0ED5D7D2886CBD300258227 /* PPG-HRV.app */;
@@ -392,7 +395,6 @@
 			mainGroup = E0ED5D742886CBD300258227;
 			packageReferences = (
 				E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */,
-				E081D9712893B1E100C88F23 /* XCRemoteSwiftPackageReference "FLCharts" */,
 			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
 			projectDirPath = "";
@@ -436,16 +438,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */,
 				E02288482892D592002B697A /* FileManager.swift in Sources */,
 				E024F72F2890379D007650DB /* Recording.swift in Sources */,
+				E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */,
 				E0ED5DB728879D8200258227 /* TabView.swift in Sources */,
 				E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */,
 				E0BD634A289020DA00CAA896 /* RealTimeHRVView.swift in Sources */,
 				E024F72D2890317F007650DB /* Spinner.swift in Sources */,
-				E0ED5DC32887A8BD00258227 /* Page1.swift in Sources */,
 				E0ED5DB228879D4900258227 /* HomeView.swift in Sources */,
 				E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */,
 				E0ED5DAC2886EE3B00258227 /* SplashScreen.swift in Sources */,
+				E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */,
 				E021B14728935F9D005B5AE0 /* HeartBeat.swift in Sources */,
 				E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
@@ -795,14 +799,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E081D9712893B1E100C88F23 /* XCRemoteSwiftPackageReference "FLCharts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/francescoleoni98/FLCharts";
-			requirement = {
-				kind = exactVersion;
-				version = 1.8.0;
-			};
-		};
 		E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -814,11 +810,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E081D9722893B1E100C88F23 /* FLCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E081D9712893B1E100C88F23 /* XCRemoteSwiftPackageReference "FLCharts" */;
-			productName = FLCharts;
-		};
 		E0BD634C28902B5800CAA896 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */;

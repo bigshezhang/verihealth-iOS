@@ -13,20 +13,6 @@ import BleFramework
 final class FileTool{
     @State var createDirError : NSError? //收集错误信息
     @State var createFileError : String?
-    
-    func getCurrentDate() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-dd"
-        formatter.timeZone = TimeZone.init(identifier: "Asia/Beijing")
-        return formatter.string(from: Date())
-    }
-    
-    func getCurrentTime() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH-mm"
-        formatter.timeZone = TimeZone.init(identifier: "Asia/Beijing")
-        return formatter.string(from: Date())
-    }
 
     func createTodayDir() -> Void{
         createDirectoryIfNotExists(userData.appDocDir.appending("/\(getCurrentDate())"), &createDirError)
@@ -48,6 +34,31 @@ final class FileTool{
             createFileIfNotExits(userData.todayDirPath.appending("/RawMsg/\(currentTime).txt"), createFileError)
             return userData.todayDirPath.appending("/RawMsg/\(currentTime).txt")
         }
+        }
+    }
+    
+    func hourData(hour : String) -> [Int]{
+        var hourHRV = [Int]()
+        var path = userData.todayDirPath.appending("/Custom")
+        for i in 01...60 {
+            var minute = String(format: "%02x", i)
+            hourHRV.append(averageByMinute(time: hour.appending("-\(minute)")))
+        }
+
+        return hourHRV
+    }
+    
+    func averageByMinute(time : String) -> Int{
+        var path = userData.todayDirPath.appending("/Custom/\(time).txt")
+        if let content = try? String(contentsOfFile: path, encoding: .utf8) {
+            let data = content.components(separatedBy: "\n")
+            var sum = 0
+            for i in 0...data.count {
+                sum += Int(data[i])!
+            }
+            return sum / data.count
+        } else {
+            return 0
         }
     }
 }
