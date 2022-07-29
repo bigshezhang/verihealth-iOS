@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -168,12 +168,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E02288462892D584002B697A /* FileManager */ = {
+		E021B14828939378005B5AE0 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				E02288472892D592002B697A /* FileManager.swift */,
+				E0A981CC28918C9600EDE15A /* DeviceManager.swift */,
+				E0ED5DB828879DD600258227 /* ViewRouter.swift */,
 			);
-			path = FileManager;
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		E021B14928939391005B5AE0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0ED5DB128879D4900258227 /* HomeView.swift */,
+				E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */,
+				E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */,
+				E0ED5DB628879D8200258227 /* TabView.swift */,
+				E0ED5DC22887A8BD00258227 /* Page1.swift */,
+				E0ED5DC42887A8C900258227 /* Page2.swift */,
+				E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E0560B28288F74EF00B27EC3 /* Helper */ = {
@@ -210,15 +226,10 @@
 		E0ED5D7F2886CBD300258227 /* PPG-HRV */ = {
 			isa = PBXGroup;
 			children = (
-				E02288462892D584002B697A /* FileManager */,
 				E08CC2682889E599004317BE /* Info.plist */,
-				E0ED5DB028879D2A00258227 /* Home */,
-				E0ED5DC12887A8B100258227 /* Page2 */,
-				E0ED5DC02887A8AB00258227 /* Page1 */,
-				E0ED5DBB28879FF900258227 /* DeviceManager */,
-				E0ED5DB328879D5B00258227 /* TabBar */,
+				E021B14928939391005B5AE0 /* View */,
+				E021B14828939378005B5AE0 /* Manager */,
 				E0ED5DAD2886FC5D00258227 /* Storage */,
-				E0ED5DAA2886EE0000258227 /* SplashScreen */,
 				E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */,
 				E0ED5DBE2887A45100258227 /* RouterView.swift */,
 				E0ED5D842886CBD400258227 /* Assets.xcassets */,
@@ -254,64 +265,13 @@
 			path = "PPG-HRVUITests";
 			sourceTree = "<group>";
 		};
-		E0ED5DAA2886EE0000258227 /* SplashScreen */ = {
-			isa = PBXGroup;
-			children = (
-				E0ED5DAB2886EE3B00258227 /* SplashScreen.swift */,
-			);
-			path = SplashScreen;
-			sourceTree = "<group>";
-		};
 		E0ED5DAD2886FC5D00258227 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
 				E0ED5DAE2886FC7100258227 /* UserData.swift */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
-		E0ED5DB028879D2A00258227 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				E0ED5DB128879D4900258227 /* HomeView.swift */,
-				E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		E0ED5DB328879D5B00258227 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				E0ED5DB628879D8200258227 /* TabView.swift */,
-				E0ED5DB828879DD600258227 /* ViewRouter.swift */,
-			);
-			path = TabBar;
-			sourceTree = "<group>";
-		};
-		E0ED5DBB28879FF900258227 /* DeviceManager */ = {
-			isa = PBXGroup;
-			children = (
-				E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */,
-				E0A981CC28918C9600EDE15A /* DeviceManager.swift */,
 				E0A981D028923C9600EDE15A /* DataFrame.h */,
 			);
-			path = DeviceManager;
-			sourceTree = "<group>";
-		};
-		E0ED5DC02887A8AB00258227 /* Page1 */ = {
-			isa = PBXGroup;
-			children = (
-				E0ED5DC22887A8BD00258227 /* Page1.swift */,
-			);
-			path = Page1;
-			sourceTree = "<group>";
-		};
-		E0ED5DC12887A8B100258227 /* Page2 */ = {
-			isa = PBXGroup;
-			children = (
-				E0ED5DC42887A8C900258227 /* Page2.swift */,
-			);
-			path = Page2;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		E0ED5DC62887E46400258227 /* Frameworks */ = {
