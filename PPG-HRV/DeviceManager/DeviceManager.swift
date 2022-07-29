@@ -81,22 +81,25 @@ extension DeviceManager: TransferManagerDelegate {
                 DispatchQueue.main.async {
                     userData.realTimeHRV.append(Double(receivePack.sdnn))
                     var currentFilePath = FileTool().createRealtimeTxt()
-                    do {
-                        try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.sdnn)\n".data(using: .utf8)!)
-                    } catch {
-                        print(error)
+                    if receivePack.sdnn > 30 {
+                        do {
+                            try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.sdnn)\n".data(using: .utf8)!)
+                        } catch {
+                            print(error)
+                        }
                     }
-
                 }
             } else {
                 DispatchQueue.main.async {
                     userData.realTimeHRV.removeFirst()
                     userData.realTimeHRV.append(Double(receivePack.sdnn))
                     var currentFilePath = FileTool().createRealtimeTxt()
-                    do {
-                        try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.sdnn)\n".data(using: .utf8)!)
-                    } catch {
-                        print(error)
+                    if receivePack.sdnn > 30 {
+                        do {
+                            try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.sdnn)\n".data(using: .utf8)!)
+                        } catch {
+                            print(error)
+                        }
                     }
                 }
             }
