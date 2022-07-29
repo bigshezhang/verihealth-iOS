@@ -26,12 +26,14 @@ struct RealTimeHRVView: View {
                             Spacer()
                             ZStack{
                                 Spinner()
+                                    .frame(width: 30,height: 30)
                                     .opacity(mydata.isDeviceConnected ? 0 : 1)
                                     .animation(.spring(), value: mydata.isDeviceConnected)
                                     .padding(.trailing, 20)
                                     .padding(.top, 20)
                                 
                                 HeartBeat()
+                                    .frame(width: 30,height: 30)
                                     .opacity(mydata.isDeviceConnected ? 1 : 0)
                                     .animation(.spring(), value: mydata.isDeviceConnected)
                                     .padding(.trailing, 20)
