@@ -79,7 +79,14 @@ extension DeviceManager: TransferManagerDelegate {
             print("[HRV返回值] -> ", receivePack.sdnn)
             if userData.realTimeHRV.count < 31 {        //向HomeView中的实时HRV视图传值
                 DispatchQueue.main.async {
-                    userData.realTimeHRV.append(Double(receivePack.hr))
+                    userData.realTimeHRV.append(Double(receivePack.sdnn))
+                    var currentFilePath = FileTool().createRealtimeTxt()
+                    do {
+                        try FileHandle(forWritingTo: URL.init(string: currentFilePath)!).write(contentsOf: "\(receivePack.data)".data(using: .utf8)!)
+                    } catch {
+                        print(error)
+                    }
+
                 }
             } else {
                 DispatchQueue.main.async {

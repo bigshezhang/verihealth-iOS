@@ -32,7 +32,7 @@ struct RealTimeHRVView: View {
                                     .padding(.trailing, 20)
                                     .padding(.top, 20)
                                 
-                                HeartBeat()
+                                Text("当前HRV值：")
                                     .frame(width: 30,height: 30)
                                     .opacity(mydata.isDeviceConnected ? 1 : 0)
                                     .animation(.spring(), value: mydata.isDeviceConnected)
