@@ -33,12 +33,16 @@ struct RealTimeHRVView: View {
                                         .padding(.trailing, 20)
                                         .padding(.top, 20)
                                 }
-                                Text("当前的HRV：\(Int(mydata.realTimeHRV.last!))")
-                                        .font(.system(size: 14))
-                                        .opacity(mydata.isDeviceConnected ? 1 : 0)
-                                        .animation(.spring(), value: mydata.isDeviceConnected)
-                                        .padding(.top, 40)
-                                        .padding(.trailing)
+                                
+                                HStack{
+                                    Spacer()
+                                    Text("当前的HRV：\(Int(mydata.realTimeHRV.last!))")
+                                            .font(.system(size: 14))
+                                            .opacity(mydata.isDeviceConnected ? 1 : 0)
+                                            .animation(.spring(), value: mydata.isDeviceConnected)
+                                            .padding(.top, 40)
+                                            .padding(.trailing)
+                                }
                             }
                         }
                         Spacer()
