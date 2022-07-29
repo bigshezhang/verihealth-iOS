@@ -20,9 +20,6 @@ struct RealTimeHRVView: View {
                 ZStack{
                     LineView(data: mydata.realTimeHRV, title: "实时HRV")
                         .padding()
-                        .onAppear{
-                            mydata.isDeviceConnected = true
-                        }
 
                     VStack{
                         HStack(){
