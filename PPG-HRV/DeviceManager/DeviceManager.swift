@@ -76,8 +76,8 @@ extension DeviceManager: TransferManagerDelegate {
             let data: NSData = (frame.payload as NSData?)!
             var receivePack = MyBleRecPacket()
             data.getBytes(&receivePack, length: data.length)
-            print("[HRV返回值] -> ", receivePack.sdnn)
             if receivePack.ret == 0 {
+                print("[HRV返回了有效值] -> ", receivePack.sdnn)
                 if userData.realTimeHRV.count < 31 {        //向HomeView中的实时HRV视图传值
                     DispatchQueue.main.async {
                         userData.realTimeHRV.append(Double(receivePack.sdnn))
