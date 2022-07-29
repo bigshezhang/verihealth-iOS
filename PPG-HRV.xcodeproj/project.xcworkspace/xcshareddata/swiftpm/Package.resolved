@@ -8,6 +8,15 @@
         "revision" : "9115a992c91fa19cbb4f2241084240d38654a1fc",
         "version" : "1.5.5"
       }
+    },
+    {
+      "identity" : "flcharts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/francescoleoni98/FLCharts",
+      "state" : {
+        "revision" : "0732e70b410870f7cadf5797e777cbb222d0190a",
+        "version" : "1.8.0"
+      }
     }
   ],
   "version" : 2

@@ -90,13 +90,22 @@ extension DeviceManager: TransferManagerDelegate {
                         userData.realTimeHRV.append(Double(receivePack.sdnn))
                     }
                 }
+                let currentCustomFilePath = FileTool().createRealtimeTxt(writeWhat: .custom)    //输出有效数据到Custom文件
+                do {
+                    let fileHandle = try FileHandle(forWritingTo: URL.init(string: currentCustomFilePath)!)
+                    fileHandle.seekToEndOfFile()
+                    try fileHandle.write(contentsOf: "\(receivePack.sdnn)\n".data(using: .utf8)!)
+                    try fileHandle.close()
+                } catch {
+                    print(error)
+                }
             }
-            let currentFilePath = FileTool().createRealtimeTxt(writeWhat: .raw)        //输出到文件
-            var toWriteData = unbindTuple(data: receivePack.data)
+            let currentRawFilePath = FileTool().createRealtimeTxt(writeWhat: .raw)        //输出Raw数据到文件
+            var toWriteRawData = unbindTuple(data: receivePack.data)
             do {
-                let fileHandle = try FileHandle(forWritingTo: URL.init(string: currentFilePath)!)
+                let fileHandle = try FileHandle(forWritingTo: URL.init(string: currentRawFilePath)!)
                 fileHandle.seekToEndOfFile()
-                try fileHandle.write(contentsOf: "\(toWriteData.prefix(Int(receivePack.size)))\n".data(using: .utf8)!)
+                try fileHandle.write(contentsOf: "\(toWriteRawData.prefix(Int(receivePack.size)))\n".data(using: .utf8)!)
                 try fileHandle.close()
             } catch {
                 print(error)

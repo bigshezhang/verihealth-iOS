@@ -30,17 +30,12 @@ final class FileTool{
 
     func createTodayDir() -> Void{
         createDirectoryIfNotExists(userData.appDocDir.appending("/\(getCurrentDate())"), &createDirError)
+        createDirectoryIfNotExists(userData.appDocDir.appending("/\(getCurrentDate())/CustomMsg"), &createDirError)
+        createDirectoryIfNotExists(userData.appDocDir.appending("/\(getCurrentDate())/RawMsg"), &createDirError)
         print("[创建当天储存文件夹是否发生错误] -> ",createDirError)
         userData.todayDirPath = userData.appDocDir.appending("/\(getCurrentDate())")    //刷新userData中当天的文件夹露肩
-        creatSecondFolder()
     }
-    
-    func creatSecondFolder() -> Void{
-        createDirectoryIfNotExists(userData.appDocDir.appending("/\(getCurrentDate())/CustomMsg"), &createDirError)
-        print("[创建第二层文件夹是否发生错误] -> ",createDirError)
-        createDirectoryIfNotExists(userData.appDocDir.appending("/\(getCurrentDate())/RawMsg"), &createDirError)
-    }
-    
+
     func createRealtimeTxt(writeWhat: writeWhat) -> String{     //返回当前的时间便与写入文件
         var currentTime = getCurrentTime()
         

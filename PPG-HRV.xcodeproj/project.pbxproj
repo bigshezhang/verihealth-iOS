@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		E024F72F2890379D007650DB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72E2890379D007650DB /* Recording.swift */; };
 		E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */; };
 		E081D9702893A82000C88F23 /* UnbindTuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D96F2893A82000C88F23 /* UnbindTuple.swift */; };
+		E081D9732893B1E100C88F23 /* FLCharts in Frameworks */ = {isa = PBXBuildFile; productRef = E081D9722893B1E100C88F23 /* FLCharts */; };
 		E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A981CC28918C9600EDE15A /* DeviceManager.swift */; };
 		E0BD634A289020DA00CAA896 /* RealTimeHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */; };
 		E0BD634D28902B5800CAA896 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0BD634C28902B5800CAA896 /* SwiftUICharts */; };
@@ -146,6 +147,7 @@
 				E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */,
 				E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */,
 				E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */,
+				E081D9732893B1E100C88F23 /* FLCharts in Frameworks */,
 				E0BD634D28902B5800CAA896 /* SwiftUICharts in Frameworks */,
 				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
 				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
@@ -314,6 +316,7 @@
 			name = "PPG-HRV";
 			packageProductDependencies = (
 				E0BD634C28902B5800CAA896 /* SwiftUICharts */,
+				E081D9722893B1E100C88F23 /* FLCharts */,
 			);
 			productName = "PPG-HRV";
 			productReference = E0ED5D7D2886CBD300258227 /* PPG-HRV.app */;
@@ -389,6 +392,7 @@
 			mainGroup = E0ED5D742886CBD300258227;
 			packageReferences = (
 				E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */,
+				E081D9712893B1E100C88F23 /* XCRemoteSwiftPackageReference "FLCharts" */,
 			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
 			projectDirPath = "";
@@ -791,6 +795,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E081D9712893B1E100C88F23 /* XCRemoteSwiftPackageReference "FLCharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/francescoleoni98/FLCharts";
+			requirement = {
+				kind = exactVersion;
+				version = 1.8.0;
+			};
+		};
 		E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -802,6 +814,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E081D9722893B1E100C88F23 /* FLCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E081D9712893B1E100C88F23 /* XCRemoteSwiftPackageReference "FLCharts" */;
+			productName = FLCharts;
+		};
 		E0BD634C28902B5800CAA896 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0BD634B28902B5800CAA896 /* XCRemoteSwiftPackageReference "ChartView" */;
