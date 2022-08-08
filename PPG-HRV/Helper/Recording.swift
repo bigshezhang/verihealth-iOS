@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct Recording: View {
-    @Binding var isScaning: Bool
+//    @Binding var isScaning: Bool
     @State var recording = false
     
     var body: some View {
@@ -27,11 +27,12 @@ struct Recording: View {
         }
         
         .onAppear {
-            if isScaning{
-                withAnimation(.spring(response: 0.55, dampingFraction: 0.825, blendDuration: 0).repeatForever(autoreverses: true)) {
-                        recording.toggle()
-                }
+            withAnimation(.spring(response: 0.55, dampingFraction: 0.825, blendDuration: 0).repeatForever(autoreverses: true)) {
+                    recording.toggle()
             }
+//            if isScaning{
+//      
+//            }
         }
     }
 }

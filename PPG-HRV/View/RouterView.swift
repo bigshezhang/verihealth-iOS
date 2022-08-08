@@ -19,13 +19,12 @@ struct RouterView: View {
                 case .Home: HomeView()
                 case .Page1: HistoryHRVView()
                 case .Page2: ProfileView()
-                default: HomeView()
                 }
             }
         }
-        .edgesIgnoringSafeArea(.vertical)
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .ignoresSafeArea()
         .overlay(
             VStack{
                 Spacer()

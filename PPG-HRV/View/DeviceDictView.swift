@@ -10,33 +10,77 @@ import CoreSDK
 import BleFramework
 
 struct DeviceDictView: View {
+    @EnvironmentObject var viewRouter : ViewRouter
     @State var deviceArray = DeviceManager().getDeviceArray()
     @State var freshTimes = 5
     @State var isTimerValid = false
+    @State var isScaning = true
+    @Environment(\.presentationMode) var presentationMode
+
     
     var body: some View {
-        
-        ForEach(deviceArray, id: \.self){ device in
-            Text(device.name)
-        }
-        .background(
-            RoundedRectangle(cornerSize: CGSize(width: 5, height: 5))
-                .foregroundColor(Color.white)
-        )
-        .onAppear{
-            isTimerValid = true
-            Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-                if !isTimerValid {
-                    print("[更新定时器已销毁]")
-                    timer.invalidate()
-                } else {
-                    print("[更新设备列表中]")
-                    deviceArray = DeviceManager().getDeviceArray()
+        if isScaning{
+            ZStack {
+                VStack{
+                    Recording(recording: true)
+                }
+                VStack(spacing: 50){
+                    Text("寻找设备中")
+                        .foregroundColor(.white)
+                }
+                .onAppear{
+                    viewRouter.isTabBarShow = false
+                }
+                .onDisappear{
+                    viewRouter.isTabBarShow = true
+            }
+            }
+            .onAppear{
+                    isTimerValid = true
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+                        if !isTimerValid {
+                            print("[更新定时器已销毁]")
+                            timer.invalidate()
+                        } else {
+                            deviceArray = DeviceManager().getDeviceArray()
+                            print("[更新设备列表中]")
+                            if deviceArray != nil{
+                                isScaning = false
+                            }
+                        }
+                    }
+                }
+            .navigationBarTitle("")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {Image(systemName: "arrow.left").foregroundColor(.blue)}))
+            .edgesIgnoringSafeArea(.top)
+        } else {
+            List{
+                ForEach(deviceArray, id: \.self){ device in
+                    Button {
+                        TransferManager.sharedInstance().connect(device)
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+                            if device.connected {
+                                print("[连接了该设备] -> ", device.name)
+                                userData.currentDeviceName = device.name
+                                userData.isDeviceConnected = true
+                                timer.invalidate()
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        }
+                    } label: {
+                        Text(device.name)
+                    }
                 }
             }
-        }
-        .onDisappear{
-            isTimerValid = false
+            .padding(.top, 30)
+            .navigationBarTitle("")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {Image(systemName: "arrow.left").foregroundColor(.blue)}))
+            .edgesIgnoringSafeArea(.top)
+            .onDisappear{
+                isTimerValid = false
+            }
         }
     }
 }
