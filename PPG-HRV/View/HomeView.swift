@@ -12,7 +12,6 @@ import BleFramework
 
 struct HomeView: View{
     @ObservedObject var MyData = userData
-    
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{

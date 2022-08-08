@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SplashScreen: View {
     @State private var isPressed = false
-//    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
         if userData.isFirstInit {
             ZStack {
+                Text("再次触摸，新的生活")
                 VStack(){
                     Image("SplashTop")
                         .resizable(resizingMode: .stretch)
@@ -23,9 +23,6 @@ struct SplashScreen: View {
                         .offset(y: isPressed ? -400 : 0)
                         .opacity(isPressed ? 0 : 1)
                         .animation(Animation.default.speed(0.5), value: isPressed)
-                    
-                    
-                    //是否需要添加折线图
                     
                     Image("SplashBottom")
                         .resizable(resizingMode: .stretch)
@@ -39,7 +36,7 @@ struct SplashScreen: View {
                 Button {
                     isPressed = true
                     viewRouter.currentPage = .Home
-                    
+                    RouterView()
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                         userData.isFirstInit = false
                     })

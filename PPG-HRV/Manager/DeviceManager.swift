@@ -100,6 +100,8 @@ extension DeviceManager: TransferManagerDelegate {
                 } catch {
                     print(error)
                 }
+            } else {
+                print("[收到了无效包]")
             }
             let currentRawFilePath = FileTool().createRealtimeTxt(writeWhat: .raw)        //输出Raw数据到文件
             var toWriteRawData = unbindTuple(data: receivePack.data)
