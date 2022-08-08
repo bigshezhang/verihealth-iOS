@@ -1,6 +1,6 @@
 //
 //  FileManager.swift
-//  PPG-HRV
+//  PPG-HRVå
 //
 //  Created by 李子鸣 on 2022/7/28.
 //
@@ -51,6 +51,7 @@ final class FileTool{
     func averageByMinute(time : String) -> Double{
         var path = userData.todayDirPath.appending("/Custom/\(time).txt")
         if let content = try? String(contentsOfFile: path, encoding: .utf8) {
+            print("[ByMinutes] -> ",content)
             let data = content.components(separatedBy: "\n")
             var sum = Double(0)
             for i in 0...data.count {

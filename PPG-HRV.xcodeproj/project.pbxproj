@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,8 +18,8 @@
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
 		E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A981CC28918C9600EDE15A /* DeviceManager.swift */; };
 		E0BD634A289020DA00CAA896 /* RealTimeHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */; };
-		E0CC26732893C53A0031F18F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0CC26722893C53A0031F18F /* SwiftUICharts */; };
 		E0CC26762893D5160031F18F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC26752893D5160031F18F /* ProfileView.swift */; };
+		E0DA295628A0DE2B008A12EA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA295528A0DE2B008A12EA /* SwiftUICharts */; };
 		E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */; };
 		E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D842886CBD400258227 /* Assets.xcassets */; };
 		E0ED5D882886CBD400258227 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D872886CBD400258227 /* Preview Assets.xcassets */; };
@@ -150,7 +150,7 @@
 				E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */,
 				E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */,
 				E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */,
-				E0CC26732893C53A0031F18F /* SwiftUICharts in Frameworks */,
+				E0DA295628A0DE2B008A12EA /* SwiftUICharts in Frameworks */,
 				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
 				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
 				E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */,
@@ -319,7 +319,7 @@
 			);
 			name = "PPG-HRV";
 			packageProductDependencies = (
-				E0CC26722893C53A0031F18F /* SwiftUICharts */,
+				E0DA295528A0DE2B008A12EA /* SwiftUICharts */,
 			);
 			productName = "PPG-HRV";
 			productReference = E0ED5D7D2886CBD300258227 /* PPG-HRV.app */;
@@ -394,7 +394,7 @@
 			);
 			mainGroup = E0ED5D742886CBD300258227;
 			packageReferences = (
-				E0CC26712893C53A0031F18F /* XCRemoteSwiftPackageReference "ChartView" */,
+				E0DA295428A0DE2B008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */,
 			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
 			projectDirPath = "";
@@ -799,9 +799,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E0CC26712893C53A0031F18F /* XCRemoteSwiftPackageReference "ChartView" */ = {
+		E0DA295428A0DE2B008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView.git";
+			repositoryURL = "https://gitee.com/bigshezhang/the-first-chart-view.git";
 			requirement = {
 				kind = exactVersion;
 				version = 1.5.5;
@@ -810,9 +810,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E0CC26722893C53A0031F18F /* SwiftUICharts */ = {
+		E0DA295528A0DE2B008A12EA /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E0CC26712893C53A0031F18F /* XCRemoteSwiftPackageReference "ChartView" */;
+			package = E0DA295428A0DE2B008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */;
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */

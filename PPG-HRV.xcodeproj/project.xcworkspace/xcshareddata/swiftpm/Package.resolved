@@ -1,9 +1,9 @@
 {
   "pins" : [
     {
-      "identity" : "chartview",
+      "identity" : "the-first-chart-view",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AppPear/ChartView.git",
+      "location" : "https://gitee.com/bigshezhang/the-first-chart-view.git",
       "state" : {
         "revision" : "9115a992c91fa19cbb4f2241084240d38654a1fc",
         "version" : "1.5.5"
