@@ -17,4 +17,5 @@ enum Page{
     case Home
     case Page1
     case Page2
+//    case DeviceDictView
 }

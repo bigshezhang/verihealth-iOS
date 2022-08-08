@@ -23,6 +23,9 @@ final class UserData: ObservableObject {
     @AppStorage("vsDeviceUUID") var vsDeviceUUID: String = ""
     @AppStorage("appSupportDir") var appSupportDir :String = getApplicationSupportDirectory()
     @AppStorage("appDocDir") var appDocDir :String = getDocumentDirectory()
+    @AppStorage("currentDeviceName") var currentDeviceName : String = ""
+    
+    
 }
 
 var userData = UserData()

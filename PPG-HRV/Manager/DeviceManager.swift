@@ -14,6 +14,9 @@ import Accelerate
 class DeviceManager: NSObject, ObservableObject
 {
     @Published var isScanningPublisher: Bool = false
+    @Published var deviceDict = BleCentralManager.sharedInstance().scannedDeviceDict
+    @Published var deviceArray = [VsDevice]()
+    var tmpVsDevice = VsDevice()
     
     override init() {
         super.init()
@@ -41,6 +44,14 @@ class DeviceManager: NSObject, ObservableObject
             TransferManager.sharedInstance().sendCommonMessage(device, msgId: UInt16(VS_SEND_MSG), data: payData as Data)
         }
     }
+    
+    public func getDeviceArray() -> [VsDevice] {
+        for device in deviceDict{
+            tmpVsDevice = device.value as! VsDevice
+            deviceArray.append(tmpVsDevice)
+        }
+        return deviceArray
+    }
 }
 
 
@@ -49,15 +60,15 @@ extension DeviceManager: TransferManagerDelegate {
 //        print("[更新蓝牙状态] -> ", BLEStatus.RawValue())
     }
     
-    func transReceive(_ device: VsDevice) {
-        print("[获取的蓝牙名称]-> ",device.name)
-        TransferManager.sharedInstance().connect(device)    //连接设备
-        userData.currDevice = device
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-            userData.isDeviceConnected = true           //异步处理一下，防止主视图崩溃
-        }
-        sendCustomPack(device: device, isMeasuring: 1)
-    }
+//    func transReceive(_ device: VsDevice) {
+//        print("[获取的蓝牙名称]-> ",device.name)
+//        TransferManager.sharedInstance().connect(device)    //连接设备
+//        userData.currDevice = device
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+//            userData.isDeviceConnected = true           //异步处理一下，防止主视图崩溃
+//        }
+//        sendCustomPack(device: device, isMeasuring: 1)
+//    }
     
 //    func 
     
