@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftUICharts
 
 struct RealTimeHRVView: View {
-    @ObservedObject var mydata = userData
+    @ObservedObject var myData = userData
     
     var body: some View {
         ZStack{
@@ -18,7 +18,7 @@ struct RealTimeHRVView: View {
                 
             GeometryReader{ GeometryProxy in
                 ZStack{
-                    LineView(data: mydata.realTimeHRV, title: "实时HRV")
+                    LineView(data: myData.realTimeHRV, title: "实时HRV")
                         .padding()
                     VStack{
                         HStack(){
@@ -28,18 +28,18 @@ struct RealTimeHRVView: View {
                                     Spacer()
                                     Spinner()
                                         .frame(width: 30,height: 30)
-                                        .opacity(mydata.isDeviceConnected ? 0 : 1)
-                                        .animation(.spring(), value: mydata.isDeviceConnected)
+                                        .opacity(myData.isDeviceConnected ? 0 : 1)
+                                        .animation(.spring(), value: myData.isDeviceConnected)
                                         .padding(.trailing, 20)
                                         .padding(.top, 20)
                                 }
                                 
                                 HStack{
                                     Spacer()
-                                    Text("当前的HRV：\(Int(mydata.realTimeHRV.last!))")
+                                    Text("当前的HRV：\(Int(myData.realTimeHRV.last!))")
                                             .font(.system(size: 14))
-                                            .opacity(mydata.isDeviceConnected ? 1 : 0)
-                                            .animation(.spring(), value: mydata.isDeviceConnected)
+                                            .opacity(myData.isDeviceConnected ? 1 : 0)
+                                            .animation(.spring(), value: myData.isDeviceConnected)
                                             .padding(.top, 40)
                                             .padding(.trailing)
                                 }

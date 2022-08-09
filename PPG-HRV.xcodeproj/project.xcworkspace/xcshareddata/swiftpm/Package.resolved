@@ -1,12 +1,48 @@
 {
   "pins" : [
     {
+      "identity" : "cheesychart",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/bigshezhang/CheesyChart.git",
+      "state" : {
+        "revision" : "23d384304d832c70ffee240ef484ce1e8c5d8362",
+        "version" : "1.1.2"
+      }
+    },
+    {
+      "identity" : "linechartview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/bigshezhang/LineChartView.git",
+      "state" : {
+        "revision" : "91416f04a04ad3117e4fe58c35a24bb66e57ebb4",
+        "version" : "1.4.0"
+      }
+    },
+    {
+      "identity" : "plotui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/bigshezhang/PlotUI.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "939d94f25c101749dca238f15ead96b033f7f89a"
+      }
+    },
+    {
       "identity" : "progress-bar-swifttui",
       "kind" : "remoteSourceControl",
       "location" : "https://gitee.com/bigshezhang/Progress-Bar-SwifttUI.git",
       "state" : {
         "revision" : "35dd5ffb369fa522519c819170e171d0a76dbbea",
         "version" : "1.0.4"
+      }
+    },
+    {
+      "identity" : "swiftuilinechart",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/bigshezhang/SwiftUILineChart.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "b9b1134a1c91e93dbc90b3ff66431f3768c4904a"
       }
     },
     {

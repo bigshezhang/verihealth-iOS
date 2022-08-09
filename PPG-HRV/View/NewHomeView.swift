@@ -8,11 +8,15 @@
 import SwiftUI
 import SwiftUICharts
 import Progress_Bar
+import SwiftUILineChart
+import PlotUI
 
 struct NewHomeView: View {
-    @ObservedObject var MyData = userData
+    @ObservedObject var myData = userData
     @EnvironmentObject var viewRouter: ViewRouter
     
+    @State var value: Int? = 0
+
     var startAngle = -90.0
     @State var progress : Double = 0.97
     
@@ -224,17 +228,24 @@ struct NewHomeView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack(spacing: -12){
-                        Image("OrangeCard")
-                    
+//                        Image("OrangeCard")
+//                            .overlay(
+//
+//                            )
+//
+                        LineChartView(data: [8,23,54,32,12,37,7,23], title: "HR",style: ChartStyle(backgroundColor: .white, accentColor: .black, gradientColor: GradientColor(start: .orange, end: .blue), textColor: .black, legendTextColor: .white, dropShadowColor: .clear),form: CGSize(width: 140, height: 200),rateValue: 0)
+                            .padding(.bottom, 58)
+                            .padding(.trailing, 15)
+                            .scaleEffect(0.8)
                         Image("BlueCard")
-                        
+//
                         Image("PinkCard")
                     }
                     .padding(.leading)
                 }
             }
             .padding(.top, -20)
-            
+            Spacer(minLength: 60)
         }
         .background(Color("HomeBgColor").ignoresSafeArea())
         .edgesIgnoringSafeArea(.bottom)
