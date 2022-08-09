@@ -18,7 +18,7 @@ struct RouterView: View {
                 switch viewRouter.currentPage{
                 case .Home: HomeView()
                 case .Page1: HistoryHRVView()
-                case .Page2: NewHomeView()
+                case .Page2: ProfileView()
                 default: HomeView()
                 }
             }

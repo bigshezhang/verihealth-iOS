@@ -19,18 +19,14 @@
 		E0BD634A289020DA00CAA896 /* RealTimeHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */; };
 		E0CC26762893D5160031F18F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC26752893D5160031F18F /* ProfileView.swift */; };
 		E0DA295828A12105008A12EA /* DeviceDictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295728A12105008A12EA /* DeviceDictView.swift */; };
-		E0DA295C28A1573A008A12EA /* NewHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295B28A1573A008A12EA /* NewHomeView.swift */; };
+		E0DA295C28A1573A008A12EA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295B28A1573A008A12EA /* HomeView.swift */; };
 		E0DA295E28A176C5008A12EA /* HexColorTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295D28A176C5008A12EA /* HexColorTransfer.swift */; };
 		E0DA296428A1DBC1008A12EA /* Progress-Bar in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA296328A1DBC1008A12EA /* Progress-Bar */; };
 		E0DA297028A1F35A008A12EA /* FakeDataGenarater.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA296F28A1F35A008A12EA /* FakeDataGenarater.swift */; };
 		E0DA297228A1FAAA008A12EA /* AlgorithmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA297128A1FAAA008A12EA /* AlgorithmManager.swift */; };
 		E0DA297728A1FAD9008A12EA /* heart_rate_api.c in Sources */ = {isa = PBXBuildFile; fileRef = E0DA297528A1FAD9008A12EA /* heart_rate_api.c */; };
-		E0DA297B28A21E51008A12EA /* LineChartView in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA297A28A21E51008A12EA /* LineChartView */; };
-		E0DA297E28A22D79008A12EA /* CheesyChart in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA297D28A22D79008A12EA /* CheesyChart */; };
 		E0DA298528A234C7008A12EA /* SSLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA298328A234C6008A12EA /* SSLineChart.swift */; };
 		E0DA298628A234C7008A12EA /* SSLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA298428A234C6008A12EA /* SSLineChartData.swift */; };
-		E0DA298928A23932008A12EA /* SwiftUILineChart in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA298828A23932008A12EA /* SwiftUILineChart */; };
-		E0DA298C28A23B74008A12EA /* PlotUI in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA298B28A23B74008A12EA /* PlotUI */; };
 		E0DA298F28A27A80008A12EA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA298E28A27A80008A12EA /* SwiftUICharts */; };
 		E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */; };
 		E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D842886CBD400258227 /* Assets.xcassets */; };
@@ -39,7 +35,7 @@
 		E0ED5D9C2886CBD400258227 /* PPG_HRVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D9B2886CBD400258227 /* PPG_HRVUITests.swift */; };
 		E0ED5D9E2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D9D2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift */; };
 		E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DAE2886FC7100258227 /* UserData.swift */; };
-		E0ED5DB228879D4900258227 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB128879D4900258227 /* HomeView.swift */; };
+		E0ED5DB228879D4900258227 /* OldHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB128879D4900258227 /* OldHomeView.swift */; };
 		E0ED5DB728879D8200258227 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB628879D8200258227 /* TabView.swift */; };
 		E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB828879DD600258227 /* ViewRouter.swift */; };
 		E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DBE2887A45100258227 /* RouterView.swift */; };
@@ -121,7 +117,7 @@
 		E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeHRVView.swift; sourceTree = "<group>"; };
 		E0CC26752893D5160031F18F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E0DA295728A12105008A12EA /* DeviceDictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDictView.swift; sourceTree = "<group>"; };
-		E0DA295B28A1573A008A12EA /* NewHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeView.swift; sourceTree = "<group>"; };
+		E0DA295B28A1573A008A12EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E0DA295D28A176C5008A12EA /* HexColorTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorTransfer.swift; sourceTree = "<group>"; };
 		E0DA296F28A1F35A008A12EA /* FakeDataGenarater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataGenarater.swift; sourceTree = "<group>"; };
 		E0DA297128A1FAAA008A12EA /* AlgorithmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmManager.swift; sourceTree = "<group>"; };
@@ -139,7 +135,7 @@
 		E0ED5D9B2886CBD400258227 /* PPG_HRVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVUITests.swift; sourceTree = "<group>"; };
 		E0ED5D9D2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E0ED5DAE2886FC7100258227 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		E0ED5DB128879D4900258227 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E0ED5DB128879D4900258227 /* OldHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldHomeView.swift; sourceTree = "<group>"; };
 		E0ED5DB628879D8200258227 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		E0ED5DB828879DD600258227 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		E0ED5DBE2887A45100258227 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
@@ -164,16 +160,12 @@
 				E0ED5DD72887E46400258227 /* BleFramework.xcframework in Frameworks */,
 				E0ED5DD92887E46400258227 /* CocoaMQTT.xcframework in Frameworks */,
 				E0ED5DDD2887E46400258227 /* BaseFramework.xcframework in Frameworks */,
-				E0DA298C28A23B74008A12EA /* PlotUI in Frameworks */,
 				E0ED5DE32887E46400258227 /* CocoaAsyncSocket.xcframework in Frameworks */,
 				E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */,
 				E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */,
 				E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */,
-				E0DA297B28A21E51008A12EA /* LineChartView in Frameworks */,
 				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
-				E0DA297E28A22D79008A12EA /* CheesyChart in Frameworks */,
 				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
-				E0DA298928A23932008A12EA /* SwiftUILineChart in Frameworks */,
 				E0DA298F28A27A80008A12EA /* SwiftUICharts in Frameworks */,
 				E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */,
 				E0DA296428A1DBC1008A12EA /* Progress-Bar in Frameworks */,
@@ -214,7 +206,7 @@
 		E021B14928939391005B5AE0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E0ED5DB128879D4900258227 /* HomeView.swift */,
+				E0ED5DB128879D4900258227 /* OldHomeView.swift */,
 				E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */,
 				E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */,
 				E0ED5DB628879D8200258227 /* TabView.swift */,
@@ -223,7 +215,7 @@
 				E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */,
 				E0CC26752893D5160031F18F /* ProfileView.swift */,
 				E0DA295728A12105008A12EA /* DeviceDictView.swift */,
-				E0DA295B28A1573A008A12EA /* NewHomeView.swift */,
+				E0DA295B28A1573A008A12EA /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,10 +350,6 @@
 			name = "PPG-HRV";
 			packageProductDependencies = (
 				E0DA296328A1DBC1008A12EA /* Progress-Bar */,
-				E0DA297A28A21E51008A12EA /* LineChartView */,
-				E0DA297D28A22D79008A12EA /* CheesyChart */,
-				E0DA298828A23932008A12EA /* SwiftUILineChart */,
-				E0DA298B28A23B74008A12EA /* PlotUI */,
 				E0DA298E28A27A80008A12EA /* SwiftUICharts */,
 			);
 			productName = "PPG-HRV";
@@ -438,10 +426,6 @@
 			mainGroup = E0ED5D742886CBD300258227;
 			packageReferences = (
 				E0DA296228A1DBC1008A12EA /* XCRemoteSwiftPackageReference "Progress-Bar-SwifttUI" */,
-				E0DA297928A21E51008A12EA /* XCRemoteSwiftPackageReference "LineChartView" */,
-				E0DA297C28A22D79008A12EA /* XCRemoteSwiftPackageReference "CheesyChart" */,
-				E0DA298728A23932008A12EA /* XCRemoteSwiftPackageReference "SwiftUILineChart" */,
-				E0DA298A28A23B74008A12EA /* XCRemoteSwiftPackageReference "PlotUI" */,
 				E0DA298D28A27A80008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */,
 			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
@@ -495,13 +479,13 @@
 				E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */,
 				E0BD634A289020DA00CAA896 /* RealTimeHRVView.swift in Sources */,
 				E024F72D2890317F007650DB /* Spinner.swift in Sources */,
-				E0ED5DB228879D4900258227 /* HomeView.swift in Sources */,
+				E0ED5DB228879D4900258227 /* OldHomeView.swift in Sources */,
 				E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */,
 				E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */,
 				E0DA298528A234C7008A12EA /* SSLineChart.swift in Sources */,
 				E021B14728935F9D005B5AE0 /* HeartBeat.swift in Sources */,
 				E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */,
-				E0DA295C28A1573A008A12EA /* NewHomeView.swift in Sources */,
+				E0DA295C28A1573A008A12EA /* HomeView.swift in Sources */,
 				E0DA298628A234C7008A12EA /* SSLineChartData.swift in Sources */,
 				E0DA297728A1FAD9008A12EA /* heart_rate_api.c in Sources */,
 				E0DA295E28A176C5008A12EA /* HexColorTransfer.swift in Sources */,
@@ -861,38 +845,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		E0DA297928A21E51008A12EA /* XCRemoteSwiftPackageReference "LineChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://gitee.com/bigshezhang/LineChartView.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.4.0;
-			};
-		};
-		E0DA297C28A22D79008A12EA /* XCRemoteSwiftPackageReference "CheesyChart" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://gitee.com/bigshezhang/CheesyChart.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.1.2;
-			};
-		};
-		E0DA298728A23932008A12EA /* XCRemoteSwiftPackageReference "SwiftUILineChart" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://gitee.com/bigshezhang/SwiftUILineChart.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		E0DA298A28A23B74008A12EA /* XCRemoteSwiftPackageReference "PlotUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://gitee.com/bigshezhang/PlotUI.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		E0DA298D28A27A80008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://gitee.com/bigshezhang/the-first-chart-view.git";
@@ -908,26 +860,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E0DA296228A1DBC1008A12EA /* XCRemoteSwiftPackageReference "Progress-Bar-SwifttUI" */;
 			productName = "Progress-Bar";
-		};
-		E0DA297A28A21E51008A12EA /* LineChartView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E0DA297928A21E51008A12EA /* XCRemoteSwiftPackageReference "LineChartView" */;
-			productName = LineChartView;
-		};
-		E0DA297D28A22D79008A12EA /* CheesyChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E0DA297C28A22D79008A12EA /* XCRemoteSwiftPackageReference "CheesyChart" */;
-			productName = CheesyChart;
-		};
-		E0DA298828A23932008A12EA /* SwiftUILineChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E0DA298728A23932008A12EA /* XCRemoteSwiftPackageReference "SwiftUILineChart" */;
-			productName = SwiftUILineChart;
-		};
-		E0DA298B28A23B74008A12EA /* PlotUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E0DA298A28A23B74008A12EA /* XCRemoteSwiftPackageReference "PlotUI" */;
-			productName = PlotUI;
 		};
 		E0DA298E28A27A80008A12EA /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;

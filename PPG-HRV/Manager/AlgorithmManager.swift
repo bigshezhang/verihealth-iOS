@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import LineChartView
 
 func HeartRateCalc(receivePack: MyBleRecPacket){
     
@@ -27,9 +26,7 @@ func HeartRateCalc(receivePack: MyBleRecPacket){
             DispatchQueue.main.async {
                 userData.realTimeHRV.append(Double(result.sdnn))
                 userData.realTimeHR.append(Double(result.hr))
-                
-                userData.hrChartData.append(LineChartData(result.hr))
-                userData.hrvChartData.append(LineChartData(result.sdnn))
+
             }
         } else {
             DispatchQueue.main.async {
@@ -38,11 +35,6 @@ func HeartRateCalc(receivePack: MyBleRecPacket){
                 userData.realTimeHR.removeFirst()
                 userData.realTimeHR.append(Double(result.hr))
                 
-                userData.hrChartData.removeFirst()
-                userData.hrvChartData.removeFirst()
-                userData.hrChartData.append(LineChartData(result.hr))
-                userData.hrvChartData.append(LineChartData(result.sdnn))
-
             }
         }
         let currentCustomFilePath = FileTool().createRealtimeTxt(writeWhat: .custom)    //输出有效数据到Custom文件
