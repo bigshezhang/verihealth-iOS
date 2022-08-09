@@ -18,7 +18,6 @@
 		E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A981CC28918C9600EDE15A /* DeviceManager.swift */; };
 		E0BD634A289020DA00CAA896 /* RealTimeHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD6349289020DA00CAA896 /* RealTimeHRVView.swift */; };
 		E0CC26762893D5160031F18F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC26752893D5160031F18F /* ProfileView.swift */; };
-		E0DA295628A0DE2B008A12EA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA295528A0DE2B008A12EA /* SwiftUICharts */; };
 		E0DA295828A12105008A12EA /* DeviceDictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295728A12105008A12EA /* DeviceDictView.swift */; };
 		E0DA295C28A1573A008A12EA /* NewHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295B28A1573A008A12EA /* NewHomeView.swift */; };
 		E0DA295E28A176C5008A12EA /* HexColorTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295D28A176C5008A12EA /* HexColorTransfer.swift */; };
@@ -32,6 +31,7 @@
 		E0DA298628A234C7008A12EA /* SSLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA298428A234C6008A12EA /* SSLineChartData.swift */; };
 		E0DA298928A23932008A12EA /* SwiftUILineChart in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA298828A23932008A12EA /* SwiftUILineChart */; };
 		E0DA298C28A23B74008A12EA /* PlotUI in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA298B28A23B74008A12EA /* PlotUI */; };
+		E0DA298F28A27A80008A12EA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA298E28A27A80008A12EA /* SwiftUICharts */; };
 		E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */; };
 		E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D842886CBD400258227 /* Assets.xcassets */; };
 		E0ED5D882886CBD400258227 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D872886CBD400258227 /* Preview Assets.xcassets */; };
@@ -169,12 +169,12 @@
 				E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */,
 				E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */,
 				E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */,
-				E0DA295628A0DE2B008A12EA /* SwiftUICharts in Frameworks */,
 				E0DA297B28A21E51008A12EA /* LineChartView in Frameworks */,
 				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
 				E0DA297E28A22D79008A12EA /* CheesyChart in Frameworks */,
 				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
 				E0DA298928A23932008A12EA /* SwiftUILineChart in Frameworks */,
+				E0DA298F28A27A80008A12EA /* SwiftUICharts in Frameworks */,
 				E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */,
 				E0DA296428A1DBC1008A12EA /* Progress-Bar in Frameworks */,
 			);
@@ -357,12 +357,12 @@
 			);
 			name = "PPG-HRV";
 			packageProductDependencies = (
-				E0DA295528A0DE2B008A12EA /* SwiftUICharts */,
 				E0DA296328A1DBC1008A12EA /* Progress-Bar */,
 				E0DA297A28A21E51008A12EA /* LineChartView */,
 				E0DA297D28A22D79008A12EA /* CheesyChart */,
 				E0DA298828A23932008A12EA /* SwiftUILineChart */,
 				E0DA298B28A23B74008A12EA /* PlotUI */,
+				E0DA298E28A27A80008A12EA /* SwiftUICharts */,
 			);
 			productName = "PPG-HRV";
 			productReference = E0ED5D7D2886CBD300258227 /* PPG-HRV.app */;
@@ -437,12 +437,12 @@
 			);
 			mainGroup = E0ED5D742886CBD300258227;
 			packageReferences = (
-				E0DA295428A0DE2B008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */,
 				E0DA296228A1DBC1008A12EA /* XCRemoteSwiftPackageReference "Progress-Bar-SwifttUI" */,
 				E0DA297928A21E51008A12EA /* XCRemoteSwiftPackageReference "LineChartView" */,
 				E0DA297C28A22D79008A12EA /* XCRemoteSwiftPackageReference "CheesyChart" */,
 				E0DA298728A23932008A12EA /* XCRemoteSwiftPackageReference "SwiftUILineChart" */,
 				E0DA298A28A23B74008A12EA /* XCRemoteSwiftPackageReference "PlotUI" */,
+				E0DA298D28A27A80008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */,
 			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
 			projectDirPath = "";
@@ -853,14 +853,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E0DA295428A0DE2B008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://gitee.com/bigshezhang/the-first-chart-view.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.5.5;
-			};
-		};
 		E0DA296228A1DBC1008A12EA /* XCRemoteSwiftPackageReference "Progress-Bar-SwifttUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://gitee.com/bigshezhang/Progress-Bar-SwifttUI.git";
@@ -901,14 +893,17 @@
 				kind = branch;
 			};
 		};
+		E0DA298D28A27A80008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/bigshezhang/the-first-chart-view.git";
+			requirement = {
+				kind = exactVersion;
+				version = "2.0.0-beta.2";
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E0DA295528A0DE2B008A12EA /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E0DA295428A0DE2B008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */;
-			productName = SwiftUICharts;
-		};
 		E0DA296328A1DBC1008A12EA /* Progress-Bar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0DA296228A1DBC1008A12EA /* XCRemoteSwiftPackageReference "Progress-Bar-SwifttUI" */;
@@ -933,6 +928,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E0DA298A28A23B74008A12EA /* XCRemoteSwiftPackageReference "PlotUI" */;
 			productName = PlotUI;
+		};
+		E0DA298E28A27A80008A12EA /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0DA298D28A27A80008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

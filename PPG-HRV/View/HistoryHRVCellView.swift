@@ -13,7 +13,7 @@ struct HistoryHRVCellView: View {
     var Hour : String
     var data : [Double]
     var body: some View {
-            LineChartView(data: data, title: "\(Hour)时", form: ChartForm.small)
+        LineChart().data(data)
     }
 }
 

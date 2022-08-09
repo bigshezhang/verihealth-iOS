@@ -18,8 +18,8 @@ struct RealTimeHRVView: View {
                 
             GeometryReader{ GeometryProxy in
                 ZStack{
-                    LineView(data: myData.realTimeHRV, title: "实时HRV")
-                        .padding()
+//                    LineView(data: myData.realTimeHRV, title: "实时HRV")
+//                        .padding()
                     VStack{
                         HStack(){
                             Spacer()
