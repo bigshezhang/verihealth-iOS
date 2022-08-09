@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "progress-bar-swifttui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/bigshezhang/Progress-Bar-SwifttUI.git",
+      "state" : {
+        "revision" : "35dd5ffb369fa522519c819170e171d0a76dbbea",
+        "version" : "1.0.4"
+      }
+    },
+    {
       "identity" : "the-first-chart-view",
       "kind" : "remoteSourceControl",
       "location" : "https://gitee.com/bigshezhang/the-first-chart-view.git",

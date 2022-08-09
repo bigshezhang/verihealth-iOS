@@ -30,9 +30,6 @@ struct Recording: View {
             withAnimation(.spring(response: 0.55, dampingFraction: 0.825, blendDuration: 0).repeatForever(autoreverses: true)) {
                     recording.toggle()
             }
-//            if isScaning{
-//      
-//            }
         }
     }
 }

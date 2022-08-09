@@ -44,7 +44,7 @@ struct DeviceDictView: View {
                         } else {
                             deviceArray = DeviceManager().getDeviceArray()
                             print("[更新设备列表中]")
-                            if deviceArray != nil{
+                            if deviceArray.count != 0{
                                 isScaning = false
                             }
                         }
@@ -98,5 +98,6 @@ struct DeviceCellView: View{
 struct DeviceDictView_Previews: PreviewProvider {
     static var previews: some View {
         DeviceDictView()
+            .environmentObject(ViewRouter())
     }
 }
