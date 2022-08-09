@@ -8,7 +8,6 @@
 import SwiftUI
 import SwiftUICharts
 import Progress_Bar
-import SwiftUILineChart
 
 struct HomeView: View {
     @ObservedObject var myData = userData
@@ -16,14 +15,10 @@ struct HomeView: View {
     
     @State var value: Int? = 0
 
-//    @ObservedObject var hrChartValue = ChartValue()
-    
-    
     var startAngle = -90.0
     @State var progress : Double = 0.97
-    
-    @State var HR = Int()
-    @State var HRV = Int()
+        
+    @State var zoomLarge = false
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
@@ -58,7 +53,7 @@ struct HomeView: View {
                         Spacer()
                         
                         Button {
-
+                            myData.isOnHand.toggle()
                         } label: {
                             Text("Details")
                         }
@@ -90,7 +85,7 @@ struct HomeView: View {
                                                     .frame(width: 20, height: 20)
                                       
                                                 
-                                                Text("\(HR + 100)")
+                                                Text("\(Int(myData.realTimeHR.last!))")
                                                     .font(.system(size: 22))
                                                     .foregroundColor(Color("HomeTitleColor"))
                                                 
@@ -116,7 +111,7 @@ struct HomeView: View {
                                                     .frame(width: 20, height: 20)
                                       
                                                 
-                                                Text("\(HRV + 100)")
+                                                Text("\(Int(myData.realTimeHRV.last!))")
                                                     .font(.system(size: 22))
                                                     .foregroundColor(Color("HomeTitleColor"))
         
@@ -145,11 +140,11 @@ struct HomeView: View {
                                         .shadow(color: Color(hex: "#474AD9"), radius: 6, y: 3)
                                     
                                     VStack{
-                                        Text("\(Int(progress * 100))")
+                                        Text("\(Int(myData.realTimeSpo2.last! * 100))")
                                             .font(.system(size: 28))
                                             .foregroundColor(Color(hex: "#474ad9"))
                                         
-                                        Text("So2")
+                                        Text("Spo2")
                                             .font(.system(size: 12))
                                             .foregroundColor(Color(hex: "#9797a8"))
                                     }
@@ -169,20 +164,19 @@ struct HomeView: View {
                                     Text("Loss")
                                         .font(.system(size: 14))
                                         .foregroundColor(Color("HomeTitleColor"))
-                                    LinearProgress(percentage: 0.2, backgroundColor: Color(hex: "#eaeefc"), foregroundColor: LinearGradient(colors: [Color(hex: "#ced8ff"), Color(hex: "#ced8ff")], startPoint: .leading, endPoint: .trailing))
+                                    LinearProgress(percentage: myData.lossRate / 100.0, backgroundColor: Color(hex: "#eaeefc"), foregroundColor: LinearGradient(colors: [Color(hex: "#ced8ff"), Color(hex: "#ced8ff")], startPoint: .leading, endPoint: .trailing))
                                         .frame(width: 56, height: 4)
-                                    Text("20%")
+                                    Text("\(myData.lossRate / 100.0)%")
                                         .font(.system(size: 11))
                                         .foregroundColor(Color(hex: "#9797a8"))
-                                    
                                 }
                                 VStack(alignment: .leading, spacing: 5){
                                     Text("Mistake")
                                         .font(.system(size: 14))
                                         .foregroundColor(Color("HomeTitleColor"))
-                                    LinearProgress(percentage: 0.2, backgroundColor: Color(hex: "#ffe7ee"), foregroundColor: LinearGradient(colors: [Color(hex: "#ffa6c1"), Color(hex: "#ff4d84")], startPoint: .leading, endPoint: .trailing))
+                                    LinearProgress(percentage: myData.mistakeRate / 100.0, backgroundColor: Color(hex: "#ffe7ee"), foregroundColor: LinearGradient(colors: [Color(hex: "#ffa6c1"), Color(hex: "#ff4d84")], startPoint: .leading, endPoint: .trailing))
                                         .frame(width: 56, height: 4)
-                                    Text("20%")
+                                    Text("\(myData.mistakeRate / 100.0)%")
                                         .font(.system(size: 11))
                                         .foregroundColor(Color(hex: "#9797a8"))
                                 }
@@ -200,6 +194,19 @@ struct HomeView: View {
                                                 .frame(width: 100)
                                                 .padding(-5)
                                         })
+                                    .opacity(myData.isOnHand ? 1 : 0.3)
+                                    .scaleEffect(zoomLarge ? 10 : 1)
+                                    .onChange(of: myData.isOnHand, perform: { newValue in
+                                        withAnimation(.spring(response: 0.55, dampingFraction: 0.825, blendDuration: 0).repeatCount(1)){
+                                            zoomLarge.toggle()
+                                            print("[zoomLarge]", zoomLarge)
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                                withAnimation(.spring(response: 0.55, dampingFraction: 0.825, blendDuration: 0).repeatCount(1)){
+                                                    zoomLarge.toggle()
+                                                }
+                                            }
+                                        }
+                                    })
                             }
                             .padding(.bottom, 50)
                         }
@@ -231,7 +238,7 @@ struct HomeView: View {
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack(spacing: 20){
                         CardView {
-                            Text("So2")
+                            Text("Spo2")
                                 .foregroundColor(Color("HomeTitleColor"))
                                 .font(.system(size: 24))
                                 .padding(10)
