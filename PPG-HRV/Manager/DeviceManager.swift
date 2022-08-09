@@ -57,21 +57,21 @@ class DeviceManager: NSObject, ObservableObject
 
 extension DeviceManager: TransferManagerDelegate {
     func transUpdateBLEState(_ state: BLEStatus) {
-//        print("[更新蓝牙状态] -> ", BLEStatus.RawValue())
+        print("[更新蓝牙状态] -> ", BLEStatus.RawValue())
     }
     
-//    func transReceive(_ device: VsDevice) {
-//        print("[获取的蓝牙名称]-> ",device.name)
-//        TransferManager.sharedInstance().connect(device)    //连接设备
-//        userData.currDevice = device
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-//            userData.isDeviceConnected = true           //异步处理一下，防止主视图崩溃
-//        }
-//        sendCustomPack(device: device, isMeasuring: 1)
-//    }
-    
-//    func 
-    
+    func transReceive(_ device: VsDevice) {
+        print("[获取的蓝牙名称]-> ",device.name)
+        if(device.name == userData.currentDeviceName){
+            TransferManager.sharedInstance().connect(device)    //连接之前连接过的最后一个设备
+        }
+        userData.currDevice = device
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            userData.isDeviceConnected = true           //异步处理一下，防止主视图崩溃
+        }
+        sendCustomPack(device: device, isMeasuring: 1)
+    }
+        
     func transIsReady(_ device: Any) {
         print("[设备已准备好传输数据]")
     }
@@ -115,11 +115,17 @@ extension DeviceManager: TransferManagerDelegate {
                 print("[收到了无效包]")
             }
             let currentRawFilePath = FileTool().createRealtimeTxt(writeWhat: .raw)        //输出Raw数据到文件
-            var toWriteRawData = unbindTuple(data: receivePack.data)
+            
+            var rawData = [UInt16]()      //  解构元组（swift将C中数组强制转换为了元组
+            let mirror = Mirror(reflecting: receivePack.data)
+            for (label, value) in mirror.children {
+                rawData.append(value as! UInt16)
+            }
+            
             do {
                 let fileHandle = try FileHandle(forWritingTo: URL.init(string: currentRawFilePath)!)
                 fileHandle.seekToEndOfFile()
-                try fileHandle.write(contentsOf: "\(toWriteRawData.prefix(Int(receivePack.size)))\n".data(using: .utf8)!)
+                try fileHandle.write(contentsOf: "\(rawData.prefix(Int(receivePack.size)))\n".data(using: .utf8)!)
                 try fileHandle.close()
             } catch {
                 print(error)

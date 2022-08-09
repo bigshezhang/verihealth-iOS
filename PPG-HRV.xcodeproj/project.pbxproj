@@ -12,7 +12,6 @@
 		E024F72D2890317F007650DB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72C2890317F007650DB /* Spinner.swift */; };
 		E024F72F2890379D007650DB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72E2890379D007650DB /* Recording.swift */; };
 		E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */; };
-		E081D9702893A82000C88F23 /* UnbindTuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D96F2893A82000C88F23 /* UnbindTuple.swift */; };
 		E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9762893B23100C88F23 /* HistoryHRVView.swift */; };
 		E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */; };
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
@@ -24,6 +23,7 @@
 		E0DA295C28A1573A008A12EA /* NewHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295B28A1573A008A12EA /* NewHomeView.swift */; };
 		E0DA295E28A176C5008A12EA /* HexColorTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295D28A176C5008A12EA /* HexColorTransfer.swift */; };
 		E0DA296428A1DBC1008A12EA /* Progress-Bar in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA296328A1DBC1008A12EA /* Progress-Bar */; };
+		E0DA297028A1F35A008A12EA /* FakeDataGenarater.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA296F28A1F35A008A12EA /* FakeDataGenarater.swift */; };
 		E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */; };
 		E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D842886CBD400258227 /* Assets.xcassets */; };
 		E0ED5D882886CBD400258227 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D872886CBD400258227 /* Preview Assets.xcassets */; };
@@ -103,7 +103,6 @@
 		E024F72C2890317F007650DB /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		E024F72E2890379D007650DB /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceView.swift; sourceTree = "<group>"; };
-		E081D96F2893A82000C88F23 /* UnbindTuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnbindTuple.swift; sourceTree = "<group>"; };
 		E081D9762893B23100C88F23 /* HistoryHRVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVView.swift; sourceTree = "<group>"; };
 		E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVCellView.swift; sourceTree = "<group>"; };
 		E081D97A2893B39D00C88F23 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		E0DA295728A12105008A12EA /* DeviceDictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDictView.swift; sourceTree = "<group>"; };
 		E0DA295B28A1573A008A12EA /* NewHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeView.swift; sourceTree = "<group>"; };
 		E0DA295D28A176C5008A12EA /* HexColorTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorTransfer.swift; sourceTree = "<group>"; };
+		E0DA296F28A1F35A008A12EA /* FakeDataGenarater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataGenarater.swift; sourceTree = "<group>"; };
 		E0ED5D7D2886CBD300258227 /* PPG-HRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PPG-HRV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVApp.swift; sourceTree = "<group>"; };
 		E0ED5D842886CBD400258227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -187,6 +187,7 @@
 				E0A981CC28918C9600EDE15A /* DeviceManager.swift */,
 				E0ED5DB828879DD600258227 /* ViewRouter.swift */,
 				E081D97A2893B39D00C88F23 /* DateManager.swift */,
+				E0DA296F28A1F35A008A12EA /* FakeDataGenarater.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -214,7 +215,6 @@
 				E021B14628935F9D005B5AE0 /* HeartBeat.swift */,
 				E024F72E2890379D007650DB /* Recording.swift */,
 				E024F72C2890317F007650DB /* Spinner.swift */,
-				E081D96F2893A82000C88F23 /* UnbindTuple.swift */,
 				E0DA295D28A176C5008A12EA /* HexColorTransfer.swift */,
 			);
 			path = Helper;
@@ -465,7 +465,7 @@
 				E0DA295C28A1573A008A12EA /* NewHomeView.swift in Sources */,
 				E0DA295E28A176C5008A12EA /* HexColorTransfer.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
-				E081D9702893A82000C88F23 /* UnbindTuple.swift in Sources */,
+				E0DA297028A1F35A008A12EA /* FakeDataGenarater.swift in Sources */,
 				E0CC26762893D5160031F18F /* ProfileView.swift in Sources */,
 				E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */,
 				E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */,
