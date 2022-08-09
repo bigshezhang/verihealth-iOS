@@ -19,7 +19,7 @@ struct PPG_HRVApp: App {
     
     var body: some Scene {
         WindowGroup {
-            var viewRouter = ViewRouter()
+            let viewRouter = ViewRouter()
             RouterView()
                 .onAppear{
                     FileTool().createTodayDir()     //创建当天的信息收集文件夹

@@ -13,8 +13,6 @@ struct HomeView: View {
     @ObservedObject var myData = userData
     @EnvironmentObject var viewRouter: ViewRouter
     
-    @State var value: Int? = 0
-
     var startAngle = -90.0
     @State var progress : Double = 0.97
         
@@ -131,11 +129,11 @@ struct HomeView: View {
                                 ZStack {
                                     Circle()
                                         .stroke(Color(hex: "#e8ecff"), lineWidth: 4)
-                                    RingShape(progress: progress, thickness: 12)
+                                    RingShape(progress: myData.realTimeSpo2.last!, thickness: 12)
                                         .fill(AngularGradient(gradient: Gradient(colors: [Color(hex: "#464ae1"), Color(hex: "#6f8fea")]), center: .center, startAngle: .degrees(startAngle), endAngle: .degrees(360 * progress + startAngle)))
                                         .shadow(color: Color(hex: "#474AD9"), radius: 3, x:3, y: 3)
                                     
-                                    RingDot(progress: progress, thickness: 6)
+                                    RingDot(progress: myData.realTimeSpo2.last!, thickness: 6)
                                         .fill(Color.white)
                                         .shadow(color: Color(hex: "#474AD9"), radius: 6, y: 3)
                                     
@@ -166,7 +164,7 @@ struct HomeView: View {
                                         .foregroundColor(Color("HomeTitleColor"))
                                     LinearProgress(percentage: myData.lossRate / 100.0, backgroundColor: Color(hex: "#eaeefc"), foregroundColor: LinearGradient(colors: [Color(hex: "#ced8ff"), Color(hex: "#ced8ff")], startPoint: .leading, endPoint: .trailing))
                                         .frame(width: 56, height: 4)
-                                    Text("\(myData.lossRate / 100.0)%")
+                                    Text("\(String(format: "%.1f", myData.lossRate / 100.0))%")
                                         .font(.system(size: 11))
                                         .foregroundColor(Color(hex: "#9797a8"))
                                 }
@@ -176,7 +174,7 @@ struct HomeView: View {
                                         .foregroundColor(Color("HomeTitleColor"))
                                     LinearProgress(percentage: myData.mistakeRate / 100.0, backgroundColor: Color(hex: "#ffe7ee"), foregroundColor: LinearGradient(colors: [Color(hex: "#ffa6c1"), Color(hex: "#ff4d84")], startPoint: .leading, endPoint: .trailing))
                                         .frame(width: 56, height: 4)
-                                    Text("\(myData.mistakeRate / 100.0)%")
+                                    Text("\(String(format: "%.1f", myData.mistakeRate / 100.0))%")
                                         .font(.system(size: 11))
                                         .foregroundColor(Color(hex: "#9797a8"))
                                 }
