@@ -43,7 +43,7 @@ struct DeviceDictView: View {
                             timer.invalidate()
                         } else {
                             deviceArray = DeviceManager().getDeviceArray()
-                            print("[更新设备列表中]")
+//                            print("[更新设备列表中]")
                             if deviceArray.count != 0{
                                 isScaning = false
                             }

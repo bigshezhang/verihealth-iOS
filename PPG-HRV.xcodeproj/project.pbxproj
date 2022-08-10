@@ -16,6 +16,7 @@
 		E0714F5728A3898A0000028E /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5628A3898A0000028E /* DataBaseManager.swift */; };
 		E0714F5D28A3C0E20000028E /* HistoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5C28A3C0E20000028E /* HistoryCellView.swift */; };
 		E0714F6028A3C2A10000028E /* HealthCharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0714F5F28A3C2A10000028E /* HealthCharts */; };
+		E0714F6228A3E92B0000028E /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F6128A3E92B0000028E /* HistoryView.swift */; };
 		E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9762893B23100C88F23 /* HistoryHRVView.swift */; };
 		E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */; };
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
@@ -116,6 +117,7 @@
 		E0714F5428A387F00000028E /* RealTimeChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeChartView.swift; sourceTree = "<group>"; };
 		E0714F5628A3898A0000028E /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		E0714F5C28A3C0E20000028E /* HistoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellView.swift; sourceTree = "<group>"; };
+		E0714F6128A3E92B0000028E /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		E081D9762893B23100C88F23 /* HistoryHRVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVView.swift; sourceTree = "<group>"; };
 		E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVCellView.swift; sourceTree = "<group>"; };
 		E081D97A2893B39D00C88F23 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		E021B14928939391005B5AE0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E0714F6328A3EEF90000028E /* TodayViewController */,
 				E0714F5828A39FF80000028E /* HomeViewController */,
 				E0714F5928A3A03D0000028E /* HistoryViewController */,
 				E0ED5DB628879D8200258227 /* TabView.swift */,
@@ -258,8 +261,16 @@
 			isa = PBXGroup;
 			children = (
 				E0714F5C28A3C0E20000028E /* HistoryCellView.swift */,
+				E0714F6128A3E92B0000028E /* HistoryView.swift */,
 			);
 			path = HistoryViewController;
+			sourceTree = "<group>";
+		};
+		E0714F6328A3EEF90000028E /* TodayViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TodayViewController;
 			sourceTree = "<group>";
 		};
 		E0DA297328A1FAB4008A12EA /* Algorithm */ = {
@@ -509,6 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0714F6228A3E92B0000028E /* HistoryView.swift in Sources */,
 				E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */,
 				E0DA299428A327C9008A12EA /* HomeToast.swift in Sources */,
 				E02288482892D592002B697A /* FileManager.swift in Sources */,
@@ -698,6 +710,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PPG-HRV/Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "获取设备连接数据";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -705,6 +718,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = UIUserInterfaceStyleLight;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -735,6 +749,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PPG-HRV/Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "获取设备连接数据";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -742,6 +757,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = UIUserInterfaceStyleLight;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

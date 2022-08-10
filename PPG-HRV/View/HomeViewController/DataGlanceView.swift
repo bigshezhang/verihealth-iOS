@@ -29,7 +29,7 @@ struct DataGlanceView: View {
                 Button {
                     myData.isOnHand.toggle()
                 } label: {
-                    Text("Details")
+                    Text("Today")
                 }
 
                 Image(systemName: "arrow.right")

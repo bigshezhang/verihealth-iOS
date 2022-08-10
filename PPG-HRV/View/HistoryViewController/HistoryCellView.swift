@@ -47,14 +47,24 @@ struct HistoryCellView: View {
         return dataPoints
     }
 //
-    func intToDouble(intArray: [Int]){
+    func intToDouble(intArray: [Int]) -> [Double]{
         var doubleArray = [Double]()
         for index in 0...intArray.count-1{
             doubleArray.append(Double(intArray[index]))
         }
+        return doubleArray
+    }
+    
+    func selectPoint(dataArray : [Double]) -> [Double]{
+        var selectedArray = [Double]()
+        for index in 1...15 {
+            selectedArray.append(dataArray[index * 4 - 4])
+        }
+        return selectedArray
     }
     
     var body: some View {
+        var barData = selectPoint(dataArray: intToDouble(intArray: lasthourData))
 //        let limit = DataPoint(value: 130, label: "5", legend: fatBurning)
         VStack{
             BarChartView(dataPoints: dataToPoint(dataArray: lasthourData))
@@ -72,15 +82,6 @@ struct HistoryCellView: View {
                     }
                 )
                 .scaleEffect(0.9)
-            
-//            CardView {
-//                ChartGrid{
-//                    BarChart()
-//                }
-//                .data(intToDouble(intArray: lasthourData))
-//                .chartStyle(ChartStyle(backgroundColor: .clear,
-//                                       foregroundColor: ColorGradient(.white, .red)))
-//            }
         }
     }
 }

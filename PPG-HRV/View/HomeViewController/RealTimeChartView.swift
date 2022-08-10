@@ -25,7 +25,7 @@ struct RealTimeChartView: View {
                 Button {
                     myData.isDeviceConnected.toggle()
                 } label: {
-                    Text("Details")
+                    Text("History")
                 }
 
                 Image(systemName: "arrow.right")

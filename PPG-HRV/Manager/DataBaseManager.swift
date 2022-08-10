@@ -74,10 +74,13 @@ class DataBaseManager : NSObject, ObservableObject {
         let rlmResult = DataManager.sharedInstance().queryData(type, start: start, end: end, userName: "lazyman")
         
         var dataDic = [Int32 : Int32]()
+        print("[rlmCount]", rlmResult.count)
         
-        for index in 0...rlmResult.count - 1{
-            let object = rlmResult.object(at: index) as! HRModel
-            dataDic.updateValue(object.value, forKey: object.timeStamp)
+        if rlmResult.count > 0{
+            for index in 0...rlmResult.count - 1 {
+                let object = rlmResult.object(at: index) as! HRModel
+                dataDic.updateValue(object.value, forKey: object.timeStamp)
+            }
         }
         return dataDic
     }

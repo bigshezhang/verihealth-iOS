@@ -33,16 +33,16 @@ class DeviceManager: NSObject, ObservableObject
         }
     }
     
-    public func sendCustomPack(device: VsDevice, isMeasuring: Int){
-        print("[发送的蓝牙信息] -> ", isMeasuring)
-        var toMeasure = MyBleSendPacket(isMeasuring: UInt16(isMeasuring))
-        
-        let payData = NSData(bytes: &toMeasure, length: 2)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            TransferManager.sharedInstance().sendCommonMessage(device, msgId: UInt16(VS_SEND_MSG), data: payData as Data)
-        }
-    }
+//    public func sendCustomPack(device: VsDevice, isMeasuring: Int){
+//        print("[发送的蓝牙信息] -> ", isMeasuring)
+//        var toMeasure = MyBleSendPacket(isMeasuring: UInt16(isMeasuring))
+//
+//        let payData = NSData(bytes: &toMeasure, length: 2)
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+//            TransferManager.sharedInstance().sendCommonMessage(device, msgId: UInt16(VS_SEND_MSG), data: payData as Data)
+//        }
+//    }
     
     public func getDeviceArray() -> [VsDevice] {
         for device in deviceDict{
@@ -63,16 +63,16 @@ extension DeviceManager: TransferManagerDelegate {
         print("[获取到一个的Vs设备]-> ",device.name)
         if(device.name == userData.currentDeviceName){
             TransferManager.sharedInstance().connect(device)    //连接之前连接过的最后一个设备
-            Timer(timeInterval: 1, repeats: true) { timer in
-                if device.connected {
-                    self.sendCustomPack(device: device, isMeasuring: 1)
-                    DispatchQueue.main.async {
-                        userData.currentDeviceName = device.name
-                        userData.isDeviceConnected = true
-                    }
-                    timer.invalidate()
-                }
-            }
+//            Timer(timeInterval: 1, repeats: true) { timer in
+//                if device.connected {
+//                    self.sendCustomPack(device: device, isMeasuring: 1)
+//                    DispatchQueue.main.async {
+//                        userData.currentDeviceName = device.name
+//                        userData.isDeviceConnected = true
+//                    }
+//                    timer.invalidate()
+//                }
+//            }
         }
 //        userData.currDevice = device
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
@@ -92,13 +92,66 @@ extension DeviceManager: TransferManagerDelegate {
         DispatchQueue.main.async {
             userData.isDeviceConnected = true   //收到消息就解除
         }
-        
-        if frame.payload != nil{
-            let data: NSData = (frame.payload as NSData?)!
-            var receivePack = MyBleRecPacket()
-            data.getBytes(&receivePack, length: data.length)
+
+        switch frame.opcode{
+        case 10000:                                 //收到Spo2的包
+            if frame.payload != nil{
+                let data: NSData = (frame.payload as NSData?)!
+                var receivePack = ResultPacket()
+                data.getBytes(&receivePack, length: data.length)
+                
+                if receivePack.ret == 0{
+                    DispatchQueue.main.async {
+                        if userData.realTimeSpo2.count < 30 {
+                            userData.realTimeSpo2.append(Double(receivePack.spo2) / 100.0)
+                        } else {
+                            userData.realTimeSpo2.removeFirst()
+                            userData.realTimeSpo2.append(Double(receivePack.spo2) / 100.0)
+                        }
+                        userData.lossRate = Double(receivePack.loss) / 100.0
+                        userData.mistakeRate = Double(receivePack.wrong) / 100.0
+                    }
+                    print("[OP 10000] -> ", receivePack.spo2)
+                }
+            }
+        case 10001:                                 //获得了原始数据
+            if frame.payload != nil{
+                let data: NSData = (frame.payload as NSData?)!
+                var receivePack = RawDataPacket()
+                data.getBytes(&receivePack, length: data.length)
+
+            }
+        case 10002:
+            if frame.payload != nil{
+                let data: NSData = (frame.payload as NSData?)!
+                var receivePack = LodPacket()
+                data.getBytes(&receivePack, length: data.length)
+                
+                if receivePack.status == 0{
+                    DispatchQueue.main.async {
+                        userData.isOnHand = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        userData.isOnHand = true
+                    }
+                }
+            }
             
-            HeartRateCalc(receivePack: receivePack)
+        default : break
         }
+        
+        
+//        if frame.payload != nil{
+//            let data: NSData = (frame.payload as NSData?)!
+//            var receivePack = ResultPacket()
+//            data.getBytes(&receivePack, length: data.length)
+//
+//            if receivePack.ret == 0{
+//                userData.realTimeSpo2.append(Double(receivePack.spo2))
+//            }
+////            HeartRateCalc(receivePack: receivePack)
+//        }
     }
+    
 }

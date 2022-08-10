@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-func HeartRateCalc(receivePack: MyBleRecPacket){
+func HeartRateCalc(receivePack: RawDataPacket){
     
     var rawData = [UInt16]()      //  解构元组（swift将C中数组强制转换为了元组
     let mirror = Mirror(reflecting: receivePack.data)

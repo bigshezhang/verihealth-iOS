@@ -17,7 +17,7 @@ struct RouterView: View {
             VStack{
                 switch viewRouter.currentPage{
                 case .Home: HomeView()
-                case .Page1: HistoryCellView()
+                case .Page1: HistoryView()
                 case .Page2: ProfileView()
                 default: HomeView()
                 }
