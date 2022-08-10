@@ -15,6 +15,7 @@
 		E0714F5528A387F00000028E /* RealTimeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5428A387F00000028E /* RealTimeChartView.swift */; };
 		E0714F5728A3898A0000028E /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5628A3898A0000028E /* DataBaseManager.swift */; };
 		E0714F5D28A3C0E20000028E /* HistoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5C28A3C0E20000028E /* HistoryCellView.swift */; };
+		E0714F6028A3C2A10000028E /* HealthCharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0714F5F28A3C2A10000028E /* HealthCharts */; };
 		E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9762893B23100C88F23 /* HistoryHRVView.swift */; };
 		E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */; };
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
@@ -176,6 +177,7 @@
 				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
 				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
 				E0DA298F28A27A80008A12EA /* SwiftUICharts in Frameworks */,
+				E0714F6028A3C2A10000028E /* HealthCharts in Frameworks */,
 				E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */,
 				E0DA296428A1DBC1008A12EA /* Progress-Bar in Frameworks */,
 				E0D47EFA28A340A800DE7B2C /* SwiftyGif in Frameworks */,
@@ -382,6 +384,7 @@
 				E0DA299628A336C4008A12EA /* PopupView */,
 				E0D47EF928A340A800DE7B2C /* SwiftyGif */,
 				E0D47EFC28A3439A00DE7B2C /* GIFImage */,
+				E0714F5F28A3C2A10000028E /* HealthCharts */,
 			);
 			productName = "PPG-HRV";
 			productReference = E0ED5D7D2886CBD300258227 /* PPG-HRV.app */;
@@ -462,7 +465,7 @@
 				E0DA299528A336C4008A12EA /* XCRemoteSwiftPackageReference "PopupView" */,
 				E0D47EF828A340A800DE7B2C /* XCRemoteSwiftPackageReference "SwiftyGif" */,
 				E0D47EFB28A3439A00DE7B2C /* XCRemoteSwiftPackageReference "GIFImage" */,
-				E0714F5B28A3A2C60000028E /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+				E0714F5E28A3C2A10000028E /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
 			projectDirPath = "";
@@ -874,7 +877,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E0714F5B28A3A2C60000028E /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+		E0714F5E28A3C2A10000028E /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://gitee.com/bigshezhang/SwiftUICharts.git";
 			requirement = {
@@ -933,6 +936,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E0714F5F28A3C2A10000028E /* HealthCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0714F5E28A3C2A10000028E /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = HealthCharts;
+		};
 		E0D47EF928A340A800DE7B2C /* SwiftyGif */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0D47EF828A340A800DE7B2C /* XCRemoteSwiftPackageReference "SwiftyGif" */;

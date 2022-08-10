@@ -90,4 +90,26 @@ class DataBaseManager : NSObject, ObservableObject {
         }
         return dataArrayBySec
     }
+    
+    func getDataArrayByHour(type: DBDataType, start: Int32) -> [Int] {
+        let dataArrayBySec = getDataArray(type: type, start: start, end: start + 3599)
+        var dataArrayByMinute = [Int]()
+        for min in 0...59 {
+            var tmpSum = Int()
+            var validCount = Int()
+            for sec in 0...59{
+                if dataArrayBySec[min * 60 + sec] != -1{
+                    tmpSum += dataArrayBySec[min * 60 + sec]
+                    validCount += 1
+                }
+            }
+            if validCount != 0 {
+                dataArrayByMinute.append(tmpSum / validCount)
+            } else {
+                dataArrayByMinute.append(0)
+            }
+        }
+        print("[一小时内HR] -> ", dataArrayByMinute)
+        return dataArrayByMinute
+    }
 }

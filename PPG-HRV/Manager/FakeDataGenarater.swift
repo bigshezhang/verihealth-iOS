@@ -12,10 +12,10 @@ class FakeDataGenerator {
         print("[正在生成FakeData]")
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             if userData.realTimeHR.count < 30{
-                userData.realTimeHR.append(Double.random(in: 60...70))
+                userData.realTimeHR.append(Double.random(in: 60...190))
             } else {
                 userData.realTimeHR.removeFirst()
-                userData.realTimeHR.append(Double.random(in: 60...70))
+                userData.realTimeHR.append(Double.random(in: 60...190))
             }
             
             if userData.realTimeHRV.count < 30{
