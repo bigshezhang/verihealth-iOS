@@ -9,12 +9,14 @@ import SwiftUI
 import SwiftUICharts
 import Progress_Bar
 import AlertToast
+import PopupView
 
 struct HomeView: View {
     @ObservedObject var myData = userData
     @EnvironmentObject var viewRouter: ViewRouter
         
-    @State var toastState = false
+    @State var onHandToastState = false
+    @State var connectedToastState = false
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
@@ -41,9 +43,22 @@ struct HomeView: View {
             DataGlanceView()
             RealTimeChartView()
         }
-        .toast(isPresenting: $toastState, duration: 2, tapToDismiss: true) {
+        .onChange(of: myData.isOnHand, perform: { newValue in
+            if myData.isOnHand {
+                onHandToastState.toggle()
+            }
+        })
+        .onChange(of: myData.isDeviceConnected, perform: { newValue in
+            if myData.isDeviceConnected{
+                connectedToastState.toggle()
+            }
+        })
+        .toast(isPresenting: $onHandToastState, duration: 2, tapToDismiss: true) {
             AlertToast(displayMode: .alert, type: .image("OnHand", .clear), subTitle: "触发穿戴检测")
         }
+        .popup(isPresented: $myData.isDeviceConnected, view: {
+            ConnectedToast()
+        })
         .background(Color("HomeBgColor").ignoresSafeArea())
         .edgesIgnoringSafeArea(.bottom)
     }

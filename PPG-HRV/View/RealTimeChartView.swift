@@ -23,7 +23,7 @@ struct RealTimeChartView: View {
                 Spacer()
                 
                 Button {
-
+                    myData.isDeviceConnected.toggle()
                 } label: {
                     Text("Details")
                 }
