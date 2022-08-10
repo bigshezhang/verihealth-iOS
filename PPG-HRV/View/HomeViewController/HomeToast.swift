@@ -10,7 +10,7 @@ import AlertToast
 import GIFImage
 import SwiftyGif
 
-struct Toast: View {
+struct HomeToast: View {
     @State private var showToast = false
     var body: some View {
         ConnectedToast()
@@ -34,8 +34,8 @@ struct ConnectedToast : UIViewRepresentable{
     
 }
 
-struct Toast_Previews: PreviewProvider {
+struct HomeToast_Previews: PreviewProvider {
     static var previews: some View {
-        Toast()
+        HomeToast()
     }
 }

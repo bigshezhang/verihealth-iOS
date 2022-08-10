@@ -28,3 +28,7 @@ func getCurrentHour() -> String {
     formatter.timeZone = TimeZone.init(identifier: "Asia/Beijing")
     return formatter.string(from: Date())
 }
+
+//func getTimeStamp() -> Int {
+//    return Date().timeIntervalSince(1970)
+//}

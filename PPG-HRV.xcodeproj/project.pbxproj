@@ -11,9 +11,9 @@
 		E02288482892D592002B697A /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02288472892D592002B697A /* FileManager.swift */; };
 		E024F72D2890317F007650DB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72C2890317F007650DB /* Spinner.swift */; };
 		E024F72F2890379D007650DB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72E2890379D007650DB /* Recording.swift */; };
-		E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */; };
 		E0714F5128A36E6B0000028E /* DataGlanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5028A36E6B0000028E /* DataGlanceView.swift */; };
-		E0714F5328A36F280000028E /* RealTimeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5228A36F280000028E /* RealTimeChartView.swift */; };
+		E0714F5528A387F00000028E /* RealTimeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5428A387F00000028E /* RealTimeChartView.swift */; };
+		E0714F5728A3898A0000028E /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5628A3898A0000028E /* DataBaseManager.swift */; };
 		E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9762893B23100C88F23 /* HistoryHRVView.swift */; };
 		E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */; };
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
@@ -31,7 +31,7 @@
 		E0DA297728A1FAD9008A12EA /* heart_rate_api.c in Sources */ = {isa = PBXBuildFile; fileRef = E0DA297528A1FAD9008A12EA /* heart_rate_api.c */; };
 		E0DA298F28A27A80008A12EA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA298E28A27A80008A12EA /* SwiftUICharts */; };
 		E0DA299228A327B0008A12EA /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA299128A327B0008A12EA /* AlertToast */; };
-		E0DA299428A327C9008A12EA /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA299328A327C9008A12EA /* Toast.swift */; };
+		E0DA299428A327C9008A12EA /* HomeToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA299328A327C9008A12EA /* HomeToast.swift */; };
 		E0DA299728A336C4008A12EA /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA299628A336C4008A12EA /* PopupView */; };
 		E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */; };
 		E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D842886CBD400258227 /* Assets.xcassets */; };
@@ -110,9 +110,9 @@
 		E02288472892D592002B697A /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		E024F72C2890317F007650DB /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		E024F72E2890379D007650DB /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
-		E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceView.swift; sourceTree = "<group>"; };
 		E0714F5028A36E6B0000028E /* DataGlanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGlanceView.swift; sourceTree = "<group>"; };
-		E0714F5228A36F280000028E /* RealTimeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeChartView.swift; sourceTree = "<group>"; };
+		E0714F5428A387F00000028E /* RealTimeChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeChartView.swift; sourceTree = "<group>"; };
+		E0714F5628A3898A0000028E /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		E081D9762893B23100C88F23 /* HistoryHRVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVView.swift; sourceTree = "<group>"; };
 		E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVCellView.swift; sourceTree = "<group>"; };
 		E081D97A2893B39D00C88F23 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		E0DA297128A1FAAA008A12EA /* AlgorithmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmManager.swift; sourceTree = "<group>"; };
 		E0DA297428A1FAD9008A12EA /* heart_rate_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = heart_rate_api.h; sourceTree = "<group>"; };
 		E0DA297528A1FAD9008A12EA /* heart_rate_api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = heart_rate_api.c; sourceTree = "<group>"; };
-		E0DA299328A327C9008A12EA /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		E0DA299328A327C9008A12EA /* HomeToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeToast.swift; sourceTree = "<group>"; };
 		E0ED5D7D2886CBD300258227 /* PPG-HRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PPG-HRV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVApp.swift; sourceTree = "<group>"; };
 		E0ED5D842886CBD400258227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -207,6 +207,7 @@
 				E081D97A2893B39D00C88F23 /* DateManager.swift */,
 				E0DA296F28A1F35A008A12EA /* FakeDataGenarater.swift */,
 				E0DA297128A1FAAA008A12EA /* AlgorithmManager.swift */,
+				E0714F5628A3898A0000028E /* DataBaseManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -214,17 +215,14 @@
 		E021B14928939391005B5AE0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E0DA295B28A1573A008A12EA /* HomeView.swift */,
-				E0714F5028A36E6B0000028E /* DataGlanceView.swift */,
-				E0714F5228A36F280000028E /* RealTimeChartView.swift */,
-				E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */,
+				E0714F5828A39FF80000028E /* HomeViewController */,
+				E0714F5928A3A03D0000028E /* HistoryViewController */,
 				E0ED5DB628879D8200258227 /* TabView.swift */,
 				E0ED5DBE2887A45100258227 /* RouterView.swift */,
 				E081D9762893B23100C88F23 /* HistoryHRVView.swift */,
 				E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */,
 				E0CC26752893D5160031F18F /* ProfileView.swift */,
 				E0DA295728A12105008A12EA /* DeviceDictView.swift */,
-				E0DA299328A327C9008A12EA /* Toast.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +237,24 @@
 				E0D47EF328A33B1C00DE7B2C /* GifHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		E0714F5828A39FF80000028E /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E0DA295B28A1573A008A12EA /* HomeView.swift */,
+				E0714F5428A387F00000028E /* RealTimeChartView.swift */,
+				E0714F5028A36E6B0000028E /* DataGlanceView.swift */,
+				E0DA299328A327C9008A12EA /* HomeToast.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		E0714F5928A3A03D0000028E /* HistoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HistoryViewController;
 			sourceTree = "<group>";
 		};
 		E0DA297328A1FAB4008A12EA /* Algorithm */ = {
@@ -487,7 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */,
-				E0DA299428A327C9008A12EA /* Toast.swift in Sources */,
+				E0DA299428A327C9008A12EA /* HomeToast.swift in Sources */,
 				E02288482892D592002B697A /* FileManager.swift in Sources */,
 				E024F72F2890379D007650DB /* Recording.swift in Sources */,
 				E0D47EF428A33B1C00DE7B2C /* GifHelper.swift in Sources */,
@@ -499,13 +515,13 @@
 				E024F72D2890317F007650DB /* Spinner.swift in Sources */,
 				E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */,
 				E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */,
-				E0714F5328A36F280000028E /* RealTimeChartView.swift in Sources */,
 				E021B14728935F9D005B5AE0 /* HeartBeat.swift in Sources */,
-				E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */,
 				E0DA295C28A1573A008A12EA /* HomeView.swift in Sources */,
 				E0DA297728A1FAD9008A12EA /* heart_rate_api.c in Sources */,
 				E0DA295E28A176C5008A12EA /* HexColorTransfer.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
+				E0714F5528A387F00000028E /* RealTimeChartView.swift in Sources */,
+				E0714F5728A3898A0000028E /* DataBaseManager.swift in Sources */,
 				E0DA297228A1FAAA008A12EA /* AlgorithmManager.swift in Sources */,
 				E0DA297028A1F35A008A12EA /* FakeDataGenarater.swift in Sources */,
 				E0CC26762893D5160031F18F /* ProfileView.swift in Sources */,
