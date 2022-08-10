@@ -15,9 +15,9 @@ import BaseFramework
 final class UserData: ObservableObject {
     var currDevice = VsDevice()
     @Published var isDeviceConnected: Bool = false
-    @Published var realTimeHRV : [Double] = [0,0]
-    @Published var realTimeHR : [Double] = [0,0]
-    @Published var realTimeSpo2 : [Double] = [0,0]
+    @Published var realTimeHRV : [Double] = [120,160]
+    @Published var realTimeHR : [Double] = [60,60]
+    @Published var realTimeSpo2 : [Double] = [0.95,0.95]
     @Published var lossRate = 0.0
     @Published var mistakeRate = 0.0
     

@@ -12,6 +12,8 @@
 		E024F72D2890317F007650DB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72C2890317F007650DB /* Spinner.swift */; };
 		E024F72F2890379D007650DB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72E2890379D007650DB /* Recording.swift */; };
 		E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */; };
+		E0714F5128A36E6B0000028E /* DataGlanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5028A36E6B0000028E /* DataGlanceView.swift */; };
+		E0714F5328A36F280000028E /* RealTimeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5228A36F280000028E /* RealTimeChartView.swift */; };
 		E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9762893B23100C88F23 /* HistoryHRVView.swift */; };
 		E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */; };
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
@@ -110,6 +112,8 @@
 		E024F72C2890317F007650DB /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		E024F72E2890379D007650DB /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceView.swift; sourceTree = "<group>"; };
+		E0714F5028A36E6B0000028E /* DataGlanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGlanceView.swift; sourceTree = "<group>"; };
+		E0714F5228A36F280000028E /* RealTimeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeChartView.swift; sourceTree = "<group>"; };
 		E081D9762893B23100C88F23 /* HistoryHRVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVView.swift; sourceTree = "<group>"; };
 		E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVCellView.swift; sourceTree = "<group>"; };
 		E081D97A2893B39D00C88F23 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				E0DA295B28A1573A008A12EA /* HomeView.swift */,
+				E0714F5028A36E6B0000028E /* DataGlanceView.swift */,
+				E0714F5228A36F280000028E /* RealTimeChartView.swift */,
 				E05650C8288D2A3A006755C8 /* ScanDeviceView.swift */,
 				E0ED5DB628879D8200258227 /* TabView.swift */,
 				E0ED5DBE2887A45100258227 /* RouterView.swift */,
@@ -498,12 +504,14 @@
 				E024F72F2890379D007650DB /* Recording.swift in Sources */,
 				E0D47EF428A33B1C00DE7B2C /* GifHelper.swift in Sources */,
 				E0DA295828A12105008A12EA /* DeviceDictView.swift in Sources */,
+				E0714F5128A36E6B0000028E /* DataGlanceView.swift in Sources */,
 				E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */,
 				E0ED5DB728879D8200258227 /* TabView.swift in Sources */,
 				E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */,
 				E024F72D2890317F007650DB /* Spinner.swift in Sources */,
 				E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */,
 				E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */,
+				E0714F5328A36F280000028E /* RealTimeChartView.swift in Sources */,
 				E021B14728935F9D005B5AE0 /* HeartBeat.swift in Sources */,
 				E05650C9288D2A3A006755C8 /* ScanDeviceView.swift in Sources */,
 				E0DA295C28A1573A008A12EA /* HomeView.swift in Sources */,
