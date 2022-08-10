@@ -32,12 +32,14 @@ class FakeDataGenerator {
                 userData.realTimeSpo2.append(Double.random(in: 0.96...1))
             }
             
-            DataBaseManager().writeHRData(value: Int(userData.realTimeHR.last!))
-            DataBaseManager().writeHRVData(value: Int(userData.realTimeHRV.last!))
-            DataBaseManager().writeSpo2Data(value: Int(userData.realTimeSpo2.last!))
+            DataBaseManager().writeData(type: DATA_TYPE_HR, value: Int32(userData.realTimeHR.last!))
+            DataBaseManager().writeData(type: DATA_TYPE_HRV, value: Int32(userData.realTimeHRV.last!))
+            DataBaseManager().writeData(type: DATA_TYPE_SPO2,value: Int32(userData.realTimeSpo2.last!))
 
             userData.lossRate = Double.random(in: 0...0.05)
             userData.mistakeRate = Double.random(in: 0...0.05)
+            
+//            DataBaseManager().getDataBaseDuringTime()
         }
     }
 }

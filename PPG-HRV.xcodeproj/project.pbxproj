@@ -14,6 +14,7 @@
 		E0714F5128A36E6B0000028E /* DataGlanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5028A36E6B0000028E /* DataGlanceView.swift */; };
 		E0714F5528A387F00000028E /* RealTimeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5428A387F00000028E /* RealTimeChartView.swift */; };
 		E0714F5728A3898A0000028E /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5628A3898A0000028E /* DataBaseManager.swift */; };
+		E0714F5D28A3C0E20000028E /* HistoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5C28A3C0E20000028E /* HistoryCellView.swift */; };
 		E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9762893B23100C88F23 /* HistoryHRVView.swift */; };
 		E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */; };
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
@@ -113,6 +114,7 @@
 		E0714F5028A36E6B0000028E /* DataGlanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGlanceView.swift; sourceTree = "<group>"; };
 		E0714F5428A387F00000028E /* RealTimeChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeChartView.swift; sourceTree = "<group>"; };
 		E0714F5628A3898A0000028E /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		E0714F5C28A3C0E20000028E /* HistoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellView.swift; sourceTree = "<group>"; };
 		E081D9762893B23100C88F23 /* HistoryHRVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVView.swift; sourceTree = "<group>"; };
 		E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVCellView.swift; sourceTree = "<group>"; };
 		E081D97A2893B39D00C88F23 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
@@ -201,8 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				E0DA297328A1FAB4008A12EA /* Algorithm */,
-				E02288472892D592002B697A /* FileManager.swift */,
 				E0A981CC28918C9600EDE15A /* DeviceManager.swift */,
+				E02288472892D592002B697A /* FileManager.swift */,
 				E0ED5DB828879DD600258227 /* ViewRouter.swift */,
 				E081D97A2893B39D00C88F23 /* DateManager.swift */,
 				E0DA296F28A1F35A008A12EA /* FakeDataGenarater.swift */,
@@ -253,6 +255,7 @@
 		E0714F5928A3A03D0000028E /* HistoryViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E0714F5C28A3C0E20000028E /* HistoryCellView.swift */,
 			);
 			path = HistoryViewController;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				E0DA299528A336C4008A12EA /* XCRemoteSwiftPackageReference "PopupView" */,
 				E0D47EF828A340A800DE7B2C /* XCRemoteSwiftPackageReference "SwiftyGif" */,
 				E0D47EFB28A3439A00DE7B2C /* XCRemoteSwiftPackageReference "GIFImage" */,
+				E0714F5B28A3A2C60000028E /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
 			projectDirPath = "";
@@ -505,6 +509,7 @@
 				E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */,
 				E0DA299428A327C9008A12EA /* HomeToast.swift in Sources */,
 				E02288482892D592002B697A /* FileManager.swift in Sources */,
+				E0714F5D28A3C0E20000028E /* HistoryCellView.swift in Sources */,
 				E024F72F2890379D007650DB /* Recording.swift in Sources */,
 				E0D47EF428A33B1C00DE7B2C /* GifHelper.swift in Sources */,
 				E0DA295828A12105008A12EA /* DeviceDictView.swift in Sources */,
@@ -869,6 +874,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E0714F5B28A3A2C60000028E /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/bigshezhang/SwiftUICharts.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		E0D47EF828A340A800DE7B2C /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://gitee.com/bigshezhang/SwiftyGif.git";

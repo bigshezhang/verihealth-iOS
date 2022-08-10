@@ -37,6 +37,15 @@
       }
     },
     {
+      "identity" : "swiftuicharts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/bigshezhang/SwiftUICharts.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7dbfa0977f50657084c895651c30e857672d22b8"
+      }
+    },
+    {
       "identity" : "swiftygif",
       "kind" : "remoteSourceControl",
       "location" : "https://gitee.com/bigshezhang/SwiftyGif.git",

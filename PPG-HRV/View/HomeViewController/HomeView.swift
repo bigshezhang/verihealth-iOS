@@ -19,9 +19,10 @@ struct HomeView: View {
     @State var connectedToastState = false
     @State var offHandToastState = false
     @State var disConnectToastState = false
-
+    
     
     var body: some View {
+
         ScrollView(.vertical, showsIndicators: false){
             HStack{
                 Text("My Health")
