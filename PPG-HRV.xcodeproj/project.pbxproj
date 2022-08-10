@@ -26,6 +26,9 @@
 		E0DA297228A1FAAA008A12EA /* AlgorithmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA297128A1FAAA008A12EA /* AlgorithmManager.swift */; };
 		E0DA297728A1FAD9008A12EA /* heart_rate_api.c in Sources */ = {isa = PBXBuildFile; fileRef = E0DA297528A1FAD9008A12EA /* heart_rate_api.c */; };
 		E0DA298F28A27A80008A12EA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA298E28A27A80008A12EA /* SwiftUICharts */; };
+		E0DA299228A327B0008A12EA /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA299128A327B0008A12EA /* AlertToast */; };
+		E0DA299428A327C9008A12EA /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA299328A327C9008A12EA /* Toast.swift */; };
+		E0DA299728A336C4008A12EA /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = E0DA299628A336C4008A12EA /* PopupView */; };
 		E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */; };
 		E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D842886CBD400258227 /* Assets.xcassets */; };
 		E0ED5D882886CBD400258227 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ED5D872886CBD400258227 /* Preview Assets.xcassets */; };
@@ -121,6 +124,7 @@
 		E0DA297128A1FAAA008A12EA /* AlgorithmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmManager.swift; sourceTree = "<group>"; };
 		E0DA297428A1FAD9008A12EA /* heart_rate_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = heart_rate_api.h; sourceTree = "<group>"; };
 		E0DA297528A1FAD9008A12EA /* heart_rate_api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = heart_rate_api.c; sourceTree = "<group>"; };
+		E0DA299328A327C9008A12EA /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		E0ED5D7D2886CBD300258227 /* PPG-HRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PPG-HRV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVApp.swift; sourceTree = "<group>"; };
 		E0ED5D842886CBD400258227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,10 +160,12 @@
 				E0ED5DD72887E46400258227 /* BleFramework.xcframework in Frameworks */,
 				E0ED5DD92887E46400258227 /* CocoaMQTT.xcframework in Frameworks */,
 				E0ED5DDD2887E46400258227 /* BaseFramework.xcframework in Frameworks */,
+				E0DA299228A327B0008A12EA /* AlertToast in Frameworks */,
 				E0ED5DE32887E46400258227 /* CocoaAsyncSocket.xcframework in Frameworks */,
 				E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */,
 				E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */,
 				E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */,
+				E0DA299728A336C4008A12EA /* PopupView in Frameworks */,
 				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
 				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
 				E0DA298F28A27A80008A12EA /* SwiftUICharts in Frameworks */,
@@ -212,6 +218,7 @@
 				E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */,
 				E0CC26752893D5160031F18F /* ProfileView.swift */,
 				E0DA295728A12105008A12EA /* DeviceDictView.swift */,
+				E0DA299328A327C9008A12EA /* Toast.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,6 +352,8 @@
 			packageProductDependencies = (
 				E0DA296328A1DBC1008A12EA /* Progress-Bar */,
 				E0DA298E28A27A80008A12EA /* SwiftUICharts */,
+				E0DA299128A327B0008A12EA /* AlertToast */,
+				E0DA299628A336C4008A12EA /* PopupView */,
 			);
 			productName = "PPG-HRV";
 			productReference = E0ED5D7D2886CBD300258227 /* PPG-HRV.app */;
@@ -421,6 +430,8 @@
 			packageReferences = (
 				E0DA296228A1DBC1008A12EA /* XCRemoteSwiftPackageReference "Progress-Bar-SwifttUI" */,
 				E0DA298D28A27A80008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */,
+				E0DA299028A327B0008A12EA /* XCRemoteSwiftPackageReference "AlertToast" */,
+				E0DA299528A336C4008A12EA /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
 			projectDirPath = "";
@@ -465,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */,
+				E0DA299428A327C9008A12EA /* Toast.swift in Sources */,
 				E02288482892D592002B697A /* FileManager.swift in Sources */,
 				E024F72F2890379D007650DB /* Recording.swift in Sources */,
 				E0DA295828A12105008A12EA /* DeviceDictView.swift in Sources */,
@@ -845,6 +857,22 @@
 				version = "2.0.0-beta.2";
 			};
 		};
+		E0DA299028A327B0008A12EA /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/bigshezhang/AlertToast.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		E0DA299528A336C4008A12EA /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/bigshezhang/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -857,6 +885,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E0DA298D28A27A80008A12EA /* XCRemoteSwiftPackageReference "the-first-chart-view" */;
 			productName = SwiftUICharts;
+		};
+		E0DA299128A327B0008A12EA /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0DA299028A327B0008A12EA /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+		E0DA299628A336C4008A12EA /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0DA299528A336C4008A12EA /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftUICharts
 import Progress_Bar
+import AlertToast
 
 struct HomeView: View {
     @ObservedObject var myData = userData
@@ -16,7 +17,7 @@ struct HomeView: View {
     var startAngle = -90.0
     @State var progress : Double = 0.97
         
-    @State var zoomLarge = false
+    @State var toastState = false
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
@@ -181,28 +182,20 @@ struct HomeView: View {
                                 Image("OnHand")
                                     .resizable()
                                     .scaledToFit()
-                                    .scaleEffect(2)
+                                    .scaleEffect(1.15)
                                     .frame(width: 40)
                                     .background(
                                         ZStack{
                                             Circle().foregroundColor(Color(hex: "#d0d8fc"))
-                                                .frame(width: 100)
-                                                .padding(-10)
+                                                .scaleEffect(2.15)
                                             Circle().foregroundColor(Color(hex: "#f4f6fc"))
-                                                .frame(width: 100)
-                                                .padding(-5)
+                                                .scaleEffect(1.8)
                                         })
                                     .opacity(myData.isOnHand ? 1 : 0.3)
-                                    .scaleEffect(zoomLarge ? 10 : 1)
+                                    .animation(.easeInOut(duration: 1), value: myData.isOnHand)
                                     .onChange(of: myData.isOnHand, perform: { newValue in
-                                        withAnimation(.spring(response: 0.55, dampingFraction: 0.825, blendDuration: 0).repeatCount(1)){
-                                            zoomLarge.toggle()
-                                            print("[zoomLarge]", zoomLarge)
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                                withAnimation(.spring(response: 0.55, dampingFraction: 0.825, blendDuration: 0).repeatCount(1)){
-                                                    zoomLarge.toggle()
-                                                }
-                                            }
+                                        if myData.isOnHand{
+                                            toastState.toggle()
                                         }
                                     })
                             }
@@ -289,6 +282,9 @@ struct HomeView: View {
             }
             .padding(.top, -20)
             Spacer(minLength: 60)
+        }
+        .toast(isPresenting: $toastState, duration: 2, tapToDismiss: true) {
+            AlertToast(displayMode: .alert, type: .image("OnHand", .clear), subTitle: "触发穿戴检测")
         }
         .background(Color("HomeBgColor").ignoresSafeArea())
         .edgesIgnoringSafeArea(.bottom)

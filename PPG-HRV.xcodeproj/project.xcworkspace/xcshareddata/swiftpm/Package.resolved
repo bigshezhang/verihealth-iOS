@@ -1,6 +1,24 @@
 {
   "pins" : [
     {
+      "identity" : "alerttoast",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/bigshezhang/AlertToast.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6f0c1da59221ff337ebab856e13c7fcd26f9a426"
+      }
+    },
+    {
+      "identity" : "popupview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/bigshezhang/PopupView.git",
+      "state" : {
+        "revision" : "a25e22b46d47558b1e7e049b5734522c6706600c",
+        "version" : "1.1.5"
+      }
+    },
+    {
       "identity" : "progress-bar-swifttui",
       "kind" : "remoteSourceControl",
       "location" : "https://gitee.com/bigshezhang/Progress-Bar-SwifttUI.git",
