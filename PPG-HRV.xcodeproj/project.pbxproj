@@ -22,7 +22,6 @@
 		E0D47EF428A33B1C00DE7B2C /* GifHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D47EF328A33B1C00DE7B2C /* GifHelper.swift */; };
 		E0D47EFA28A340A800DE7B2C /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = E0D47EF928A340A800DE7B2C /* SwiftyGif */; };
 		E0D47EFD28A3439A00DE7B2C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = E0D47EFC28A3439A00DE7B2C /* GIFImage */; };
-		E0D47F0228A3532100DE7B2C /* Connected.gif in Resources */ = {isa = PBXBuildFile; fileRef = E0D47F0128A3532100DE7B2C /* Connected.gif */; };
 		E0DA295828A12105008A12EA /* DeviceDictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295728A12105008A12EA /* DeviceDictView.swift */; };
 		E0DA295C28A1573A008A12EA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295B28A1573A008A12EA /* HomeView.swift */; };
 		E0DA295E28A176C5008A12EA /* HexColorTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295D28A176C5008A12EA /* HexColorTransfer.swift */; };
@@ -123,7 +122,6 @@
 		E0A981D028923C9600EDE15A /* DataFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataFrame.h; sourceTree = "<group>"; };
 		E0CC26752893D5160031F18F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E0D47EF328A33B1C00DE7B2C /* GifHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifHelper.swift; sourceTree = "<group>"; };
-		E0D47F0128A3532100DE7B2C /* Connected.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Connected.gif; sourceTree = "<group>"; };
 		E0DA295728A12105008A12EA /* DeviceDictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDictView.swift; sourceTree = "<group>"; };
 		E0DA295B28A1573A008A12EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E0DA295D28A176C5008A12EA /* HexColorTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorTransfer.swift; sourceTree = "<group>"; };
@@ -243,14 +241,6 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		E0D47F0028A3531600DE7B2C /* Gif */ = {
-			isa = PBXGroup;
-			children = (
-				E0D47F0128A3532100DE7B2C /* Connected.gif */,
-			);
-			path = Gif;
-			sourceTree = "<group>";
-		};
 		E0DA297328A1FAB4008A12EA /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,7 +280,6 @@
 				E0ED5DAD2886FC5D00258227 /* Storage */,
 				E0ED5D802886CBD300258227 /* PPG_HRVApp.swift */,
 				E0ED5D842886CBD400258227 /* Assets.xcassets */,
-				E0D47F0028A3531600DE7B2C /* Gif */,
 				E0560B28288F74EF00B27EC3 /* Helper */,
 				E0ED5D862886CBD400258227 /* Preview Content */,
 				E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */,
@@ -473,7 +462,6 @@
 			files = (
 				E0ED5D882886CBD400258227 /* Preview Assets.xcassets in Resources */,
 				E0ED5D852886CBD400258227 /* Assets.xcassets in Resources */,
-				E0D47F0228A3532100DE7B2C /* Connected.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

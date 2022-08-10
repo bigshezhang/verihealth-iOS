@@ -1,5 +1,5 @@
 //
-//  NewHomeView.swift
+//  HomeView.swift
 //  PPG-HRV
 //
 //  Created by 李子鸣 on 2022/8/8.
@@ -17,6 +17,9 @@ struct HomeView: View {
         
     @State var onHandToastState = false
     @State var connectedToastState = false
+    @State var offHandToastState = false
+    @State var disConnectToastState = false
+
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
@@ -46,19 +49,38 @@ struct HomeView: View {
         .onChange(of: myData.isOnHand, perform: { newValue in
             if myData.isOnHand {
                 onHandToastState.toggle()
+            } else {
+                offHandToastState.toggle()
             }
         })
         .onChange(of: myData.isDeviceConnected, perform: { newValue in
             if myData.isDeviceConnected{
                 connectedToastState.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.8){
+                    connectedToastState.toggle()
+                }
+            } else {
+                disConnectToastState.toggle()
             }
         })
         .toast(isPresenting: $onHandToastState, duration: 2, tapToDismiss: true) {
-            AlertToast(displayMode: .alert, type: .image("OnHand", .clear), subTitle: "触发穿戴检测")
-        }
-        .popup(isPresented: $myData.isDeviceConnected, view: {
+            AlertToast(displayMode: .alert, type: .image("OnHand", .clear), subTitle: "已穿戴设备")
+        }       //穿戴检测True
+        .popup(isPresented: $connectedToastState,type: .default){
             ConnectedToast()
-        })
+                .background(
+                    ZStack{
+                        RoundedRectangle(cornerSize: CGSize(width: 50, height: 50))
+                            .frame(width: 400,height: 400)
+                            .foregroundColor(.white)
+                    }
+                )
+                .frame(width: 200,height: 100)
+                .scaleEffect(0.45)
+        }   //连接状态True
+        .toast(isPresenting: $offHandToastState, duration: 2){
+            AlertToast(displayMode: .alert, type: .error(.red),subTitle: "未穿戴设备")
+        }   //穿戴检测False
         .background(Color("HomeBgColor").ignoresSafeArea())
         .edgesIgnoringSafeArea(.bottom)
     }

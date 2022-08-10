@@ -13,24 +13,9 @@ import SwiftyGif
 struct Toast: View {
     @State private var showToast = false
     var body: some View {
-        VStack{
-
-                   Button("Show Toast"){
-                        showToast.toggle()
-                   }
-            
-            ConnectedToast()
-                .frame(width: 200,height: 100)
-        }
-        .toast(isPresenting: $showToast){
-            
-            // `.alert` is the default displayMode
-            AlertToast(type: .regular, title: "Message Sent!")
-            
-        }
-        
-//        GIFImage(gifName: "Connected.gif")
-        
+        ConnectedToast()
+            .frame(width: 200,height: 100)
+            .scaleEffect(0.5)
     }
 }
 

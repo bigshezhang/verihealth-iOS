@@ -163,6 +163,7 @@ struct DataGlanceView: View {
                                 ZStack{
                                     Circle().foregroundColor(Color(hex: "#d0d8fc"))
                                         .scaleEffect(2.15)
+                                    
                                     Circle().foregroundColor(Color(hex: "#f4f6fc"))
                                         .scaleEffect(1.8)
                                 })
