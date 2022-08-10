@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "gifimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/bigshezhang/GIFImage.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "800476380c5da5a507366fa3986e4897315c5469"
+      }
+    },
+    {
       "identity" : "popupview",
       "kind" : "remoteSourceControl",
       "location" : "https://gitee.com/bigshezhang/PopupView.git",
@@ -25,6 +34,15 @@
       "state" : {
         "revision" : "35dd5ffb369fa522519c819170e171d0a76dbbea",
         "version" : "1.0.4"
+      }
+    },
+    {
+      "identity" : "swiftygif",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/bigshezhang/SwiftyGif.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "887fff305f088838eb685c8da9548c1508551e7a"
       }
     },
     {

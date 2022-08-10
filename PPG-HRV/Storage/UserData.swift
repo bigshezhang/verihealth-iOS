@@ -18,8 +18,8 @@ final class UserData: ObservableObject {
     @Published var realTimeHRV : [Double] = [0,0]
     @Published var realTimeHR : [Double] = [0,0]
     @Published var realTimeSpo2 : [Double] = [0,0]
-    @Published var lossRate = Double()
-    @Published var mistakeRate = Double()
+    @Published var lossRate = 0.0
+    @Published var mistakeRate = 0.0
     
     
     @Published var isOnHand = false

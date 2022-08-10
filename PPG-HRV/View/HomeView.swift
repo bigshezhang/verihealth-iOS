@@ -163,9 +163,9 @@ struct HomeView: View {
                                     Text("Loss")
                                         .font(.system(size: 14))
                                         .foregroundColor(Color("HomeTitleColor"))
-                                    LinearProgress(percentage: myData.lossRate / 100.0, backgroundColor: Color(hex: "#eaeefc"), foregroundColor: LinearGradient(colors: [Color(hex: "#ced8ff"), Color(hex: "#ced8ff")], startPoint: .leading, endPoint: .trailing))
+                                    LinearProgress(percentage: myData.lossRate, backgroundColor: Color(hex: "#eaeefc"), foregroundColor: LinearGradient(colors: [Color(hex: "#ced8ff"), Color(hex: "#ced8ff")], startPoint: .leading, endPoint: .trailing))
                                         .frame(width: 56, height: 4)
-                                    Text("\(String(format: "%.1f", myData.lossRate / 100.0))%")
+                                    Text("\(String(format: "%.1f", myData.lossRate * 100))%")
                                         .font(.system(size: 11))
                                         .foregroundColor(Color(hex: "#9797a8"))
                                 }
@@ -173,9 +173,9 @@ struct HomeView: View {
                                     Text("Mistake")
                                         .font(.system(size: 14))
                                         .foregroundColor(Color("HomeTitleColor"))
-                                    LinearProgress(percentage: myData.mistakeRate / 100.0, backgroundColor: Color(hex: "#ffe7ee"), foregroundColor: LinearGradient(colors: [Color(hex: "#ffa6c1"), Color(hex: "#ff4d84")], startPoint: .leading, endPoint: .trailing))
+                                    LinearProgress(percentage: myData.mistakeRate, backgroundColor: Color(hex: "#ffe7ee"), foregroundColor: LinearGradient(colors: [Color(hex: "#ffa6c1"), Color(hex: "#ff4d84")], startPoint: .leading, endPoint: .trailing))
                                         .frame(width: 56, height: 4)
-                                    Text("\(String(format: "%.1f", myData.mistakeRate / 100.0))%")
+                                    Text("\(String(format: "%.1f", myData.mistakeRate * 100))%")
                                         .font(.system(size: 11))
                                         .foregroundColor(Color(hex: "#9797a8"))
                                 }
@@ -192,7 +192,7 @@ struct HomeView: View {
                                                 .scaleEffect(1.8)
                                         })
                                     .opacity(myData.isOnHand ? 1 : 0.3)
-                                    .animation(.easeInOut(duration: 1), value: myData.isOnHand)
+                                    .animation(.easeInOut(duration: 0.3), value: myData.isOnHand)
                                     .onChange(of: myData.isOnHand, perform: { newValue in
                                         if myData.isOnHand{
                                             toastState.toggle()
@@ -233,13 +233,19 @@ struct HomeView: View {
                                 .foregroundColor(Color("HomeTitleColor"))
                                 .font(.system(size: 24))
                                 .padding(10)
-                            ChartLabel("\(myData.realTimeHR.last!)", type: .custom(size: 12, padding: .init(top: -10, leading: 10, bottom: 0, trailing: 0), color: Color("HomeTitleColor")))
-                      
+                            
+                            Text("\(String(format: "%.1f", myData.realTimeSpo2.last! * 100))%")
+                                .font(.system(size: 12,weight: .semibold))
+                                .padding(.init(top: -20, leading: 0, bottom: 0, trailing: 0))
+                                .foregroundColor(Color("HomeTitleColor"))
+                                .font(.system(size: 24))
+                                .padding(10)
                             ChartGrid {
                                 LineChart()
                             }
+                            .padding(.top, -15)
                         }
-                        .data([8,23,54,32,12,37,7,23])
+                        .data(myData.realTimeSpo2)
                         .chartStyle(ChartStyle(backgroundColor: .clear,
                                                foregroundColor: ColorGradient(.white, .red)))
                         .frame(width: 120,height: 200)
@@ -249,13 +255,20 @@ struct HomeView: View {
                                 .foregroundColor(Color("HomeTitleColor"))
                                 .font(.system(size: 24))
                                 .padding(10)
-                            ChartLabel("\(myData.realTimeHR.last!)", type: .custom(size: 12, padding: .init(top: -10, leading: 10, bottom: 0, trailing: 0), color: Color("HomeTitleColor")))
+                            Text(String(format: "%.1f", myData.realTimeHR.last!))
+                                .font(.system(size: 12,weight: .semibold))
+                                .padding(.init(top: -20, leading: 0, bottom: 0, trailing: 0))
+                                .foregroundColor(Color("HomeTitleColor"))
+                                .font(.system(size: 24))
+                                .padding(10)
                       
                             ChartGrid {
                                 LineChart()
                             }
+                            .padding(.top, -15)
+
                         }
-                        .data([8,23,54,32,12,37,7,23])
+                        .data(myData.realTimeHR)
                         .chartStyle(ChartStyle(backgroundColor: .clear,
                                                foregroundColor: ColorGradient(.pink.opacity(0.5), .red)))
                         .frame(width: 120,height: 200)
@@ -265,13 +278,20 @@ struct HomeView: View {
                                 .foregroundColor(Color("HomeTitleColor"))
                                 .font(.system(size: 24))
                                 .padding(10)
-                            ChartLabel("\(myData.realTimeHR.last!)", type: .custom(size: 12, padding: .init(top: -10, leading: 10, bottom: 0, trailing: 0), color: Color("HomeTitleColor")))
+                            Text(String(format: "%.1f", myData.realTimeHRV.last!))
+                                .font(.system(size: 12,weight: .semibold))
+                                .padding(.init(top: -20, leading: 0, bottom: 0, trailing: 0))
+                                .foregroundColor(Color("HomeTitleColor"))
+                                .font(.system(size: 24))
+                                .padding(10)
                       
                             ChartGrid {
                                 LineChart()
                             }
+                            .padding(.top, -15)
+
                         }
-                        .data([8,23,54,32,12,37,7,23])
+                        .data(myData.realTimeHRV)
                         .chartStyle(ChartStyle(backgroundColor: .clear,
                                                foregroundColor: ColorGradient(.blue.opacity(0.5), .blue)))
                         .frame(width: 120,height: 200)
