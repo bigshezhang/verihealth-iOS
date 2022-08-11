@@ -24,7 +24,7 @@ struct PPG_HRVApp: App {
                     .onAppear{
                         heart_rate_init_api()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: deviceManager.startScan)
-    //                    FakeDataGenerator().chartDataGenerator()  //一个假数据生成器，或许方便UI测试
+//                        FakeDataGenerator().chartDataGenerator()  //一个假数据生成器，或许方便UI测试
                     }
             }
             .navigationBarBackButtonHidden()

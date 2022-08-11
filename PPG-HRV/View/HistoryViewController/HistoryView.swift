@@ -11,7 +11,16 @@ import HealthCharts
 
 
 struct HistoryView: View {
+    @State private var snackTime = Date()
     @Environment(\.presentationMode) var presentationMode
+    func date2String(_ date:Date, dateFormat:String = "yy/MM/dd") -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.init(identifier: "en_US")
+        formatter.dateFormat = dateFormat
+        let date = formatter.string(from: date)
+        return date
+    }
+    
     func getTypeString(type: DBDataType) -> String{
         switch type{
         case DATA_TYPE_SPO2: return "Spo2"
@@ -23,47 +32,25 @@ struct HistoryView: View {
         return ""
     }
     
-    @ViewBuilder func theDataChartOfPastDays(type: DBDataType) -> some View{
+    @ViewBuilder func dayDataChart(type: DBDataType, start: Int32) -> some View{
         let typeString = getTypeString(type: type)
         
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
-                HistoryCellView(type: type, dayTimeStamp: dayStringToTimeStamp(getCurrentDate()))
+                HistoryCellView(type: type, dayTimeStamp: TimeInterval(start))
                     .shadow(color: Color(hex: "#e4e8f7"), radius: 5, x: 5, y: 5)
                     .padding(.leading, -50)
                     .overlay(
                         VStack{
                             HStack{
-                                Text("Average \(typeString) of Today")
+                                Text("Average \(typeString) of \(date2String(snackTime, dateFormat: "yy/MM/dd"))")
                                     .foregroundColor(Color("HomeTitleColor"))
                                     .padding(.leading, 40)
                                 Spacer()
-                                Image(systemName : "arrow.right")
-                                    .foregroundColor(Color("HomeTitleColor"))
-                                    .padding(.trailing, 80)
-                                    .opacity(0.8)
                             }
                             Spacer()
                         }
                     )
-                
-                
-                ForEach(1..<8) { pastDay in
-                    HistoryCellView(type: type, dayTimeStamp: dayStringToTimeStamp(getCurrentDate()) - Double(pastDay * 24 * 60 * 60))
-                        .shadow(color: Color(hex: "#e4e8f7"), radius: 5, x: 5, y: 5)
-                        .padding(.leading, -50)
-                        .overlay(
-                            VStack{
-                                HStack{
-                                    Text("Average \(typeString) of \(pastDay) day ago")
-                                        .foregroundColor(Color("HomeTitleColor"))
-                                        .padding(.leading, 40)
-                                    Spacer()
-                                }
-                                Spacer()
-                            }
-                        )
-                }
             }
             .padding(.leading, 10)
             .padding(.top, 15)
@@ -74,10 +61,10 @@ struct HistoryView: View {
             Color(hex: "#f5f6fa")
                 .ignoresSafeArea()
             ScrollView(.vertical, showsIndicators: false){
-                theDataChartOfPastDays(type: DATA_TYPE_SPO2)
+                dayDataChart(type: DATA_TYPE_SPO2, start: Int32(snackTime.timeIntervalSince1970))
                     .padding(.top, 40)
-                theDataChartOfPastDays(type: DATA_TYPE_HR)
-                theDataChartOfPastDays(type: DATA_TYPE_HRV)
+                dayDataChart(type: DATA_TYPE_HR, start: Int32(snackTime.timeIntervalSince1970))
+                dayDataChart(type: DATA_TYPE_HRV, start: Int32(snackTime.timeIntervalSince1970))
             }
             .padding(.top, 40)
             VStack{
@@ -95,6 +82,8 @@ struct HistoryView: View {
                                 Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {Image(systemName: "arrow.left").foregroundColor(Color("HomeTitleColor"))})
                                     .padding(.leading, 30)
                                 Spacer()
+                                DatePicker("",selection: $snackTime, displayedComponents: .date)
+                                    .padding(.trailing, 18)
                             }
                         }
                     )
