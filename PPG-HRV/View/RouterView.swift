@@ -26,16 +26,6 @@ struct RouterView: View {
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .ignoresSafeArea()
-//        .overlay(
-//            VStack{
-//                Spacer()
-//                TabView()
-//                    .opacity(viewRouter.isTabBarShow ? 1 : 0)
-//                    .animation(.spring(), value: viewRouter.isTabBarShow)
-//            }
-//                .opacity(viewRouter.isTabBarShow ? 1 : 0)
-//                .ignoresSafeArea()
-//        )
     }
 }
 

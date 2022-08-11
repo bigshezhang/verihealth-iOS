@@ -19,15 +19,6 @@
       }
     },
     {
-      "identity" : "plotui",
-      "kind" : "remoteSourceControl",
-      "location" : "https://gitee.com/bigshezhang/PlotUI.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "939d94f25c101749dca238f15ead96b033f7f89a"
-      }
-    },
-    {
       "identity" : "popupview",
       "kind" : "remoteSourceControl",
       "location" : "https://gitee.com/bigshezhang/PopupView.git",
@@ -52,15 +43,6 @@
       "state" : {
         "branch" : "main",
         "revision" : "7dbfa0977f50657084c895651c30e857672d22b8"
-      }
-    },
-    {
-      "identity" : "swiftygif",
-      "kind" : "remoteSourceControl",
-      "location" : "https://gitee.com/bigshezhang/SwiftyGif.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "887fff305f088838eb685c8da9548c1508551e7a"
       }
     },
     {

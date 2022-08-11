@@ -10,6 +10,7 @@ import SwiftUICharts
 import Progress_Bar
 import AlertToast
 import PopupView
+import GIFImage
 
 struct HomeView: View {
     @ObservedObject var myData = userData
@@ -88,6 +89,17 @@ struct HomeView: View {
         }   //穿戴检测False
         .background(Color("HomeBgColor").ignoresSafeArea())
         .edgesIgnoringSafeArea(.bottom)
+    }
+}
+
+struct ConnectedToast : UIViewRepresentable{
+
+    typealias UIViewType = UIImageView
+    func makeUIView(context: Context) -> UIImageView {
+        let imageView = UIImageView(image: UIImage.gif(asset: "Connected"))
+        return imageView
+    }
+    func updateUIView(_ uiView: UIImageView, context: Context) {
     }
 }
 

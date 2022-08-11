@@ -28,14 +28,7 @@ struct HistoryCellView: View {
         default : break
         }
         return low
-//        switch(value){
-//        case 60...61 : return low
-//        case 62...63 : return warmUp
-//        case 64...65 : return fatBurning
-//        case 66...67 : return buildFitness
-//        case 68...69 : return highIntensity
-//        default : break
-//        }
+
         return low
     }
     

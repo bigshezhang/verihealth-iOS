@@ -27,14 +27,30 @@ struct TodayView: View {
                             VStack{
                                 HStack{
                                     Text("Today HR")
+                                        .foregroundColor(Color("HomeTitleColor"))
+                                        .padding(.leading, 85)
+                                    Spacer()
                                 }
+                                Spacer()
                             }
                         )
                     TodayCardView(type: DATA_TYPE_HRV)
                         .shadow(color: Color(hex: "#e4e8f7"), radius: 5, x: 5, y: 5)
+                        .overlay(
+                            VStack{
+                                HStack{
+                                    Text("Today HR")
+                                        .foregroundColor(Color("HomeTitleColor"))
+                                        .padding(.leading, 85)
+                                    Spacer()
+                                }
+                                Spacer()
+                            }
+                        )
                 }
-                .padding(.top, 100)
+                .padding(.top, 70)
             }
+            .padding(.top, 40)
             VStack{
                 Rectangle()
                     .foregroundColor(Color(hex: "#f5f6fa"))

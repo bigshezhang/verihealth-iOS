@@ -32,12 +32,7 @@ struct DataGlanceView: View {
                     Text("Today")
                         .foregroundColor(Color(hex: "#6f8fea"))
                 }
-                
-//                Button {
-//                    myData.isOnHand.toggle()
-//                } label: {
-//                }
-
+            
                 Image(systemName: "arrow.right")
                     .padding(.trailing, 30)
                     .foregroundColor(Color("HomeTitleColor"))
