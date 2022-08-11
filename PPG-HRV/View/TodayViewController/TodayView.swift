@@ -38,7 +38,7 @@ struct TodayView: View {
                         .overlay(
                             VStack{
                                 HStack{
-                                    Text("Today HR")
+                                    Text("Today HRV")
                                         .foregroundColor(Color("HomeTitleColor"))
                                         .padding(.leading, 85)
                                     Spacer()

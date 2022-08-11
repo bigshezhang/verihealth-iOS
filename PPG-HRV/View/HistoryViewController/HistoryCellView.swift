@@ -6,79 +6,68 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 import HealthCharts
 import CoreSDK
+
 struct HistoryCellView: View {
-    let timeStamp = Int32(Date().timeIntervalSince1970)
-    var lasthourData = DataBaseManager().getDataArrayInHourByMin(type: DATA_TYPE_HR, start: Int32(Date().timeIntervalSince1970) - 3601)
-    let highIntensity = Legend(color: .orange, label: "High Intensity", order: 5)
-    let buildFitness = Legend(color: .yellow, label: "Build Fitness", order: 4)
-    let fatBurning = Legend(color: .green, label: "Fat Burning", order: 3)
-    let warmUp = Legend(color: .blue, label: "Warm Up", order: 2)
-    let low = Legend(color: .gray, label: "Low", order: 1)
-    
-    func returnLegend(value: Int) -> Legend{
-        switch(value){
-        case 60...90 : return low
-        case 91...130 : return warmUp
-        case 131...150 : return fatBurning
-        case 151...170 : return buildFitness
-        case 171...190 : return highIntensity
-        default : break
-        }
-        return low
-    }
+    let type : DBDataType
+    let dayTimeStamp : TimeInterval
     
     func dataToPoint(dataArray : [Int]) -> [DataPoint]{
         var dataPoints = [DataPoint]()
-        for index in 1...15 {
-            dataPoints.append(DataPoint(value: Double(dataArray[index * 4 - 4]), label: "\(index * 4 - 4)", legend: returnLegend(value: dataArray[index * 4 - 4])))
+        for index in 0...23 {
+            dataPoints.append(DataPoint(value: Double(dataArray[index]), label: "\(index)", legend: Legend(color: Color(hex: "#8ea7fd"), label: "")))
         }
         return dataPoints
     }
-//
-    func intToDouble(intArray: [Int]) -> [Double]{
-        var doubleArray = [Double]()
-        for index in 0...intArray.count-1{
-            doubleArray.append(Double(intArray[index]))
+        
+    func getDayDataInDayByHour() -> [Int] {
+        var dataArray = [Int]()
+        for hour in 0...23 {
+            let hourInMinArray = DataBaseManager().getDataArrayInHourByMin(type: type, start: Int32(Int(dayTimeStamp) + hour * 3600))
+            var tmpSum = Int()
+            var validCountInMinute = Int()
+            for index in 0...hourInMinArray.count-1{
+                tmpSum += hourInMinArray[index]
+                if hourInMinArray[index] != 0{
+                    validCountInMinute += 1
+                }
+            }
+            if validCountInMinute != 0{
+                dataArray.append(tmpSum / validCountInMinute)
+            } else {
+                dataArray.append(0)
+            }
         }
-        return doubleArray
-    }
-    
-    func selectPoint(dataArray : [Double]) -> [Double]{
-        var selectedArray = [Double]()
-        for index in 1...15 {
-            selectedArray.append(dataArray[index * 4 - 4])
-        }
-        return selectedArray
+        return dataArray
     }
     
     var body: some View {
-        var barData = selectPoint(dataArray: intToDouble(intArray: lasthourData))
-//        let limit = DataPoint(value: 130, label: "5", legend: fatBurning)
-        VStack{
-            BarChartView(dataPoints: dataToPoint(dataArray: lasthourData))
-                .chartStyle(BarChartStyle(showAxis: true, axisLeadingPadding: CGFloat(0), showLegends: false))
-                .onAppear{
-                    print(dataToPoint(dataArray: lasthourData))
-                }
-                .frame(width: 360,height: 120)
+        VStack {
+            BarChartView(dataPoints: dataToPoint(dataArray: getDayDataInDayByHour()))
+                .chartStyle(BarChartStyle(showAxis: true,labelCount: 12,showLegends: false))
+                .foregroundColor(.gray)
+                .foregroundColor(Color.gray)
+                .frame(width: 480,height: 200)
+                .scaleEffect(0.65)
                 .background(
                     ZStack{
-                        RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                        RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                             .foregroundColor(Color.white)
-                            .padding(-20)
-                            .shadow(color: .gray, radius: 5)
+                            .frame(width: 350, height: 200)
+                            .offset(y: -15)
                     }
                 )
-                .scaleEffect(0.9)
+                .accentColor(Color(hex: "#6984e7"))
+                .onAppear{
+                    print("\(dayTimeStamp)", "\(Date().timeIntervalSince1970)")
+            }
         }
     }
 }
 
 struct HistoryCellView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryCellView()
+        HistoryCellView(type: DATA_TYPE_HR, dayTimeStamp: dayStringToTimeStamp(getCurrentDate()))
     }
 }

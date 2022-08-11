@@ -25,10 +25,8 @@ struct TodaySpo2CardView: View {
     var todaySpo2Average = Int()
     
     func getSpo2Average(dataArray : [Int]) -> Int{
-//        print("[todaySpo2Array] -> ", todaySpo2Array)
         var sum = Int()
         var validCount = Int()
-//        print("[dataArray.count -> ]", dataArray.count)
         if dataArray.count > 0{
             for index in 0...dataArray.count - 1{
                 sum += dataArray[index]
