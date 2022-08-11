@@ -43,9 +43,12 @@ struct RealTimeChartView: View {
                             .font(.system(size: 24))
                             .padding(10)
                         
-                        ChartLabel((myData.realTimeSpo2.count == 2) ? "--%" : "\(Int(myData.realTimeSpo2.last!))%", type: .custom(size: 12, padding: .init(top: -10, leading: 10, bottom: 0, trailing: 0), color: Color("HomeTitleColor")))
-                            .padding(.bottom, 15)
-                       
+                        Text((myData.realTimeSpo2.count == 2) ? "--%" : "\(Int(myData.realTimeSpo2.last!))%")
+                            .font(.system(size: 12,weight: .semibold))
+                            .padding(.init(top: -20, leading: 0, bottom: 0, trailing: 0))
+                            .foregroundColor(Color("HomeTitleColor"))
+                            .font(.system(size: 24))
+                            .padding(10)
                         ChartGrid {
                             LineChart()
                         }
@@ -61,8 +64,12 @@ struct RealTimeChartView: View {
                             .foregroundColor(Color("HomeTitleColor"))
                             .font(.system(size: 24))
                             .padding(10)
-                        ChartLabel((myData.realTimeHR.count == 2) ? "--%" : "\(Int(myData.realTimeHR.last!))%", type: .custom(size: 12, padding: .init(top: -10, leading: 10, bottom: 0, trailing: 0), color: Color("HomeTitleColor")))
-                            .padding(.bottom, 15)
+                        Text((myData.realTimeHR.count == 2) ? "--" : String(format: "%.1f", myData.realTimeHR.last!))
+                            .font(.system(size: 12,weight: .semibold))
+                            .padding(.init(top: -20, leading: 0, bottom: 0, trailing: 0))
+                            .foregroundColor(Color("HomeTitleColor"))
+                            .font(.system(size: 24))
+                            .padding(10)
                   
                         ChartGrid {
                             LineChart()
@@ -80,8 +87,12 @@ struct RealTimeChartView: View {
                             .foregroundColor(Color("HomeTitleColor"))
                             .font(.system(size: 24))
                             .padding(10)
-                        ChartLabel((myData.realTimeHRV.count == 2) ? "--%" : "\(Int(myData.realTimeHRV.last!))%", type: .custom(size: 12, padding: .init(top: -10, leading: 10, bottom: 0, trailing: 0), color: Color("HomeTitleColor")))
-                            .padding(.bottom, 15)
+                        Text((myData.realTimeHRV.count == 2) ? "--" : String(format: "%.1f", myData.realTimeHRV.last!))
+                            .font(.system(size: 12,weight: .semibold))
+                            .padding(.init(top: -20, leading: 0, bottom: 0, trailing: 0))
+                            .foregroundColor(Color("HomeTitleColor"))
+                            .font(.system(size: 24))
+                            .padding(10)
                   
                         ChartGrid {
                             LineChart()
