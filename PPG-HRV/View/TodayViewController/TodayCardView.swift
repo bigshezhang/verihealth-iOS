@@ -56,9 +56,6 @@ struct TodayCardView: View {
                     }
                 )
                 .accentColor(getTypeColor(type: type))
-                .onAppear{
-                    print("\(todayTimeStamp)", "\(Date().timeIntervalSince1970)")
-            }
         }
     }
 }

@@ -38,10 +38,16 @@ struct HistoryView: View {
                                     .foregroundColor(Color("HomeTitleColor"))
                                     .padding(.leading, 40)
                                 Spacer()
+                                Image(systemName : "arrow.right")
+                                    .foregroundColor(Color("HomeTitleColor"))
+                                    .padding(.trailing, 80)
+                                    .opacity(0.8)
                             }
                             Spacer()
                         }
                     )
+                
+                
                 ForEach(1..<8) { pastDay in
                     HistoryCellView(type: type, dayTimeStamp: dayStringToTimeStamp(getCurrentDate()) - Double(pastDay * 24 * 60 * 60))
                         .shadow(color: Color(hex: "#e4e8f7"), radius: 5, x: 5, y: 5)
@@ -60,7 +66,7 @@ struct HistoryView: View {
                 }
             }
             .padding(.leading, 10)
-            .padding(.top, 20)
+            .padding(.top, 15)
         }
     }
     var body: some View {
@@ -69,10 +75,11 @@ struct HistoryView: View {
                 .ignoresSafeArea()
             ScrollView(.vertical, showsIndicators: false){
                 theDataChartOfPastDays(type: DATA_TYPE_SPO2)
+                    .padding(.top, 40)
                 theDataChartOfPastDays(type: DATA_TYPE_HR)
                 theDataChartOfPastDays(type: DATA_TYPE_HRV)
             }
-            .padding(.top, 80)
+            .padding(.top, 40)
             VStack{
                 Rectangle()
                     .foregroundColor(Color(hex: "#f5f6fa"))
