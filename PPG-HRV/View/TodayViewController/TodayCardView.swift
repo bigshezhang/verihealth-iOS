@@ -11,11 +11,6 @@ import HealthCharts
 import PlotUI
 struct TodayCardView: View {
     let todayTimeStamp = dayStringToTimeStamp(getCurrentDate())
-//    let highIntensity = Legend(color: .orange, label: "High Intensity", order: 5)
-//    let buildFitness = Legend(color: .yellow, label: "Build Fitness", order: 4)
-//    let fatBurning = Legend(color: .green, label: "Fat Burning", order: 3)
-//    let warmUp = Legend(color: .blue, label: "Warm Up", order: 2)
-//    let low = Legend(color: .gray, label: "Low", order: 1)
     
     func dataToPoint(dataArray : [Int]) -> [DataPoint]{
         var dataPoints = [DataPoint]()

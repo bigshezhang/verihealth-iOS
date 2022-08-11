@@ -103,10 +103,10 @@ extension DeviceManager: TransferManagerDelegate {
                 if receivePack.ret == 0{
                     DispatchQueue.main.async {
                         if userData.realTimeSpo2.count < 30 {
-                            userData.realTimeSpo2.append(Double(receivePack.spo2) / 100.0)
+                            userData.realTimeSpo2.append(Int(receivePack.spo2))
                         } else {
                             userData.realTimeSpo2.removeFirst()
-                            userData.realTimeSpo2.append(Double(receivePack.spo2) / 100.0)
+                            userData.realTimeSpo2.append(Int(receivePack.spo2))
                         }
                     }
                 } else {
@@ -148,7 +148,8 @@ extension DeviceManager: TransferManagerDelegate {
                 let data: NSData = (frame.payload as NSData?)!
                 var receivePack = RawDataPacket()
                 data.getBytes(&receivePack, length: data.length)
-
+                print("[获得了原始数据] -> ", receivePack.data)
+                HeartRateCalc(receivePack: receivePack)
             }
 
             

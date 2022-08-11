@@ -41,7 +41,7 @@ struct RealTimeChartView: View {
                             .font(.system(size: 24))
                             .padding(10)
                         
-                        Text("\(String(format: "%.1f", myData.realTimeSpo2.last! * 100))%")
+                        Text("\(myData.realTimeSpo2.last!)%")
                             .font(.system(size: 12,weight: .semibold))
                             .padding(.init(top: -20, leading: 0, bottom: 0, trailing: 0))
                             .foregroundColor(Color("HomeTitleColor"))
@@ -52,7 +52,7 @@ struct RealTimeChartView: View {
                         }
                         .padding(.top, -15)
                     }
-                    .data(myData.realTimeSpo2)
+                    .data(myData.realTimeSpo2.map{Double($0)})
                     .chartStyle(ChartStyle(backgroundColor: .clear,
                                            foregroundColor: ColorGradient(.white, .red)))
                     .frame(width: 120,height: 200)

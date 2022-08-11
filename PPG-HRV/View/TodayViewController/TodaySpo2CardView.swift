@@ -17,7 +17,7 @@ struct TodaySpo2CardView: View {
     var todaySpo2Average = Int()
     
     func getTodaySpo2Average() -> Int{
-        print("[todaySpo2Array] -> ", todaySpo2Array)
+//        print("[todaySpo2Array] -> ", todaySpo2Array)
         var sum = Int()
         var validCount = Int()
         
@@ -38,17 +38,20 @@ struct TodaySpo2CardView: View {
     var body: some View {
         VStack{
             HStack{
-                ZStack{
-                    RingShape(progress: myData.realTimeSpo2.last!, thickness: 12)
-                        .fill(AngularGradient(gradient: Gradient(colors: [Color(hex: "#464ae1"), Color(hex: "#6f8fea")]), center: .center, startAngle: .degrees(-90), endAngle: .degrees(Double(360 * (getTodaySpo2Average() / 100) - 90))))
-                        .shadow(color: Color(hex: "#474AD9"), radius: 3, x:3, y: 3)
-                    Text("\(getTodaySpo2Average())")
+                RingShape(progress: Double(getTodaySpo2Average()) / 100.0, thickness: 8)
+                    .fill(AngularGradient(gradient: Gradient(colors: [Color(hex: "#464ae1"), Color(hex: "#6f8fea")]), center: .center, startAngle: .degrees(-90), endAngle: .degrees(360 * Double(getTodaySpo2Average()) / 100.0 - 90)))
+                    .shadow(color: Color(hex: "#474AD9"), radius: 3, x:3, y: 3)
+                    .animation(.spring(), value: myData.realTimeSpo2.last!)
+                    .frame(width: 48, height: 48)
+                VStack(alignment: .leading){
+                    Text("\(getTodaySpo2Average())%")
+                        .font(.system(size: 28))
+                        .foregroundColor(Color("HomeTitleColor"))
+                    Text("All day average Spo2")
+                        .font(.system(size: 14))
+                        .foregroundColor(Color(hex: "#9797a8"))
                 }
-
-
-                VStack{
-                    
-                }
+                .padding(.leading, 20)
             }
             HStack{
                 

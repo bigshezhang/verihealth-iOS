@@ -14,6 +14,7 @@
 
 uint32_t ppg_buf[10000] = {0};
 PpgResult heart_rate_calc(uint16_t sec_data[50]){
+    PpgResult result;
     #if DEBUG_FLAG == 1
     #endif
     PpgData input_data = {SAMPLE_RATE,sec_data};
@@ -21,26 +22,24 @@ PpgResult heart_rate_calc(uint16_t sec_data[50]){
     AlgoError ret;
     uint16_t hr_value = 0;
     int i = 0,j = 0;
-    heart_rate_init_api();
-    for(i=0;i<cnt-SAMPLE_RATE; i = i + SAMPLE_RATE){
-        time_sec++;
-        for (j=0;j < SAMPLE_RATE; j++){
-            sec_data[j] = ppg_buf[i+j];
-        }
+//    heart_rate_init_api();
+//    for(i=0;i<cnt-SAMPLE_RATE; i = i + SAMPLE_RATE){
+//        time_sec++;
+//        for (j=0;j < SAMPLE_RATE; j++){
+//            sec_data[j] = ppg_buf[i+j];
+//        }
         ret = heart_rate_process(&input_data,&hr_value);
         if(ret==0){
             printf("%d\n",hr_value);
+            result =  heart_rate_result();
+            if(result.err == ALGO_NORMAL){
+                result.hr = hr_value;
+                printf("sdnn:%f",result.sdnn);
+            }
         }
-    }
-    PpgResult result =  heart_rate_result();
-    if(result.err == ALGO_NORMAL){
-        result.hr = hr_value;
-        printf("sdnn:%f",result.sdnn);
-    }
-    heart_rate_exit_api();
+//    }
+
     return result;
-    #if DEBUG_FLAG == 1
-    #endif
 }
 
 

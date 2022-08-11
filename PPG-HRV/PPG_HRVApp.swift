@@ -22,6 +22,7 @@ struct PPG_HRVApp: App {
             let viewRouter = ViewRouter()
             RouterView()
                 .onAppear{
+                    heart_rate_init_api()
                     FileTool().createTodayDir()     //创建当天的信息收集文件夹
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: deviceManager.startScan)
                     FakeDataGenerator().chartDataGenerator()

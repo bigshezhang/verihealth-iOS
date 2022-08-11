@@ -13,6 +13,9 @@ struct TodayView: View {
 
     var body: some View {
         ZStack{
+            Color(hex: "#f5f6fa")
+                .ignoresSafeArea()
+            
             VStack{
                 Rectangle()
                     .foregroundColor(.white)
@@ -30,18 +33,15 @@ struct TodayView: View {
                                 Spacer()
                             }
                         }
-
-//                            .offset(y: 18)
                     )
+                ScrollView{
+                    TodayCardView()
+                        .shadow(color: Color(hex: "#8ea7fd").opacity(0.3),radius: 5, y: 1)
+                        .padding(.top,100)
+                    TodaySpo2CardView()
+     
+                }
                 Spacer()
-            }
-            
-            ScrollView{
-                TodayCardView()
-                    .shadow(color: Color(hex: "#8ea7fd").opacity(0.3),radius: 5, y: 1)
-                    .padding(.top,100)
-                TodaySpo2CardView()
- 
             }
         }
 //        .ignoresSafeArea()

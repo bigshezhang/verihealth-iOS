@@ -1,7 +1,7 @@
 #ifndef __HEART_RATE_API_H_
 #define __HEART_RATE_API_H_
 
-#define DEBUG_FLAG 1
+#define DEBUG_FLAG 0
 
 #include <stdint.h>
 

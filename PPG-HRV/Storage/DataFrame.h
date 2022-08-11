@@ -31,7 +31,7 @@ typedef struct ResultPacket {
 
 typedef struct RawDataPacket{
     uint16_t size;
-    uint16_t data;
+    uint16_t data[64];
 } __attribute((__packed__)) RawDataPacket;
 
 typedef struct LodPacket{

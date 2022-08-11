@@ -30,7 +30,6 @@ struct DataGlanceView: View {
                     TodayView()
                 } label: {
                     Text("Today")
-
                 }
                 
 //                Button {
@@ -111,19 +110,19 @@ struct DataGlanceView: View {
                         ZStack {
                             Circle()
                                 .stroke(Color(hex: "#e8ecff"), lineWidth: 4)
-                            RingShape(progress: myData.realTimeSpo2.last!, thickness: 12)
+                            RingShape(progress: Double(myData.realTimeSpo2.last!) / 100.0, thickness: 12)
                                 .fill(AngularGradient(gradient: Gradient(colors: [Color(hex: "#464ae1"), Color(hex: "#6f8fea")]), center: .center, startAngle: .degrees(startAngle), endAngle: .degrees(360 * progress + startAngle)))
                                 .shadow(color: Color(hex: "#474AD9"), radius: 3, x:3, y: 3)
                                 .animation(.spring(), value: myData.realTimeSpo2.last!)
                             
-                            RingDot(progress: myData.realTimeSpo2.last!, thickness: 6)
+                            RingDot(progress: Double(myData.realTimeSpo2.last!) / 100.0, thickness: 6)
                                 .fill(Color.white)
                                 .shadow(color: Color(hex: "#474AD9"), radius: 6, y: 3)
                                 .animation(.spring(), value: myData.realTimeSpo2.last!)
 
                             
                             VStack{
-                                Text("\(Int(myData.realTimeSpo2.last! * 100))")
+                                Text("\(Int(myData.realTimeSpo2.last!))")
                                     .font(.system(size: 28))
                                     .foregroundColor(Color(hex: "#474ad9"))
                                 

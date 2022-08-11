@@ -125,7 +125,7 @@ class DataBaseManager : NSObject, ObservableObject {
                 dataArrayByMinute.append(0)
             }
         }
-        print("[dataByMinute]", dataArrayByMinute)
+//        print("[dataByMinute]", dataArrayByMinute)
         return dataArrayByMinute
     }
     
@@ -155,7 +155,7 @@ class DataBaseManager : NSObject, ObservableObject {
         for hour in 0...23 {
             let hourInMinArray = DataBaseManager().getDataArrayInHourByMin(type: type, start: Int32(Int(dayStringToTimeStamp(getCurrentDate())) + hour * 3600))
             dataArray += hourInMinArray
-            print("[hourArray] -> ",hourInMinArray)
+//            print("[hourArray] -> ",hourInMinArray)
 
         }
         return dataArray

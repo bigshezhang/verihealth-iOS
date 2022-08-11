@@ -27,10 +27,10 @@ class FakeDataGenerator {
             }
             
             if userData.realTimeSpo2.count < 30{
-                userData.realTimeSpo2.append(Double.random(in: 0.96...1))
+                userData.realTimeSpo2.append(Int.random(in: 96...100))
             } else {
                 userData.realTimeSpo2.removeFirst()
-                userData.realTimeSpo2.append(Double.random(in: 0.96...1))
+                userData.realTimeSpo2.append(Int.random(in: 96...100))
             }
             
             DataBaseManager().writeData(type: DATA_TYPE_HR, value: Int32(userData.realTimeHR.last!))
