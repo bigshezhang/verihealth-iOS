@@ -22,11 +22,12 @@ struct RealTimeChartView: View {
                 
                 Spacer()
                 
-                Button {
-                    myData.isDeviceConnected.toggle()
+                NavigationLink {
+                    HistoryView()
                 } label: {
                     Text("History")
                 }
+
 
                 Image(systemName: "arrow.right")
                     .padding(.trailing, 30)

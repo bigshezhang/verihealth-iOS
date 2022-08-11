@@ -64,7 +64,7 @@ struct DataGlanceView: View {
                                             .frame(width: 20, height: 20)
                               
                                         
-                                        Text("\(Int(myData.realTimeHR.last!))")
+                                        Text((myData.realTimeHR.count == 2) ? " --" : "\(Int(myData.realTimeHR.last!))")
                                             .font(.system(size: 22))
                                             .foregroundColor(Color("HomeTitleColor"))
                                         
@@ -90,7 +90,7 @@ struct DataGlanceView: View {
                                             .frame(width: 20, height: 20)
                               
                                         
-                                        Text("\(Int(myData.realTimeHRV.last!))")
+                                        Text((myData.realTimeHRV.count == 2) ? " --" : "\(Int(myData.realTimeHRV.last!))")
                                             .font(.system(size: 22))
                                             .foregroundColor(Color("HomeTitleColor"))
 
@@ -122,7 +122,7 @@ struct DataGlanceView: View {
 
                             
                             VStack{
-                                Text("\(Int(myData.realTimeSpo2.last!))")
+                                Text((myData.realTimeSpo2.count == 2) ? "--" : "\(Int(myData.realTimeSpo2.last!))")
                                     .font(.system(size: 28))
                                     .foregroundColor(Color(hex: "#474ad9"))
                                 

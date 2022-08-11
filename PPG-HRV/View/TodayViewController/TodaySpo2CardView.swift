@@ -38,7 +38,6 @@ struct TodaySpo2CardView: View {
                 }
             }
         }
-//        print("[todaySpo2Array] ->",todaySpo2Array)
         if validCount > 0{
             return sum / validCount
         } else {

@@ -62,14 +62,4 @@ func HeartRateCalc(receivePack: RawDataPacket){
     } else {
         print("[收到了无效包]")
     }
-//    let currentRawFilePath = FileTool().createRealtimeTxt(writeWhat: .raw)        //输出Raw数据到文件
-//    
-//    do {
-//        let fileHandle = try FileHandle(forWritingTo: URL.init(string: currentRawFilePath)!)
-//        fileHandle.seekToEndOfFile()
-//        try fileHandle.write(contentsOf: "\(usedData.prefix(Int(receivePack.size)))\n".data(using: .utf8)!)
-//        try fileHandle.close()
-//    } catch {
-//        print(error)
-//    }
 }

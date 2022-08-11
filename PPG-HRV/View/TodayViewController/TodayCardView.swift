@@ -57,7 +57,6 @@ struct TodayCardView: View {
                         RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                             .foregroundColor(Color.white)
                             .frame(width: 350, height: 200)
-    //                        .shadow(radius: 4, x: 2, y: 2)
                             .offset(y: -15)
                     }
                 )
@@ -65,48 +64,6 @@ struct TodayCardView: View {
                 .onAppear{
                     print("\(todayTimeStamp)", "\(Date().timeIntervalSince1970)")
             }
-            
-            
-//            PlotView {
-//                BarView(
-//                    x: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
-//                    y: getTodayDataInDayByHour().map{Double($0)}
-//                )
-//                .barWidth(8)
-//
-//
-//            }
-//        horizontal: {
-//                HAxis(
-//                    ticks: [0.5 ,1, 3, 5, 7, 9,11],
-//                    labels: ["0","1", "3", "5", "7", "9", "11"]
-//                )
-//                .tickStyle(.bottomTrailing)
-//                .tickStroke(style: StrokeStyle(lineWidth: 0))
-//            } vertical: {
-//                VAxis(ticks: [60, 80, 100],labels: ["60","80","100"])
-//                    .tickStyle(.trailing)
-//                    .tickStroke(style: StrokeStyle(lineWidth: 0.2))
-//            }
-//            .contentDisposition(minX: 1, maxX: 26, minY: 50, maxY: 190)
-//            .frame(width: 320, height: 200)
-//            .tickInsets(bottom: 20)
-//            
-//            PlotView {
-//                BarView(
-//                    x: [3, 4, 5],
-//                    y: [2000, 2100, 2300]
-//                )
-//            } horizontal: {
-//                HAxis(
-//                    ticks: [1, 2, 3, 4, 5],
-//                    labels: ["Sun", "Mon", "Tue", "Wed", "Thu"]
-//                )
-//            } vertical: {
-//                VAxis(ticks: [1000, 2000, 3000])
-//            }
-//            .contentDisposition(minX: 1, maxX: 5, minY: 0, maxY: 3000)
-//            .frame(width: 500, height: 300)
         }
  
     }

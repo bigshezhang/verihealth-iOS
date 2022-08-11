@@ -56,12 +56,9 @@ struct TodayView: View {
                 Spacer()
             }
         }
-//        .ignoresSafeArea()
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
-
     }
-    
 }
 
 struct TodayView_Previews: PreviewProvider {
