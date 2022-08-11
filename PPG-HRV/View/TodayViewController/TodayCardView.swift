@@ -10,6 +10,7 @@ import CoreSDK
 import HealthCharts
 import PlotUI
 struct TodayCardView: View {
+    let type : DBDataType
     let todayTimeStamp = dayStringToTimeStamp(getCurrentDate())
     
     func dataToPoint(dataArray : [Int]) -> [DataPoint]{
@@ -23,7 +24,7 @@ struct TodayCardView: View {
     func getTodayDataInDayByHour() -> [Int] {
         var dataArray = [Int]()
         for hour in 0...23 {
-            let hourInMinArray = DataBaseManager().getDataArrayInHourByMin(type: DATA_TYPE_HR, start: Int32(Int(todayTimeStamp) + hour * 3600))
+            let hourInMinArray = DataBaseManager().getDataArrayInHourByMin(type: type, start: Int32(Int(todayTimeStamp) + hour * 3600))
             var tmpSum = Int()
             var validCountInMinute = Int()
             for index in 0...hourInMinArray.count-1{
@@ -113,6 +114,6 @@ struct TodayCardView: View {
 
 struct TodayCardView_Previews: PreviewProvider {
     static var previews: some View {
-        TodayCardView()
+        TodayCardView(type: DATA_TYPE_HR)
     }
 }

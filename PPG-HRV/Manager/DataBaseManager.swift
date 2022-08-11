@@ -98,7 +98,7 @@ class DataBaseManager : NSObject, ObservableObject {
     
     func getDataArray(type: DBDataType, start: Int32, end: Int32) -> [Int] {
         let dataDic = getDataBaseDuringTime(type: type, start: start, end: end)
-        var dataArrayBySec = [Int](repeating: -1, count: Int(end - start) + 1000)
+        var dataArrayBySec = [Int](repeating: -1, count: Int(end - start) + 1)
         for cell in dataDic {
             dataArrayBySec[Int(cell.key - start)] = Int(cell.value)
         }
@@ -119,7 +119,6 @@ class DataBaseManager : NSObject, ObservableObject {
             }
             if validCount != 0 {
 //                print("[tmpSum / validCount] -> ", tmpSum / validCount)
-
                 dataArrayByMinute.append(tmpSum / validCount)
             } else {
                 dataArrayByMinute.append(0)
@@ -129,7 +128,7 @@ class DataBaseManager : NSObject, ObservableObject {
         return dataArrayByMinute
     }
     
-    func getTodayDataInDayByHour(type: DBDataType) -> [Int] {
+    func getDayDataInDayByHour(type: DBDataType) -> [Int] {
         var dataArray = [Int]()
         for hour in 0...23 {
             let hourInMinArray = DataBaseManager().getDataArrayInHourByMin(type: type, start: Int32(Int(dayStringToTimeStamp(getCurrentDate())) + hour * 3600))
@@ -150,15 +149,26 @@ class DataBaseManager : NSObject, ObservableObject {
         return dataArray
     }
     
-    func getTodayDataInDayByMinute(type: DBDataType) -> [Int] {
+    func getDayDataInDayByMinute(type: DBDataType, start: Int32) -> [Int] {
         var dataArray = [Int]()
         for hour in 0...23 {
             let hourInMinArray = DataBaseManager().getDataArrayInHourByMin(type: type, start: Int32(Int(dayStringToTimeStamp(getCurrentDate())) + hour * 3600))
             dataArray += hourInMinArray
 //            print("[hourArray] -> ",hourInMinArray)
-
         }
         return dataArray
     }
     
+    func getDataArrayInMinuteBySec(type: DBDataType, start: Int32) -> [Int] {
+        var dataArray = [Int]()
+        let dataFromBase = DataBaseManager().getDataArray(type: type, start: start, end: start + 59)
+        for sec in 0...59{
+            if dataFromBase[sec] != -1{
+                dataArray.append(dataFromBase[sec])
+            }
+        }
+        print("dataFromBase", dataFromBase)
+        print("dataArray", dataArray)
+        return dataArray
+    }
 }

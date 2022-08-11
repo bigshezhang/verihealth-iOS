@@ -16,9 +16,28 @@ struct TodayView: View {
             Color(hex: "#f5f6fa")
                 .ignoresSafeArea()
             
+            ScrollView{
+                VStack(){
+                    TodaySpo2CardView()
+                        .scaleEffect(1.11)
+                        .padding(.bottom, 27)
+                    TodayCardView(type: DATA_TYPE_HR)
+                        .shadow(color: Color(hex: "#e4e8f7"), radius: 5, x: 5, y: 5)
+                        .overlay(
+                            VStack{
+                                HStack{
+                                    Text("Today HR")
+                                }
+                            }
+                        )
+                    TodayCardView(type: DATA_TYPE_HRV)
+                        .shadow(color: Color(hex: "#e4e8f7"), radius: 5, x: 5, y: 5)
+                }
+                .padding(.top, 100)
+            }
             VStack{
                 Rectangle()
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(hex: "#f5f6fa"))
                     .frame(width: 400,height: 60)
                     .shadow(color: Color(hex: "#8ea7fd").opacity(0.3),radius: 5, y:8)
                     .overlay(
@@ -34,20 +53,13 @@ struct TodayView: View {
                             }
                         }
                     )
-                ScrollView{
-                    TodayCardView()
-                        .shadow(color: Color(hex: "#8ea7fd").opacity(0.3),radius: 5, y: 1)
-                        .padding(.top,100)
-                    TodaySpo2CardView()
-     
-                }
                 Spacer()
             }
         }
 //        .ignoresSafeArea()
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
-//        .navigationBarItems(leading: Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {Image(systemName: "arrow.left").foregroundColor(Color("HomeTitleColor"))}).padding(.bottom, 10).padding(.leading, 10).scaleEffect(0.8))
+
     }
     
 }

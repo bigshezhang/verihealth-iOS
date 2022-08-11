@@ -17,7 +17,7 @@ final class UserData: ObservableObject {
     @Published var isDeviceConnected: Bool = false
     @Published var realTimeHRV : [Double] = [120,160]
     @Published var realTimeHR : [Double] = [60,90]
-    @Published var realTimeSpo2 : [Int] = [95, 100]
+    @Published var realTimeSpo2 : [Int] = [95, 80]
     @Published var lossRate = 0.0
     @Published var mistakeRate = 0.0
     

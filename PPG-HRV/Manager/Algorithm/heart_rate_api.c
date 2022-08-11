@@ -10,40 +10,6 @@
 
 #define PPG_BUF_LEN 52
 
-#define SAMPLE_RATE 50
-
-uint32_t ppg_buf[10000] = {0};
-PpgResult heart_rate_calc(uint16_t sec_data[50]){
-    PpgResult result;
-    #if DEBUG_FLAG == 1
-    #endif
-    PpgData input_data = {SAMPLE_RATE,sec_data};
-    int cnt = 0,time_sec = 0;
-    AlgoError ret;
-    uint16_t hr_value = 0;
-    int i = 0,j = 0;
-//    heart_rate_init_api();
-//    for(i=0;i<cnt-SAMPLE_RATE; i = i + SAMPLE_RATE){
-//        time_sec++;
-//        for (j=0;j < SAMPLE_RATE; j++){
-//            sec_data[j] = ppg_buf[i+j];
-//        }
-        ret = heart_rate_process(&input_data,&hr_value);
-        if(ret==0){
-            printf("%d\n",hr_value);
-            result =  heart_rate_result();
-            if(result.err == ALGO_NORMAL){
-                result.hr = hr_value;
-                printf("sdnn:%f",result.sdnn);
-            }
-        }
-//    }
-
-    return result;
-}
-
-
-
 
 typedef struct PpgDataset{
     uint16_t full;
@@ -78,12 +44,18 @@ typedef struct BeatCalc
 }BeatCalc;
 typedef struct RRDetecter
 {
-    int16_t buf[10];
-    int16_t count;
-    int16_t avg;
+    uint16_t buf[10];
+    uint16_t count;
+    uint16_t avg;
     int8_t full;
 }RRDetecter;
-
+typedef struct RRCalc
+{
+    float avg;
+    double square_sum;
+    uint16_t valid_count;
+    uint16_t i;
+}RRCalc;
 
 /* variables for data and result buffering, and data counting */
 static PpgDataset ppg_data_buf = {0,0,{0}};
@@ -93,34 +65,42 @@ static MeanOutput mean_output1 ={0,0};
 static MeanOutput mean_output2 ={0,0};
 static BeatCalc beat_calc = {0,0,0,0,0,0,{0},{0}};
 static RRDetecter rr_detecter = {{0},0,0,0};
+static RRCalc rr_calc = {0,0,0,0};
 
-static uint8_t* rr_result;
+static int8_t* rr_result;
 static uint16_t* rr_interval_list;
-
-static int rr_detect(int16_t* interval,int16_t interval_size){
-    uint16_t i = 0;
-    rr_result = (uint8_t*) malloc(interval_size*sizeof(uint8_t));
+static BridgeData bridge_data;
+static BridgeResult bridge_result;
+static PpgData ppgdata = {
+    .sample_rate = 50,
+    .data = NULL,
+    .size = 0,
+    .data_format = 1
+};
+static int rr_detect(uint16_t* interval,int16_t interval_size){
     
-    for (rr_detecter.count = 0; rr_detecter.count < interval_size; rr_detecter.count++){
+    uint16_t i = 0;
+    AlgoError ret = ALGO_ERR_GENERIC;
+    for (; rr_detecter.count < interval_size; rr_detecter.count++){
         if(rr_detecter.count > 1){
             for(i = 0,rr_detecter.avg = 0; i < (rr_detecter.count > 10 ? 10: rr_detecter.count); i++){
                 rr_detecter.avg += *(rr_detecter.buf+i);
             }
             rr_detecter.avg = rr_detecter.avg/(rr_detecter.count > 10 ? 10: rr_detecter.count);
-            if(*(interval+rr_detecter.count) - rr_detecter.avg>80||*(interval+rr_detecter.count)  - rr_detecter.avg < -80){
-                *(rr_result+rr_detecter.count) = 0;
+            if(*(interval+(rr_detecter.count%180)) - rr_detecter.avg>80||*(interval+(rr_detecter.count%180))  - rr_detecter.avg < -80){
+                *(rr_result+(rr_detecter.count%180)) = 0;
             }else{
-                *(rr_result+rr_detecter.count) = 1;
+                *(rr_result+(rr_detecter.count%180)) = 1;
+                ret = ALGO_NORMAL;
             }
         }else{
             *(rr_result+rr_detecter.count) = 0;
         }
         
-        
-        *(rr_detecter.buf+rr_detecter.count%10) = *(interval + rr_detecter.count);
+        *(rr_detecter.buf+(rr_detecter.count%10)) = *(interval + (rr_detecter.count%180));
         if(rr_detecter.count==10-1)rr_detecter.full=1;
     }
-    return ALGO_NORMAL;
+    return ret;
 }
 
 static int mf_process(MeanFilter*filter,MeanOutput*output,int16_t data){
@@ -182,6 +162,10 @@ int heart_rate_init_api(void){
     memset(&mean_output2,0,sizeof(MeanOutput));
     memset(&beat_calc,0,sizeof(BeatCalc));
     memset(&rr_detecter,0,sizeof(RRDetecter));
+    memset(&rr_calc,0,sizeof(RRCalc));
+    memset(&bridge_data, 0, sizeof(BridgeData));
+    memset(&bridge_result, 0, sizeof(BridgeResult));
+    ppgdata.data = malloc(sizeof(uint16_t)*100);
     mean_filter1.buf = NULL;
     mean_filter2.buf = NULL;
 
@@ -189,12 +173,9 @@ int heart_rate_init_api(void){
     mean_filter1.buf = (int16_t *)malloc(mean_filter1.len*sizeof(int16_t));
     mean_filter2.len = 5;
     mean_filter2.buf = (int16_t *)malloc(mean_filter2.len*sizeof(int16_t));
-
-    #if DEBUG_FLAG == 1
-        rr_interval_list = malloc(10000*sizeof(uint16_t));
-    #else
-        rr_interval_list = malloc(180*sizeof(uint16_t));
-    #endif
+    rr_interval_list = (int16_t*)malloc(180*sizeof(uint16_t));
+    rr_result = (int8_t*) malloc(180*sizeof(int8_t));
+    
     if (!mean_filter1.buf || !mean_filter2.buf){
         return ALGO_ERR_GENERIC;
     }
@@ -209,11 +190,9 @@ int heart_rate_reset_api(void){
     memset(&mean_output2,0,sizeof(MeanOutput));
     memset(&beat_calc,0,sizeof(BeatCalc));
     memset(&rr_detecter,0,sizeof(RRDetecter));
-    #if DEBUG_FLAG == 1
-        memset(rr_interval_list,0,10000*sizeof(uint16_t));
-    #else
-        memset(rr_interval_list,0,180*sizeof(uint16_t));
-    #endif
+    memset(&rr_calc,0,sizeof(RRCalc));
+    memset(rr_interval_list,0,180*sizeof(uint16_t));
+    memset(rr_result,0,180*sizeof(int8_t));
     return ALGO_NORMAL;
 }
 
@@ -227,6 +206,7 @@ int heart_rate_exit_api(void){
         mean_filter2.buf = NULL;
     }
     free(rr_interval_list);
+    free(rr_result);
     return ALGO_NORMAL;
 }
 
@@ -234,11 +214,11 @@ static int hr_preprocess(PpgData *ppg){
     uint16_t i = 0;
     int16_t tmp_data = 0;
     AlgoError ret  =  ALGO_ERR_GENERIC;
-    if(!ppg || ppg->data_size == 0){
+    if(!ppg || ppg->size == 0){
         return ALGO_ERR_GENERIC;
     }
-    for (i = 0; i < ppg->data_size; i++){
-        tmp_data = (int16_t)(*(ppg->data_array+i));
+    for (i = 0; i < ppg->size; i++){
+        tmp_data = (int16_t)(*(ppg->data+i));
         ret = mf_process(&mean_filter1,&mean_output1,tmp_data);
         if(ret == ALGO_NORMAL){
             ret = mf_process(&mean_filter2, &mean_output2, mean_output1.raw - mean_output1.filt);
@@ -266,30 +246,15 @@ static int hr_preprocess(PpgData *ppg){
 }
 
 int heart_rate_process(PpgData *ppg, uint16_t *value){
-    #if DEBUG_FLAG == 1
-        FILE *pos_file = fopen("data_position.txt","a");
-        FILE *mean_file = fopen("data_mean.txt","a");
-        FILE *heart_file = fopen("data_heart.txt","a");
-        fprintf(heart_file,"%d\n",*value);
-    #endif
-
-
     AlgoError algo_err;
     uint16_t i = 0;
     uint16_t idx = 0;
     AlgoError ret = ALGO_ERR_GENERIC;
-    if(!ppg || ppg->data_size==0){
+    if(!ppg || ppg->size==0){
         return ALGO_ERR_GENERIC; //invalid pointer
     }
     ret = hr_preprocess(ppg);
-    
     if(ret == ALGO_NORMAL){
-        #if DEBUG_FLAG == 1
-        for(i = ppg_data_buf.size; i < ppg_data_buf.size + 50 ;i++){
-            idx = i % PPG_BUF_LEN;
-            fprintf(mean_file,"%d\n",ppg_data_buf.data[idx]);
-        }
-        #endif
         for(i = ppg_data_buf.size; i < ppg_data_buf.size + PPG_BUF_LEN;i++){
             idx = i % PPG_BUF_LEN;
             if(ppg_data_buf.data[(i + 1) % PPG_BUF_LEN] - ppg_data_buf.data[idx] > 0){
@@ -299,7 +264,7 @@ int heart_rate_process(PpgData *ppg, uint16_t *value){
             }
             beat_calc.diff_data[idx] = beat_calc.sign;
         }
-        for(i = ppg_data_buf.size; i < ppg_data_buf.size + ppg->data_size;i++){
+        for(i = ppg_data_buf.size; i < ppg_data_buf.size + ppg->size;i++){
             idx = i % PPG_BUF_LEN;
             beat_calc.data_count++;
             beat_calc.diff_data[idx] = beat_calc.diff_data[(i + 1) % PPG_BUF_LEN] - beat_calc.diff_data[idx];
@@ -311,55 +276,80 @@ int heart_rate_process(PpgData *ppg, uint16_t *value){
                     beat_calc.pos_buffer[4] = beat_calc.data_count;
                     beat_calc.beat_count++;
                 }
-                *value = (beat_calc.beat_count > 4 ? 3 : beat_calc.beat_count-1)*60.0*HR_PPG_SAMPLE_RATE/(beat_calc.pos_buffer[3]-beat_calc.pos_buffer[0]);
+                if(value!=NULL)*value = (beat_calc.beat_count > 4 ? 3 : beat_calc.beat_count-1)*60.0*HR_PPG_SAMPLE_RATE/(beat_calc.pos_buffer[3]-beat_calc.pos_buffer[0]);
                 if(beat_calc.beat_count >=2){
-                    rr_interval_list[beat_calc.beat_count-2] = (beat_calc.pos_buffer[4] - beat_calc.pos_buffer[3])*1000/HR_PPG_SAMPLE_RATE;
+                    *(rr_interval_list+(beat_calc.beat_count-2)%180) = (beat_calc.pos_buffer[4] - beat_calc.pos_buffer[3])*1000/HR_PPG_SAMPLE_RATE;
                 }
-                #if DEBUG_FLAG == 1
-                fprintf(pos_file,"%d\n",beat_calc.pos_buffer[3]);
-                #endif
             }
             
         }
         beat_calc.seconds ++;
-        #if DEBUG_FLAG == 1
-        fclose(pos_file);
-        fclose(mean_file);
-        fclose(heart_file);
-        #endif
         return ALGO_NORMAL;
     }
     return ALGO_ERR_GENERIC;
 }
-
-PpgResult heart_rate_result(){
-    #if DEBUG_FLAG == 1
-    #endif
-    float avg = 0;
-    double square_sum = 0;
-    uint16_t valid_count = 0;
-    uint16_t i = 0;
-    rr_detect(rr_interval_list,beat_calc.beat_count-1);
-    for(i = 0;i<beat_calc.beat_count-1;i++){
-        #if DEBUG_FLAG == 1
-        #endif
-        if(*(rr_result+i)==1){
-            avg+=*(rr_interval_list+i);
-            valid_count++;
+int hrv_hr_process(PpgData* ppg, uint16_t* hrv, uint16_t* hr){
+    AlgoError ret;
+    ret = heart_rate_process(ppg,hr);
+    if(ret == ALGO_NORMAL){
+        ret = rr_detect(rr_interval_list,beat_calc.beat_count-1);
+        if(ret == ALGO_NORMAL){
+            rr_calc.avg = 0;
+            rr_calc.square_sum = 0;
+            rr_calc.valid_count = 0;
+            rr_calc.i=0;
+            if(beat_calc.beat_count-1>180){
+                for(rr_calc.i = 0;rr_calc.i<180;rr_calc.i++){
+                    if(*(rr_result+rr_calc.i)==1){
+                        rr_calc.avg+=*(rr_interval_list+rr_calc.i);
+                        rr_calc.valid_count++;
+                    }
+                }
+                rr_calc.avg = rr_calc.avg/(double)rr_calc.valid_count;
+                for(rr_calc.i = 0;rr_calc.i<180;rr_calc.i++){
+                    if(*(rr_result+rr_calc.i)==1){
+                        rr_calc.square_sum += ((float)*(rr_interval_list+rr_calc.i)-rr_calc.avg)*((float)*(rr_interval_list+rr_calc.i)-rr_calc.avg);
+                    }
+                }
+                rr_calc.square_sum = rr_calc.square_sum/rr_calc.valid_count;
+                *hrv = (uint16_t)sqrt(rr_calc.square_sum);
+                return ALGO_NORMAL;
+            }else{
+                for(rr_calc.i = 0;rr_calc.i<beat_calc.beat_count-1;rr_calc.i++){
+                    if(*(rr_result+rr_calc.i)==1){
+                        rr_calc.avg+=*(rr_interval_list+rr_calc.i);
+                        rr_calc.valid_count++;
+                    }
+                }
+                rr_calc.avg = rr_calc.avg/(double)rr_calc.valid_count;
+                for(rr_calc.i = 0;rr_calc.i<beat_calc.beat_count-1;rr_calc.i++){
+                    if(*(rr_result+rr_calc.i)==1){
+                        rr_calc.square_sum += ((float)*(rr_interval_list+rr_calc.i)-rr_calc.avg)*((float)*(rr_interval_list+rr_calc.i)-rr_calc.avg);
+                    }
+                }
+                rr_calc.square_sum = rr_calc.square_sum/rr_calc.valid_count;
+                *hrv = (uint16_t)sqrt(rr_calc.square_sum);
+                return ALGO_NORMAL;
+            }
+            
         }
     }
-    avg = avg/(double)valid_count;
-    for(i = 0;i<beat_calc.beat_count-1;i++){
-        square_sum += ((float)*(rr_interval_list+i)-avg)*((float)*(rr_interval_list+i)-avg);
-    }
-    square_sum = square_sum/valid_count;
-    free(rr_result);
-    double sdnn = sqrt(square_sum);
-    PpgResult result = {ALGO_NORMAL,sdnn};
-    #if DEBUG_FLAG == 1
-    #endif
-    return result;
+    *hrv=0;
+    return ALGO_ERR_GENERIC;
+}
+int hrv_process(PpgData *ppg, uint16_t* hrv){
+    return hrv_hr_process(ppg,hrv,NULL);
 }
 
-
-
+BridgeResult bridge(BridgeData data){
+    static uint16_t sdnn = 0;
+    static uint16_t hr = 0;
+    for(int i = 0;i < data.size/2;i++){
+        ppgdata.data[i] = data.data[i*2];
+    }
+    ppgdata.size = data.size/2;
+    bridge_result.ret = hrv_hr_process(&ppgdata, &sdnn, &hr);
+    bridge_result.hr = hr;
+    bridge_result.sdnn = sdnn;
+    return bridge_result;
+}
