@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreSDK
 
 class FakeDataGenerator {
     func chartDataGenerator(){

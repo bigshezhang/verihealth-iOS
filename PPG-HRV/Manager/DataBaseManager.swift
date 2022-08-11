@@ -25,19 +25,19 @@ class DataBaseManager : NSObject, ObservableObject {
             hrModel.timeStamp = timeInterval
             hrModel.value = value
             DataManager.sharedInstance().writeData(hrModel, timeStamp: timeInterval)
-            print("[HR数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HR, userName: "lazyman").count)
+//            print("[HR数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HR, userName: "lazyman").count)
             
         case DATA_TYPE_HRV :
             hrvModel.timeStamp = timeInterval
             hrvModel.value = value
             DataManager.sharedInstance().writeData(hrvModel, timeStamp: timeInterval)
-            print("[HRV数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HRV, userName: "lazyman").count)
+//            print("[HRV数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HRV, userName: "lazyman").count)
             
         case DATA_TYPE_SPO2 :
             spo2Model.timeStamp = timeInterval
             spo2Model.value = value
             DataManager.sharedInstance().writeData(spo2Model, timeStamp: timeInterval)
-            print("[Spo2数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HRV, userName: "lazyman").count)
+//            print("[Spo2数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HRV, userName: "lazyman").count)
             
         default: break
         }
@@ -74,12 +74,23 @@ class DataBaseManager : NSObject, ObservableObject {
         let rlmResult = DataManager.sharedInstance().queryData(type, start: start, end: end, userName: "lazyman")
         
         var dataDic = [Int32 : Int32]()
-        print("[rlmCount]", rlmResult.count)
+//        print("[rlmCount]", rlmResult.count)
+        
         
         if rlmResult.count > 0{
             for index in 0...rlmResult.count - 1 {
-                let object = rlmResult.object(at: index) as! HRModel
-                dataDic.updateValue(object.value, forKey: object.timeStamp)
+                switch type{
+                case DATA_TYPE_HR:
+                    let object = rlmResult.object(at: index) as! HRModel
+                    dataDic.updateValue(object.value, forKey: object.timeStamp)
+                case DATA_TYPE_HRV:
+                    let object = rlmResult.object(at: index) as! HRVModel
+                    dataDic.updateValue(object.value, forKey: object.timeStamp)
+                case DATA_TYPE_SPO2:
+                    let object = rlmResult.object(at: index) as! Spo2Model
+                    dataDic.updateValue(object.value, forKey: object.timeStamp)
+                default: break
+                }
             }
         }
         return dataDic
@@ -94,7 +105,7 @@ class DataBaseManager : NSObject, ObservableObject {
         return dataArrayBySec
     }
     
-    func getDataArrayByHour(type: DBDataType, start: Int32) -> [Int] {
+    func getDataArrayInHourByMin(type: DBDataType, start: Int32) -> [Int] {
         let dataArrayBySec = getDataArray(type: type, start: start, end: start + 3599)
         var dataArrayByMinute = [Int]()
         for min in 0...59 {
@@ -107,12 +118,47 @@ class DataBaseManager : NSObject, ObservableObject {
                 }
             }
             if validCount != 0 {
+//                print("[tmpSum / validCount] -> ", tmpSum / validCount)
+
                 dataArrayByMinute.append(tmpSum / validCount)
             } else {
                 dataArrayByMinute.append(0)
             }
         }
-        print("[一小时内HR] -> ", dataArrayByMinute)
+        print("[dataByMinute]", dataArrayByMinute)
         return dataArrayByMinute
     }
+    
+    func getTodayDataInDayByHour(type: DBDataType) -> [Int] {
+        var dataArray = [Int]()
+        for hour in 0...23 {
+            let hourInMinArray = DataBaseManager().getDataArrayInHourByMin(type: type, start: Int32(Int(dayStringToTimeStamp(getCurrentDate())) + hour * 3600))
+            var tmpSum = Int()
+            var validCountInMinute = Int()
+            for index in 0...hourInMinArray.count-1{
+                tmpSum += hourInMinArray[index]
+                if hourInMinArray[index] != 0{
+                    validCountInMinute += 1
+                }
+            }
+            if validCountInMinute != 0{
+                dataArray.append(tmpSum / validCountInMinute)
+            } else {
+                dataArray.append(0)
+            }
+        }
+        return dataArray
+    }
+    
+    func getTodayDataInDayByMinute(type: DBDataType) -> [Int] {
+        var dataArray = [Int]()
+        for hour in 0...23 {
+            let hourInMinArray = DataBaseManager().getDataArrayInHourByMin(type: type, start: Int32(Int(dayStringToTimeStamp(getCurrentDate())) + hour * 3600))
+            dataArray += hourInMinArray
+            print("[hourArray] -> ",hourInMinArray)
+
+        }
+        return dataArray
+    }
+    
 }

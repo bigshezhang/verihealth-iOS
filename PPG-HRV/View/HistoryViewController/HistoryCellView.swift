@@ -8,10 +8,10 @@
 import SwiftUI
 import SwiftUICharts
 import HealthCharts
-
+import CoreSDK
 struct HistoryCellView: View {
     let timeStamp = Int32(Date().timeIntervalSince1970)
-    var lasthourData = DataBaseManager().getDataArrayByHour(type: DATA_TYPE_HR, start: Int32(Date().timeIntervalSince1970) - 3601)
+    var lasthourData = DataBaseManager().getDataArrayInHourByMin(type: DATA_TYPE_HR, start: Int32(Date().timeIntervalSince1970) - 3601)
     let highIntensity = Legend(color: .orange, label: "High Intensity", order: 5)
     let buildFitness = Legend(color: .yellow, label: "Build Fitness", order: 4)
     let fatBurning = Legend(color: .green, label: "Fat Burning", order: 3)
@@ -42,7 +42,7 @@ struct HistoryCellView: View {
     func dataToPoint(dataArray : [Int]) -> [DataPoint]{
         var dataPoints = [DataPoint]()
         for index in 1...15 {
-            dataPoints.append(DataPoint(value: Double(lasthourData[index * 4 - 4]), label: "\(index * 4 - 4)", legend: returnLegend(value: lasthourData[index * 4 - 4])))
+            dataPoints.append(DataPoint(value: Double(dataArray[index * 4 - 4]), label: "\(index * 4 - 4)", legend: returnLegend(value: dataArray[index * 4 - 4])))
         }
         return dataPoints
     }

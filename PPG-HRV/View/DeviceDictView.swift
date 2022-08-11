@@ -58,11 +58,16 @@ struct DeviceDictView: View {
             List{
                 ForEach(deviceArray, id: \.self){ device in
                     Button {
+                        if userData.currDevice.name != nil{
+                            TransferManager.sharedInstance().disConnect(userData.currDevice)
+                            print("[断开了设备] -> ",userData.currDevice.name)
+                        }
                         TransferManager.sharedInstance().connect(device)
                         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
                             if device.connected {
                                 print("[连接了该设备] -> ", device.name)
-                                userData.currentDeviceName = device.name
+                                userData.lastConnectedDeviceName = device.name
+                                userData.currDevice = device
                                 userData.isDeviceConnected = true
                                 timer.invalidate()
                                 presentationMode.wrappedValue.dismiss()

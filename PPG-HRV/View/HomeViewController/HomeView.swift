@@ -40,7 +40,7 @@ struct HomeView: View {
                         .padding(.trailing, 30)
                         .opacity(0.05)
                         .foregroundColor(.black)
-                        .overlay(Text(userData.isDeviceConnected ? userData.currentDeviceName : "点击连接设备") .padding(.trailing, 30).foregroundColor(.black))
+                        .overlay(Text(userData.isDeviceConnected ? userData.lastConnectedDeviceName : "点击连接设备") .padding(.trailing, 30).foregroundColor(.black))
                 }
             }
             

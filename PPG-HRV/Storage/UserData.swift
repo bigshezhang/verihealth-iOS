@@ -21,7 +21,6 @@ final class UserData: ObservableObject {
     @Published var lossRate = 0.0
     @Published var mistakeRate = 0.0
     
-    
     @Published var isOnHand = false
     
     @AppStorage("todayDirPath") var todayDirPath: String = ""
@@ -29,7 +28,7 @@ final class UserData: ObservableObject {
     @AppStorage("vsDeviceUUID") var vsDeviceUUID: String = ""
     @AppStorage("appSupportDir") var appSupportDir :String = getApplicationSupportDirectory()
     @AppStorage("appDocDir") var appDocDir :String = getDocumentDirectory()
-    @AppStorage("currentDeviceName") var currentDeviceName : String = ""
+    @AppStorage("lastConnectedDeviceName") var lastConnectedDeviceName : String = ""
 }
 
 var userData = UserData()

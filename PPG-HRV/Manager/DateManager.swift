@@ -29,6 +29,12 @@ func getCurrentHour() -> String {
     return formatter.string(from: Date())
 }
 
+func dayStringToTimeStamp(_ time: String) -> TimeInterval {
+    let dateformatter = DateFormatter()
+    dateformatter.dateFormat = "YYYY-MM-dd"// 自定义时间格式
+    let date = dateformatter.date(from: time)
+    return (date?.timeIntervalSince1970)!
+}
 //func getTimeStamp() -> Int {
 //    return Date().timeIntervalSince(1970)
 //}

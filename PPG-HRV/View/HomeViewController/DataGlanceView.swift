@@ -26,11 +26,17 @@ struct DataGlanceView: View {
                 
                 Spacer()
                 
-                Button {
-                    myData.isOnHand.toggle()
+                NavigationLink {
+                    TodayView()
                 } label: {
                     Text("Today")
+
                 }
+                
+//                Button {
+//                    myData.isOnHand.toggle()
+//                } label: {
+//                }
 
                 Image(systemName: "arrow.right")
                     .padding(.trailing, 30)
@@ -108,10 +114,13 @@ struct DataGlanceView: View {
                             RingShape(progress: myData.realTimeSpo2.last!, thickness: 12)
                                 .fill(AngularGradient(gradient: Gradient(colors: [Color(hex: "#464ae1"), Color(hex: "#6f8fea")]), center: .center, startAngle: .degrees(startAngle), endAngle: .degrees(360 * progress + startAngle)))
                                 .shadow(color: Color(hex: "#474AD9"), radius: 3, x:3, y: 3)
+                                .animation(.spring(), value: myData.realTimeSpo2.last!)
                             
                             RingDot(progress: myData.realTimeSpo2.last!, thickness: 6)
                                 .fill(Color.white)
                                 .shadow(color: Color(hex: "#474AD9"), radius: 6, y: 3)
+                                .animation(.spring(), value: myData.realTimeSpo2.last!)
+
                             
                             VStack{
                                 Text("\(Int(myData.realTimeSpo2.last! * 100))")

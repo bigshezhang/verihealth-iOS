@@ -17,6 +17,10 @@
 		E0714F5D28A3C0E20000028E /* HistoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5C28A3C0E20000028E /* HistoryCellView.swift */; };
 		E0714F6028A3C2A10000028E /* HealthCharts in Frameworks */ = {isa = PBXBuildFile; productRef = E0714F5F28A3C2A10000028E /* HealthCharts */; };
 		E0714F6228A3E92B0000028E /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F6128A3E92B0000028E /* HistoryView.swift */; };
+		E0714F6528A3EF890000028E /* TodayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F6428A3EF890000028E /* TodayCardView.swift */; };
+		E0714F6728A4180D0000028E /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F6628A4180D0000028E /* TodayView.swift */; };
+		E0714F6A28A4222E0000028E /* PlotUI in Frameworks */ = {isa = PBXBuildFile; productRef = E0714F6928A4222E0000028E /* PlotUI */; };
+		E0714F6C28A479980000028E /* TodaySpo2CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F6B28A479980000028E /* TodaySpo2CardView.swift */; };
 		E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9762893B23100C88F23 /* HistoryHRVView.swift */; };
 		E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */; };
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
@@ -118,6 +122,9 @@
 		E0714F5628A3898A0000028E /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		E0714F5C28A3C0E20000028E /* HistoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellView.swift; sourceTree = "<group>"; };
 		E0714F6128A3E92B0000028E /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		E0714F6428A3EF890000028E /* TodayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardView.swift; sourceTree = "<group>"; };
+		E0714F6628A4180D0000028E /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		E0714F6B28A479980000028E /* TodaySpo2CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySpo2CardView.swift; sourceTree = "<group>"; };
 		E081D9762893B23100C88F23 /* HistoryHRVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVView.swift; sourceTree = "<group>"; };
 		E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVCellView.swift; sourceTree = "<group>"; };
 		E081D97A2893B39D00C88F23 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
@@ -175,6 +182,7 @@
 				E0ED5DD52887E46400258227 /* ProtocolFramework.xcframework in Frameworks */,
 				E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */,
 				E0ED5DE12887E46400258227 /* Realm.xcframework in Frameworks */,
+				E0714F6A28A4222E0000028E /* PlotUI in Frameworks */,
 				E0DA299728A336C4008A12EA /* PopupView in Frameworks */,
 				E0ED5DDF2887E46400258227 /* CoreSDK.xcframework in Frameworks */,
 				E0ED5DDB2887E46400258227 /* AFNetworking.xcframework in Frameworks */,
@@ -269,6 +277,9 @@
 		E0714F6328A3EEF90000028E /* TodayViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E0714F6628A4180D0000028E /* TodayView.swift */,
+				E0714F6428A3EF890000028E /* TodayCardView.swift */,
+				E0714F6B28A479980000028E /* TodaySpo2CardView.swift */,
 			);
 			path = TodayViewController;
 			sourceTree = "<group>";
@@ -396,6 +407,7 @@
 				E0D47EF928A340A800DE7B2C /* SwiftyGif */,
 				E0D47EFC28A3439A00DE7B2C /* GIFImage */,
 				E0714F5F28A3C2A10000028E /* HealthCharts */,
+				E0714F6928A4222E0000028E /* PlotUI */,
 			);
 			productName = "PPG-HRV";
 			productReference = E0ED5D7D2886CBD300258227 /* PPG-HRV.app */;
@@ -477,6 +489,7 @@
 				E0D47EF828A340A800DE7B2C /* XCRemoteSwiftPackageReference "SwiftyGif" */,
 				E0D47EFB28A3439A00DE7B2C /* XCRemoteSwiftPackageReference "GIFImage" */,
 				E0714F5E28A3C2A10000028E /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+				E0714F6828A4222E0000028E /* XCRemoteSwiftPackageReference "PlotUI" */,
 			);
 			productRefGroup = E0ED5D7E2886CBD300258227 /* Products */;
 			projectDirPath = "";
@@ -530,7 +543,9 @@
 				E0DA295828A12105008A12EA /* DeviceDictView.swift in Sources */,
 				E0714F5128A36E6B0000028E /* DataGlanceView.swift in Sources */,
 				E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */,
+				E0714F6528A3EF890000028E /* TodayCardView.swift in Sources */,
 				E0ED5DB728879D8200258227 /* TabView.swift in Sources */,
+				E0714F6C28A479980000028E /* TodaySpo2CardView.swift in Sources */,
 				E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */,
 				E024F72D2890317F007650DB /* Spinner.swift in Sources */,
 				E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */,
@@ -538,6 +553,7 @@
 				E021B14728935F9D005B5AE0 /* HeartBeat.swift in Sources */,
 				E0DA295C28A1573A008A12EA /* HomeView.swift in Sources */,
 				E0DA297728A1FAD9008A12EA /* heart_rate_api.c in Sources */,
+				E0714F6728A4180D0000028E /* TodayView.swift in Sources */,
 				E0DA295E28A176C5008A12EA /* HexColorTransfer.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
 				E0714F5528A387F00000028E /* RealTimeChartView.swift in Sources */,
@@ -901,6 +917,14 @@
 				kind = branch;
 			};
 		};
+		E0714F6828A4222E0000028E /* XCRemoteSwiftPackageReference "PlotUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/bigshezhang/PlotUI.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		E0D47EF828A340A800DE7B2C /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://gitee.com/bigshezhang/SwiftyGif.git";
@@ -956,6 +980,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E0714F5E28A3C2A10000028E /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
 			productName = HealthCharts;
+		};
+		E0714F6928A4222E0000028E /* PlotUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0714F6828A4222E0000028E /* XCRemoteSwiftPackageReference "PlotUI" */;
+			productName = PlotUI;
 		};
 		E0D47EF928A340A800DE7B2C /* SwiftyGif */ = {
 			isa = XCSwiftPackageProductDependency;

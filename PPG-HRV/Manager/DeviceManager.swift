@@ -61,19 +61,19 @@ extension DeviceManager: TransferManagerDelegate {
     
     func transReceive(_ device: VsDevice) {
         print("[获取到一个的Vs设备]-> ",device.name)
-        if(device.name == userData.currentDeviceName){
-            TransferManager.sharedInstance().connect(device)    //连接之前连接过的最后一个设备
+//        if(device.name == userData.lastConnectedDeviceName){
+//            TransferManager.sharedInstance().connect(device)    //连接之前连接过的最后一个设备
 //            Timer(timeInterval: 1, repeats: true) { timer in
 //                if device.connected {
-//                    self.sendCustomPack(device: device, isMeasuring: 1)
 //                    DispatchQueue.main.async {
-//                        userData.currentDeviceName = device.name
+//                        userData.currDevice = device
+//                        userData.lastConnectedDeviceName = device.name
 //                        userData.isDeviceConnected = true
 //                    }
 //                    timer.invalidate()
 //                }
 //            }
-        }
+//        }
 //        userData.currDevice = device
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
 //            userData.isDeviceConnected = true           //异步处理一下，防止主视图崩溃
@@ -108,20 +108,25 @@ extension DeviceManager: TransferManagerDelegate {
                             userData.realTimeSpo2.removeFirst()
                             userData.realTimeSpo2.append(Double(receivePack.spo2) / 100.0)
                         }
+                    }
+                } else {
+                    if receivePack.loss > 100{
+                        receivePack.loss = 100
+                    }
+                    if receivePack.wrong > 100{
+                        receivePack.wrong = 100
+                    }
+                    receivePack.loss = 100 - receivePack.loss
+                    DispatchQueue.main.async{
                         userData.lossRate = Double(receivePack.loss) / 100.0
                         userData.mistakeRate = Double(receivePack.wrong) / 100.0
+                        print("[loss] -> ", receivePack.loss)
+                        print("[mistake] -> ", receivePack.wrong)
                     }
-                    print("[OP 10000] -> ", receivePack.spo2)
                 }
             }
-        case 10001:                                 //获得了原始数据
-            if frame.payload != nil{
-                let data: NSData = (frame.payload as NSData?)!
-                var receivePack = RawDataPacket()
-                data.getBytes(&receivePack, length: data.length)
-
-            }
-        case 10002:
+            
+        case 10001:
             if frame.payload != nil{
                 let data: NSData = (frame.payload as NSData?)!
                 var receivePack = LodPacket()
@@ -137,6 +142,15 @@ extension DeviceManager: TransferManagerDelegate {
                     }
                 }
             }
+            
+        case 10002:                                 //获得了原始数据
+            if frame.payload != nil{
+                let data: NSData = (frame.payload as NSData?)!
+                var receivePack = RawDataPacket()
+                data.getBytes(&receivePack, length: data.length)
+
+            }
+
             
         default : break
         }
