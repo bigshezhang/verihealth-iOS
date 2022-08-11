@@ -47,7 +47,7 @@ struct TodayView: View {
                             }
                         )
                 }
-                .padding(.top, 70)
+                .padding(.top, 50)
             }
             .padding(.top, 40)
             VStack{
