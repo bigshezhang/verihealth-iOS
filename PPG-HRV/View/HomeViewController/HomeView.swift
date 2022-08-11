@@ -71,7 +71,7 @@ struct HomeView: View {
                         RoundedRectangle(cornerSize: CGSize(width: 50, height: 50))
                             .frame(width: 400,height: 400)
                             .foregroundColor(.white)
-                            .shadow(color: Color(hex: "#e4e8f7"), radius: 10, x: 10, y: 10)
+                            .shadow(color: Color(hex: "#e4e8f7"), radius: 20)
                     }
                 )
                 .frame(width: 200,height: 100)

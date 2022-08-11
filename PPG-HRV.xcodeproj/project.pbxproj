@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E021B14728935F9D005B5AE0 /* HeartBeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021B14628935F9D005B5AE0 /* HeartBeat.swift */; };
-		E02288482892D592002B697A /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02288472892D592002B697A /* FileManager.swift */; };
 		E024F72D2890317F007650DB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72C2890317F007650DB /* Spinner.swift */; };
 		E024F72F2890379D007650DB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = E024F72E2890379D007650DB /* Recording.swift */; };
 		E0714F5128A36E6B0000028E /* DataGlanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F5028A36E6B0000028E /* DataGlanceView.swift */; };
@@ -106,7 +105,6 @@
 
 /* Begin PBXFileReference section */
 		E021B14628935F9D005B5AE0 /* HeartBeat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartBeat.swift; sourceTree = "<group>"; };
-		E02288472892D592002B697A /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		E024F72C2890317F007650DB /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		E024F72E2890379D007650DB /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		E0714F5028A36E6B0000028E /* DataGlanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGlanceView.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 			children = (
 				E0DA297328A1FAB4008A12EA /* Algorithm */,
 				E0A981CC28918C9600EDE15A /* DeviceManager.swift */,
-				E02288472892D592002B697A /* FileManager.swift */,
 				E081D97A2893B39D00C88F23 /* DateManager.swift */,
 				E0DA296F28A1F35A008A12EA /* FakeDataGenarater.swift */,
 				E0DA297128A1FAAA008A12EA /* AlgorithmManager.swift */,
@@ -509,7 +506,6 @@
 			files = (
 				E0714F6228A3E92B0000028E /* HistoryView.swift in Sources */,
 				E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */,
-				E02288482892D592002B697A /* FileManager.swift in Sources */,
 				E0714F5D28A3C0E20000028E /* HistoryCellView.swift in Sources */,
 				E024F72F2890379D007650DB /* Recording.swift in Sources */,
 				E0D47EF428A33B1C00DE7B2C /* GifHelper.swift in Sources */,

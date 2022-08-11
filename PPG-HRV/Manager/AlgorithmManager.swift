@@ -33,16 +33,6 @@ func HeartRateCalc(receivePack: RawDataPacket){
                 DataBaseManager().writeData(type: DATA_TYPE_HRV, value: Int32(userData.realTimeHRV.last!))
             }
         }
-        
-        let currentCustomFilePath = FileTool().createRealtimeTxt(writeWhat: .custom)    //输出有效数据到Custom文件
-        do {
-            let fileHandle = try FileHandle(forWritingTo: URL.init(string: currentCustomFilePath)!)
-            fileHandle.seekToEndOfFile()
-            try fileHandle.write(contentsOf: "\(result.sdnn)\n".data(using: .utf8)!)
-            try fileHandle.close()
-        } catch {
-            print(error)
-        }
     } else {
         print("[收到了无效包]")
     }
