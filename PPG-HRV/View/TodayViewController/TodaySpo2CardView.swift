@@ -8,7 +8,6 @@
 import SwiftUI
 import CoreSDK
 import HealthCharts
-import PlotUI
 import Progress_Bar
 
 struct TodaySpo2CardView: View {

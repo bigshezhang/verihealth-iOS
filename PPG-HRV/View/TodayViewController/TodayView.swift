@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import PlotUI
+import CoreSDK
 
 struct TodayView: View {
     @Environment(\.presentationMode) var presentationMode
-
     var body: some View {
         ZStack{
             Color(hex: "#f5f6fa")

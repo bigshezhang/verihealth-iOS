@@ -28,8 +28,6 @@ struct HistoryCellView: View {
         default : break
         }
         return low
-
-        return low
     }
     
     func dataToPoint(dataArray : [Int]) -> [DataPoint]{

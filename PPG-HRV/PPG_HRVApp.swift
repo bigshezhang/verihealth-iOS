@@ -19,15 +19,17 @@ struct PPG_HRVApp: App {
     
     var body: some Scene {
         WindowGroup {
-            let viewRouter = ViewRouter()
-            RouterView()
-                .onAppear{
-                    heart_rate_init_api()
-                    FileTool().createTodayDir()     //创建当天的信息收集文件夹
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: deviceManager.startScan)
-//                    FakeDataGenerator().chartDataGenerator()
-                }
-                .environmentObject(viewRouter)
+            NavigationView{
+                HomeView()
+                    .onAppear{
+                        heart_rate_init_api()
+                        FileTool().createTodayDir()     //创建当天的信息收集文件夹
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: deviceManager.startScan)
+    //                    FakeDataGenerator().chartDataGenerator()  //一个假数据生成器，或许方便UI测试
+                    }
+            }
+            .navigationBarBackButtonHidden()
+            .navigationTitle("")
         }
     }
 }

@@ -246,7 +246,7 @@ static int hr_preprocess(PpgData *ppg){
 }
 
 int heart_rate_process(PpgData *ppg, uint16_t *value){
-    AlgoError algo_err;
+//    AlgoError algo_err;
     uint16_t i = 0;
     uint16_t idx = 0;
     AlgoError ret = ALGO_ERR_GENERIC;

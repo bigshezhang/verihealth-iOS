@@ -14,7 +14,6 @@ import GIFImage
 
 struct HomeView: View {
     @ObservedObject var myData = userData
-    @EnvironmentObject var viewRouter: ViewRouter
         
     @State var onHandToastState = false
     @State var connectedToastState = false
@@ -106,6 +105,5 @@ struct ConnectedToast : UIViewRepresentable{
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(ViewRouter())
     }
 }

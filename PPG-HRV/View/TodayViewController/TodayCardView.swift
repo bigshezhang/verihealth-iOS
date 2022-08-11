@@ -8,11 +8,9 @@
 import SwiftUI
 import CoreSDK
 import HealthCharts
-import PlotUI
 struct TodayCardView: View {
     let type : DBDataType
     let todayTimeStamp = dayStringToTimeStamp(getCurrentDate())
-    
     func dataToPoint(dataArray : [Int]) -> [DataPoint]{
         var dataPoints = [DataPoint]()
         for index in 0...23 {
@@ -65,7 +63,6 @@ struct TodayCardView: View {
                     print("\(todayTimeStamp)", "\(Date().timeIntervalSince1970)")
             }
         }
- 
     }
 }
 

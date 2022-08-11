@@ -15,9 +15,9 @@ class DataBaseManager : NSObject, ObservableObject {
     }
     
     func writeData(type: DBDataType, value: Int32){
-        var hrModel = HRModel()
-        var hrvModel = HRVModel()
-        var spo2Model = Spo2Model()
+        let hrModel = HRModel()
+        let hrvModel = HRVModel()
+        let spo2Model = Spo2Model()
         let timeInterval = Int32(Date().timeIntervalSince1970)
         
         switch type {
@@ -25,58 +25,24 @@ class DataBaseManager : NSObject, ObservableObject {
             hrModel.timeStamp = timeInterval
             hrModel.value = value
             DataManager.sharedInstance().writeData(hrModel, timeStamp: timeInterval)
-//            print("[HR数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HR, userName: "lazyman").count)
             
         case DATA_TYPE_HRV :
             hrvModel.timeStamp = timeInterval
             hrvModel.value = value
             DataManager.sharedInstance().writeData(hrvModel, timeStamp: timeInterval)
-//            print("[HRV数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HRV, userName: "lazyman").count)
             
         case DATA_TYPE_SPO2 :
             spo2Model.timeStamp = timeInterval
             spo2Model.value = value
             DataManager.sharedInstance().writeData(spo2Model, timeStamp: timeInterval)
-//            print("[Spo2数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HRV, userName: "lazyman").count)
             
         default: break
         }
     }
     
-//    func writeHRData(value: Int){
-//        let timeInterval:TimeInterval = Date().timeIntervalSince1970
-//        let dataModel = HRModel()
-//        dataModel.timeStamp = Int32(timeInterval)
-//        dataModel.value = Int32(value)
-//        DataManager.sharedInstance().writeData(dataModel, timeStamp: Int32(Date().timeIntervalSince1970))
-//        print("[HR数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HR, userName: "lazyman").count)
-//    }
-//
-//    func writeHRVData(value: Int){
-//        let timeInterval:TimeInterval = Date().timeIntervalSince1970
-//        let dataModel = HRVModel()
-//        dataModel.timeStamp = Int32(timeInterval)
-//        dataModel.value = Int32(value)
-//        DataManager.sharedInstance().writeData(dataModel, timeStamp: Int32(Date().timeIntervalSince1970))
-//        print("[HRV数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HRV, userName: "lazyman").count)
-//    }
-//
-//    func writeSpo2Data(value: Int){
-//        let timeInterval:TimeInterval = Date().timeIntervalSince1970
-//        let dataModel = Spo2Model()
-//        dataModel.timeStamp = Int32(timeInterval)
-//        dataModel.value = Int32(value)
-//        DataManager.sharedInstance().writeData(dataModel, timeStamp: Int32(Date().timeIntervalSince1970))
-//        print("[Spo2数据库信息] ->", DataManager.sharedInstance().queryAllData(DATA_TYPE_HRV, userName: "lazyman").count)
-//    }
-    
     func getDataBaseDuringTime(type: DBDataType, start: Int32, end: Int32) -> [Int32 : Int32]{
         let rlmResult = DataManager.sharedInstance().queryData(type, start: start, end: end, userName: "lazyman")
-        
         var dataDic = [Int32 : Int32]()
-//        print("[rlmCount]", rlmResult.count)
-        
-        
         if rlmResult.count > 0{
             for index in 0...rlmResult.count - 1 {
                 switch type{
@@ -118,13 +84,11 @@ class DataBaseManager : NSObject, ObservableObject {
                 }
             }
             if validCount != 0 {
-//                print("[tmpSum / validCount] -> ", tmpSum / validCount)
                 dataArrayByMinute.append(tmpSum / validCount)
             } else {
                 dataArrayByMinute.append(0)
             }
         }
-//        print("[dataByMinute]", dataArrayByMinute)
         return dataArrayByMinute
     }
     
@@ -154,7 +118,6 @@ class DataBaseManager : NSObject, ObservableObject {
         for hour in 0...23 {
             let hourInMinArray = DataBaseManager().getDataArrayInHourByMin(type: type, start: Int32(Int(dayStringToTimeStamp(getCurrentDate())) + hour * 3600))
             dataArray += hourInMinArray
-//            print("[hourArray] -> ",hourInMinArray)
         }
         return dataArray
     }
@@ -167,8 +130,6 @@ class DataBaseManager : NSObject, ObservableObject {
                 dataArray.append(dataFromBase[sec])
             }
         }
-//        print("dataFromBase", dataFromBase)
-//        print("dataArray", dataArray)
         return dataArray
     }
 }

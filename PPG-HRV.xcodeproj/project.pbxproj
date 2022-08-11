@@ -20,11 +20,8 @@
 		E0714F6528A3EF890000028E /* TodayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F6428A3EF890000028E /* TodayCardView.swift */; };
 		E0714F6728A4180D0000028E /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F6628A4180D0000028E /* TodayView.swift */; };
 		E0714F6C28A479980000028E /* TodaySpo2CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F6B28A479980000028E /* TodaySpo2CardView.swift */; };
-		E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9762893B23100C88F23 /* HistoryHRVView.swift */; };
-		E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */; };
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
 		E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A981CC28918C9600EDE15A /* DeviceManager.swift */; };
-		E0CC26762893D5160031F18F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC26752893D5160031F18F /* ProfileView.swift */; };
 		E0D47EF428A33B1C00DE7B2C /* GifHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D47EF328A33B1C00DE7B2C /* GifHelper.swift */; };
 		E0D47EFD28A3439A00DE7B2C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = E0D47EFC28A3439A00DE7B2C /* GIFImage */; };
 		E0DA295828A12105008A12EA /* DeviceDictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295728A12105008A12EA /* DeviceDictView.swift */; };
@@ -44,9 +41,6 @@
 		E0ED5D9C2886CBD400258227 /* PPG_HRVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D9B2886CBD400258227 /* PPG_HRVUITests.swift */; };
 		E0ED5D9E2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5D9D2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift */; };
 		E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DAE2886FC7100258227 /* UserData.swift */; };
-		E0ED5DB728879D8200258227 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB628879D8200258227 /* TabView.swift */; };
-		E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DB828879DD600258227 /* ViewRouter.swift */; };
-		E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED5DBE2887A45100258227 /* RouterView.swift */; };
 		E0ED5DD12887E46400258227 /* AlgorithmFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */; };
 		E0ED5DD22887E46400258227 /* AlgorithmFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E0ED5DD32887E46400258227 /* HttpFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ED5DC82887E46400258227 /* HttpFramework.xcframework */; };
@@ -122,14 +116,11 @@
 		E0714F6428A3EF890000028E /* TodayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardView.swift; sourceTree = "<group>"; };
 		E0714F6628A4180D0000028E /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		E0714F6B28A479980000028E /* TodaySpo2CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySpo2CardView.swift; sourceTree = "<group>"; };
-		E081D9762893B23100C88F23 /* HistoryHRVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVView.swift; sourceTree = "<group>"; };
-		E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHRVCellView.swift; sourceTree = "<group>"; };
 		E081D97A2893B39D00C88F23 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		E08CC2682889E599004317BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PPG-HRV-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0A981CC28918C9600EDE15A /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		E0A981D028923C9600EDE15A /* DataFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataFrame.h; sourceTree = "<group>"; };
-		E0CC26752893D5160031F18F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E0D47EF328A33B1C00DE7B2C /* GifHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifHelper.swift; sourceTree = "<group>"; };
 		E0DA295728A12105008A12EA /* DeviceDictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDictView.swift; sourceTree = "<group>"; };
 		E0DA295B28A1573A008A12EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -148,9 +139,6 @@
 		E0ED5D9B2886CBD400258227 /* PPG_HRVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVUITests.swift; sourceTree = "<group>"; };
 		E0ED5D9D2886CBD400258227 /* PPG_HRVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPG_HRVUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E0ED5DAE2886FC7100258227 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		E0ED5DB628879D8200258227 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
-		E0ED5DB828879DD600258227 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
-		E0ED5DBE2887A45100258227 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 		E0ED5DC72887E46400258227 /* AlgorithmFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AlgorithmFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/AlgorithmFramework.xcframework; sourceTree = "<group>"; };
 		E0ED5DC82887E46400258227 /* HttpFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = HttpFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/HttpFramework.xcframework; sourceTree = "<group>"; };
 		E0ED5DC92887E46400258227 /* ProtocolFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ProtocolFramework.xcframework; path = VeriHealthVESC/VeriHealthSDK/ProtocolFramework.xcframework; sourceTree = "<group>"; };
@@ -211,7 +199,6 @@
 				E0DA297328A1FAB4008A12EA /* Algorithm */,
 				E0A981CC28918C9600EDE15A /* DeviceManager.swift */,
 				E02288472892D592002B697A /* FileManager.swift */,
-				E0ED5DB828879DD600258227 /* ViewRouter.swift */,
 				E081D97A2893B39D00C88F23 /* DateManager.swift */,
 				E0DA296F28A1F35A008A12EA /* FakeDataGenarater.swift */,
 				E0DA297128A1FAAA008A12EA /* AlgorithmManager.swift */,
@@ -226,11 +213,6 @@
 				E0714F6328A3EEF90000028E /* TodayViewController */,
 				E0714F5828A39FF80000028E /* HomeViewController */,
 				E0714F5928A3A03D0000028E /* HistoryViewController */,
-				E0ED5DB628879D8200258227 /* TabView.swift */,
-				E0ED5DBE2887A45100258227 /* RouterView.swift */,
-				E081D9762893B23100C88F23 /* HistoryHRVView.swift */,
-				E081D9782893B28100C88F23 /* HistoryHRVCellView.swift */,
-				E0CC26752893D5160031F18F /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -530,14 +512,10 @@
 				E0D47EF428A33B1C00DE7B2C /* GifHelper.swift in Sources */,
 				E0DA295828A12105008A12EA /* DeviceDictView.swift in Sources */,
 				E0714F5128A36E6B0000028E /* DataGlanceView.swift in Sources */,
-				E081D9792893B28100C88F23 /* HistoryHRVCellView.swift in Sources */,
 				E0714F6528A3EF890000028E /* TodayCardView.swift in Sources */,
-				E0ED5DB728879D8200258227 /* TabView.swift in Sources */,
 				E0714F6C28A479980000028E /* TodaySpo2CardView.swift in Sources */,
 				E0ED5DAF2886FC7100258227 /* UserData.swift in Sources */,
 				E024F72D2890317F007650DB /* Spinner.swift in Sources */,
-				E0ED5DB928879DD600258227 /* ViewRouter.swift in Sources */,
-				E081D9772893B23100C88F23 /* HistoryHRVView.swift in Sources */,
 				E021B14728935F9D005B5AE0 /* HeartBeat.swift in Sources */,
 				E0DA295C28A1573A008A12EA /* HomeView.swift in Sources */,
 				E0DA297728A1FAD9008A12EA /* heart_rate_api.c in Sources */,
@@ -548,8 +526,6 @@
 				E0714F5728A3898A0000028E /* DataBaseManager.swift in Sources */,
 				E0DA297228A1FAAA008A12EA /* AlgorithmManager.swift in Sources */,
 				E0DA297028A1F35A008A12EA /* FakeDataGenarater.swift in Sources */,
-				E0CC26762893D5160031F18F /* ProfileView.swift in Sources */,
-				E0ED5DBF2887A45100258227 /* RouterView.swift in Sources */,
 				E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

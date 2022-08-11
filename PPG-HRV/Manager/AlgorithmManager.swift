@@ -7,25 +7,9 @@
 
 import Foundation
 import SwiftUI
+import CoreSDK
 
 func HeartRateCalc(receivePack: RawDataPacket){
-    
-//    var rawData = [UInt16]()
-//    var usedData = [UInt16]()      //  解构元组（swift将C中数组强制转换为了元组
-//    let mirror = Mirror(reflecting: receivePack.data)
-//    for (_, value) in mirror.children {
-//        rawData.append(value as! UInt16)
-//    }
-    
-    var bridgeData = BridgeData()
-//
-//    for index in 0...receivePack.size - 1{
-//        if index % 2 == 0{
-//            usedData.append(rawData[Int(index)])
-//        }
-//    }
-//
-//    let arrayPtr = UnsafeMutablePointer<UInt16>(&usedData)
     let result = bridge(BridgeData(size: receivePack.size, data: receivePack.data))
     
     if result.ret == 0 {

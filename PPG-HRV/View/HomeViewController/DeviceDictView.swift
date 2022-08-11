@@ -10,14 +10,12 @@ import CoreSDK
 import BleFramework
 
 struct DeviceDictView: View {
-    @EnvironmentObject var viewRouter : ViewRouter
     @State var deviceArray = DeviceManager().getDeviceArray()
     @State var freshTimes = 5
     @State var isTimerValid = false
     @State var isScaning = true
     @Environment(\.presentationMode) var presentationMode
 
-    
     var body: some View {
         if isScaning{
             ZStack {
@@ -28,12 +26,6 @@ struct DeviceDictView: View {
                     Text("寻找设备中")
                         .foregroundColor(.white)
                 }
-                .onAppear{
-                    viewRouter.isTabBarShow = false
-                }
-                .onDisappear{
-                    viewRouter.isTabBarShow = true
-            }
             }
             .onAppear{
                     isTimerValid = true
@@ -103,6 +95,5 @@ struct DeviceCellView: View{
 struct DeviceDictView_Previews: PreviewProvider {
     static var previews: some View {
         DeviceDictView()
-            .environmentObject(ViewRouter())
     }
 }

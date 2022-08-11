@@ -29,21 +29,10 @@ class DeviceManager: NSObject, ObservableObject
     public func startScan() {
         isScanningPublisher = true
         TransferManager.sharedInstance().scanDevices { error in
-            print("[启动蓝牙是否错误] -> ", error)
+            print("[启动蓝牙是否错误] -> ", error as Any)
         }
     }
-    
-//    public func sendCustomPack(device: VsDevice, isMeasuring: Int){
-//        print("[发送的蓝牙信息] -> ", isMeasuring)
-//        var toMeasure = MyBleSendPacket(isMeasuring: UInt16(isMeasuring))
-//
-//        let payData = NSData(bytes: &toMeasure, length: 2)
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-//            TransferManager.sharedInstance().sendCommonMessage(device, msgId: UInt16(VS_SEND_MSG), data: payData as Data)
-//        }
-//    }
-    
+      
     public func getDeviceArray() -> [VsDevice] {
         for device in deviceDict{
             tmpVsDevice = device.value as! VsDevice
@@ -68,24 +57,7 @@ extension DeviceManager: TransferManagerDelegate {
     }
     
     func transReceive(_ device: VsDevice) {
-        print("[获取到一个的Vs设备]-> ",device.name)
-//        if(device.name == userData.lastConnectedDeviceName){
-//            TransferManager.sharedInstance().connect(device)    //连接之前连接过的最后一个设备
-//            Timer(timeInterval: 1, repeats: true) { timer in
-//                if device.connected {
-//                    DispatchQueue.main.async {
-//                        userData.currDevice = device
-//                        userData.lastConnectedDeviceName = device.name
-//                        userData.isDeviceConnected = true
-//                    }
-//                    timer.invalidate()
-//                }
-//            }
-//        }
-//        userData.currDevice = device
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-//            userData.isDeviceConnected = true           //异步处理一下，防止主视图崩溃
-//        }
+        print("[获取到一个VS设备]-> ",device.name as Any)
     }
         
     
@@ -99,9 +71,8 @@ extension DeviceManager: TransferManagerDelegate {
     
     func transReceiveCustomMessage(_ transManager: TransferManager, device: Any, dataFrame frame: PayloadFrame) {
         DispatchQueue.main.async {
-            userData.isDeviceConnected = true   //收到消息就解除
+            userData.isDeviceConnected = true   //收到消息就判定为已连接
         }
-
         switch frame.opcode{
         case 10000:                                 //收到Spo2的包
             if frame.payload != nil{
@@ -163,21 +134,8 @@ extension DeviceManager: TransferManagerDelegate {
                 HeartRateCalc(receivePack: receivePack)
             }
 
-            
         default : break
         }
-        
-        
-//        if frame.payload != nil{
-//            let data: NSData = (frame.payload as NSData?)!
-//            var receivePack = ResultPacket()
-//            data.getBytes(&receivePack, length: data.length)
-//
-//            if receivePack.ret == 0{
-//                userData.realTimeSpo2.append(Double(receivePack.spo2))
-//            }
-////            HeartRateCalc(receivePack: receivePack)
-//        }
     }
     
 }

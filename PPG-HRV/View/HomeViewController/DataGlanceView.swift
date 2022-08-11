@@ -11,7 +11,6 @@ import Progress_Bar
 
 struct DataGlanceView: View {
     @ObservedObject var myData = userData
-    @EnvironmentObject var viewRouter: ViewRouter
     var startAngle = -90.0
     @State var progress : Double = 0.97
         
@@ -227,8 +226,6 @@ struct RingDot: Shape {
     return path.strokedPath(.init(lineWidth: thickness, lineCap: .round))
     }
 }
-
-
 
 struct DataGlanceView_Previews: PreviewProvider {
     static var previews: some View {
