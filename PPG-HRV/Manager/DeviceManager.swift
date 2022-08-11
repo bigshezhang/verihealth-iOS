@@ -59,6 +59,14 @@ extension DeviceManager: TransferManagerDelegate {
         print("[更新蓝牙状态] -> ", BLEStatus.RawValue())
     }
     
+    func transUpdateConnectionState(_ transManager: TransferManager, device: Any, newState state: Bool) {
+        if state {
+            userData.isDeviceConnected = true
+        } else {
+            userData.isDeviceConnected = false
+        }
+    }
+    
     func transReceive(_ device: VsDevice) {
         print("[获取到一个的Vs设备]-> ",device.name)
 //        if(device.name == userData.lastConnectedDeviceName){
@@ -80,6 +88,7 @@ extension DeviceManager: TransferManagerDelegate {
 //        }
     }
         
+    
     func transIsReady(_ device: Any) {
         print("[设备已准备好传输数据]")
     }

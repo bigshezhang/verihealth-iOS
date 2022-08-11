@@ -30,6 +30,7 @@ struct DataGlanceView: View {
                     TodayView()
                 } label: {
                     Text("Today")
+                        .foregroundColor(Color(hex: "#6f8fea"))
                 }
                 
 //                Button {

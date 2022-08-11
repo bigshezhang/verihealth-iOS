@@ -26,6 +26,7 @@ struct RealTimeChartView: View {
                     HistoryView()
                 } label: {
                     Text("History")
+                        .foregroundColor(Color(hex: "#6f8fea"))
                 }
 
 
@@ -42,7 +43,7 @@ struct RealTimeChartView: View {
                             .font(.system(size: 24))
                             .padding(10)
                         
-                        Text("\(myData.realTimeSpo2.last!)%")
+                        Text((myData.realTimeSpo2.count == 2) ? "--%" : "\(Int(myData.realTimeSpo2.last!))%")
                             .font(.system(size: 12,weight: .semibold))
                             .padding(.init(top: -20, leading: 0, bottom: 0, trailing: 0))
                             .foregroundColor(Color("HomeTitleColor"))
@@ -63,7 +64,7 @@ struct RealTimeChartView: View {
                             .foregroundColor(Color("HomeTitleColor"))
                             .font(.system(size: 24))
                             .padding(10)
-                        Text(String(format: "%.1f", myData.realTimeHR.last!))
+                        Text((myData.realTimeHR.count == 2) ? "--" : String(format: "%.1f", myData.realTimeHR.last!))
                             .font(.system(size: 12,weight: .semibold))
                             .padding(.init(top: -20, leading: 0, bottom: 0, trailing: 0))
                             .foregroundColor(Color("HomeTitleColor"))
@@ -86,7 +87,7 @@ struct RealTimeChartView: View {
                             .foregroundColor(Color("HomeTitleColor"))
                             .font(.system(size: 24))
                             .padding(10)
-                        Text(String(format: "%.1f", myData.realTimeHRV.last!))
+                        Text((myData.realTimeHRV.count == 2) ? "--" : String(format: "%.1f", myData.realTimeHRV.last!))
                             .font(.system(size: 12,weight: .semibold))
                             .padding(.init(top: -20, leading: 0, bottom: 0, trailing: 0))
                             .foregroundColor(Color("HomeTitleColor"))

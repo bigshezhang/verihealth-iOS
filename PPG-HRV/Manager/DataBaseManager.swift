@@ -167,8 +167,8 @@ class DataBaseManager : NSObject, ObservableObject {
                 dataArray.append(dataFromBase[sec])
             }
         }
-        print("dataFromBase", dataFromBase)
-        print("dataArray", dataArray)
+//        print("dataFromBase", dataFromBase)
+//        print("dataArray", dataArray)
         return dataArray
     }
 }

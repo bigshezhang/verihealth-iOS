@@ -64,9 +64,6 @@ struct HomeView: View {
                 disConnectToastState.toggle()
             }
         })
-        .toast(isPresenting: $onHandToastState, duration: 2, tapToDismiss: true) {
-            AlertToast(displayMode: .alert, type: .image("OnHand", .clear), subTitle: "已穿戴设备")
-        }       //穿戴检测True
         .popup(isPresented: $connectedToastState,type: .default){
             ConnectedToast()
                 .background(
@@ -74,11 +71,18 @@ struct HomeView: View {
                         RoundedRectangle(cornerSize: CGSize(width: 50, height: 50))
                             .frame(width: 400,height: 400)
                             .foregroundColor(.white)
+                            .shadow(color: Color(hex: "#e4e8f7"), radius: 10, x: 10, y: 10)
                     }
                 )
                 .frame(width: 200,height: 100)
                 .scaleEffect(0.45)
         }   //连接状态True
+        .toast(isPresenting: $disConnectToastState, duration: 2){
+            AlertToast(displayMode: .hud, type: .error(.gray), subTitle: "设备已断开")
+        }   //连接状态False
+        .toast(isPresenting: $onHandToastState, duration: 2, tapToDismiss: true) {
+            AlertToast(displayMode: .alert, type: .image("OnHand", .clear), subTitle: "已穿戴设备")
+        }       //穿戴检测True
         .toast(isPresenting: $offHandToastState, duration: 2){
             AlertToast(displayMode: .alert, type: .error(.red),subTitle: "未穿戴设备")
         }   //穿戴检测False
