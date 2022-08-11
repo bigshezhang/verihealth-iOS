@@ -16,7 +16,7 @@ struct HistoryCellView: View {
     func dataToPoint(dataArray : [Int]) -> [DataPoint]{
         var dataPoints = [DataPoint]()
         for index in 0...23 {
-            dataPoints.append(DataPoint(value: Double(dataArray[index]), label: "\(index)", legend: Legend(color: Color(hex: "#8ea7fd"), label: "")))
+            dataPoints.append(DataPoint(value: Double(dataArray[index]), label: "\(index)", legend: Legend(color: getTypeColor(type: type), label: "")))
         }
         return dataPoints
     }
@@ -46,8 +46,6 @@ struct HistoryCellView: View {
         VStack {
             BarChartView(dataPoints: dataToPoint(dataArray: getDayDataInDayByHour()))
                 .chartStyle(BarChartStyle(showAxis: true,labelCount: 12,showLegends: false))
-                .foregroundColor(.gray)
-                .foregroundColor(Color.gray)
                 .frame(width: 480,height: 200)
                 .scaleEffect(0.65)
                 .background(
@@ -58,7 +56,7 @@ struct HistoryCellView: View {
                             .offset(y: -15)
                     }
                 )
-                .accentColor(Color(hex: "#6984e7"))
+                .accentColor(getTypeColor(type: type))
                 .onAppear{
                     print("\(dayTimeStamp)", "\(Date().timeIntervalSince1970)")
             }

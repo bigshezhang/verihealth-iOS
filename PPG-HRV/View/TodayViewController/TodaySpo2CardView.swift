@@ -75,7 +75,7 @@ struct TodaySpo2CardView: View {
                         LinearProgress(percentage: Double(getSpo2Average(dataArray: lastMinuteSpo2Array)) / 100, backgroundColor: Color(hex: "#eaeefc"), foregroundColor: LinearGradient(colors: [Color(hex: "#cbd6ff"), Color(hex: "#90a9ff")], startPoint: .leading, endPoint: .trailing))
                             .frame(width: 148, height: 8)
                             .onAppear{
-                                print("[前一分钟的Spo2数据] -> ",lastMinuteSpo2Array)
+//                                print("[前一分钟的Spo2数据] -> ",lastMinuteSpo2Array)
                             }
                         Text("\(getSpo2Average(dataArray: lastMinuteSpo2Array))%")
                             .font(.system(size: 12))
@@ -88,7 +88,7 @@ struct TodaySpo2CardView: View {
                         LinearProgress(percentage: Double(getSpo2Average(dataArray: lastHourSpo2Array)) / 100, backgroundColor: Color(hex: "#eaeefc"), foregroundColor: LinearGradient(colors: [Color(hex: "#cbd6ff"), Color(hex: "#90a9ff")], startPoint: .leading, endPoint: .trailing))
                             .frame(width: 148, height: 8)
                             .onAppear{
-                                print("[上一个小时的Spo2数据] -> ", lastHourSpo2Array)
+//                                print("[上一个小时的Spo2数据] -> ", lastHourSpo2Array)
                             }
                         Text("\(getSpo2Average(dataArray: lastHourSpo2Array))%")
                             .font(.system(size: 12))
@@ -102,7 +102,7 @@ struct TodaySpo2CardView: View {
                         LinearProgress(percentage: Double(getSpo2Average(dataArray: yesterdaySpo2Array)) / 100, backgroundColor: Color(hex: "#eaeefc"), foregroundColor: LinearGradient(colors: [Color(hex: "#cbd6ff"), Color(hex: "#90a9ff")], startPoint: .leading, endPoint: .trailing))
                             .frame(width: 148, height: 8)
                             .onAppear{
-                                print("[昨天的Spo2数据] -> ", lastHourSpo2Array)
+//                                print("[昨天的Spo2数据] -> ", lastHourSpo2Array)
                             }
                         Text("\(getSpo2Average(dataArray: yesterdaySpo2Array))%")
                             .font(.system(size: 12))

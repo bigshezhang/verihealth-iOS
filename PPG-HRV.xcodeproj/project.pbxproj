@@ -22,6 +22,7 @@
 		E0714F6C28A479980000028E /* TodaySpo2CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0714F6B28A479980000028E /* TodaySpo2CardView.swift */; };
 		E081D97B2893B39D00C88F23 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081D97A2893B39D00C88F23 /* DateManager.swift */; };
 		E0A981CD28918C9600EDE15A /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A981CC28918C9600EDE15A /* DeviceManager.swift */; };
+		E0C2FB7E28A5369F00C17839 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2FB7D28A5369F00C17839 /* ColorHelper.swift */; };
 		E0D47EF428A33B1C00DE7B2C /* GifHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D47EF328A33B1C00DE7B2C /* GifHelper.swift */; };
 		E0D47EFD28A3439A00DE7B2C /* GIFImage in Frameworks */ = {isa = PBXBuildFile; productRef = E0D47EFC28A3439A00DE7B2C /* GIFImage */; };
 		E0DA295828A12105008A12EA /* DeviceDictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA295728A12105008A12EA /* DeviceDictView.swift */; };
@@ -121,6 +122,7 @@
 		E08CC2692889EBF0004317BE /* PPG-HRV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PPG-HRV-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0A981CC28918C9600EDE15A /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		E0A981D028923C9600EDE15A /* DataFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataFrame.h; sourceTree = "<group>"; };
+		E0C2FB7D28A5369F00C17839 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		E0D47EF328A33B1C00DE7B2C /* GifHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifHelper.swift; sourceTree = "<group>"; };
 		E0DA295728A12105008A12EA /* DeviceDictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDictView.swift; sourceTree = "<group>"; };
 		E0DA295B28A1573A008A12EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				E024F72C2890317F007650DB /* Spinner.swift */,
 				E0DA295D28A176C5008A12EA /* HexColorTransfer.swift */,
 				E0D47EF328A33B1C00DE7B2C /* GifHelper.swift */,
+				E0C2FB7D28A5369F00C17839 /* ColorHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				E0DA295E28A176C5008A12EA /* HexColorTransfer.swift in Sources */,
 				E0ED5D812886CBD300258227 /* PPG_HRVApp.swift in Sources */,
 				E0714F5528A387F00000028E /* RealTimeChartView.swift in Sources */,
+				E0C2FB7E28A5369F00C17839 /* ColorHelper.swift in Sources */,
 				E0714F5728A3898A0000028E /* DataBaseManager.swift in Sources */,
 				E0DA297228A1FAAA008A12EA /* AlgorithmManager.swift in Sources */,
 				E0DA297028A1F35A008A12EA /* FakeDataGenarater.swift in Sources */,
