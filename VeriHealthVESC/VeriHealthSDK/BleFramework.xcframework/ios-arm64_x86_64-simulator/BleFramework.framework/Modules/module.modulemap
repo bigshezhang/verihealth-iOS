@@ -1,6 +1,0 @@
-framework module BleFramework {
-  umbrella header "BleFramework.h"
-
-  export *
-  module * { export * }
-}
